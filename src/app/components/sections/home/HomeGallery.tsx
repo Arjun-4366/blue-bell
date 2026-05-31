@@ -2,17 +2,24 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import gallery1 from '@/images/dome/AAL04291.webp';
+import gallery2 from '@/images/dining/DSC02001.webp';
+import gallery3 from '@/images/treehouseroom/cao4vmabymep8aciw3jd.webp';
+import gallery4 from '@/images/treehouse/kfk86xvpr3wwf5hqmaf6.webp';
+import gallery5 from '@/images/dining/DSC02122.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const images = [
-  { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80&fit=crop', size: 'large', label: 'Infinity Pool View' },
-  { src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80&fit=crop', size: 'small', label: 'Spa Treatment' },
-  { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&fit=crop', size: 'small', label: 'Organic Gourmet' },
-  { src: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80&fit=crop', size: 'medium', label: 'Treetop Treehouse' },
-  { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80&fit=crop', size: 'medium', label: 'Guided Jungle Trek' },
+  { src: gallery1, size: 'large',  label: 'Earthen Dome Pathway' },
+  { src: gallery2, size: 'small',  label: 'Gourmet Malabar Dining' },
+  { src: gallery3, size: 'small',  label: 'Luxury Treehouse Suite' },
+  { src: gallery4, size: 'medium', label: 'Misty Treehouse Canopy' },
+  { src: gallery5, size: 'medium', label: 'Main Lodge & Restaurant' },
 ];
 
 export default function HomeGallery() {
@@ -20,115 +27,70 @@ export default function HomeGallery() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Gentle reveal
       gsap.from('.gallery-tile', {
-        scrollTrigger: {
-          trigger: '.gallery-mosaic',
-          start: 'top 80%',
-        },
-        opacity: 0,
-        scale: 0.95,
-        y: 40,
-        duration: 1,
-        stagger: 0.1,
-        ease: 'power4.out',
+        scrollTrigger: { trigger: '.gallery-mosaic', start: 'top 80%' },
+        opacity: 0, scale: 0.96, y: 30, duration: 1, stagger: 0.1, ease: 'power3.out',
       });
     }, ref);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={ref} className="section" style={{ background: '#ffffff' }}>
+    <section ref={ref} className="section-tint">
       <div className="container">
         {/* Header */}
         <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-end',
-          marginBottom: 'clamp(3rem, 5vw, 5rem)',
-          flexWrap: 'wrap',
-          gap: '2rem',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
+          marginBottom: 'clamp(2.5rem, 4vw, 4.5rem)', flexWrap: 'wrap', gap: '1.5rem',
         }}>
           <div>
             <span className="section-label">Moments</span>
-            <h2 className="section-title" style={{ fontWeight: 800 }}>Explore blue bell.</h2>
+            <h2 className="section-title">Explore Blue Bell</h2>
           </div>
-          <Link href="/gallery" className="btn btn-outline-dark" style={{ border: '2px solid var(--color-forest)' }}>
-            View Full Gallery
-          </Link>
+          <Link href="/gallery" className="btn btn-outline-dark">View Full Gallery</Link>
         </div>
 
-        {/* Mosaic Grid */}
+        {/* Mosaic grid */}
         <div className="gallery-mosaic" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(12, 1fr)',
-          gap: '1rem',
-          gridAutoRows: 'clamp(180px, 20vw, 280px)',
+          gap: '0.85rem',
+          gridAutoRows: 'clamp(160px, 18vw, 260px)',
         }}>
           {images.map((img, i) => {
-            let colSpan = 'span 4';
-            let rowSpan = 'span 1';
-
-            if (img.size === 'large') {
-              colSpan = 'span 6';
-              rowSpan = 'span 2';
-            } else if (img.size === 'medium') {
-              colSpan = 'span 6';
-              rowSpan = 'span 1';
-            }
-
+            const colSpan = img.size === 'large' ? 'span 6' : img.size === 'medium' ? 'span 6' : 'span 4';
+            const rowSpan = img.size === 'large' ? 'span 2' : 'span 1';
             return (
-              <div
-                key={i}
-                className="gallery-tile"
-                style={{
-                  gridColumn: colSpan,
-                  gridRow: rowSpan,
-                  position: 'relative',
-                  borderRadius: 'var(--border-radius)',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 20px rgba(15, 23, 42, 0.02)',
-                }}
-              >
-                <img
-                  src={img.src}
-                  alt={img.label}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-                  }}
+              <div key={i} className="gallery-tile" style={{
+                gridColumn: colSpan, gridRow: rowSpan,
+                position: 'relative', borderRadius: 'var(--radius)',
+                overflow: 'hidden', cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(13,30,53,0.04)',
+              }}>
+                <Image src={img.src} alt={img.label}
+                  fill sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                  style={{ objectFit: 'cover', transition: 'transform 0.7s var(--ease)' }}
+                  placeholder="blur"
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.05)';
-                    const overlay = e.currentTarget.nextSibling as HTMLDivElement;
+                    (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.06)';
+                    const overlay = e.currentTarget.nextElementSibling as HTMLDivElement;
                     if (overlay) overlay.style.opacity = '1';
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLImageElement).style.transform = 'scale(1)';
-                    const overlay = e.currentTarget.nextSibling as HTMLDivElement;
+                    const overlay = e.currentTarget.nextElementSibling as HTMLDivElement;
                     if (overlay) overlay.style.opacity = '0';
                   }}
                 />
                 <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'rgba(15, 23, 42, 0.5)',
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                  padding: '1.5rem',
-                  opacity: 0,
-                  transition: 'opacity 0.4s ease',
-                  pointerEvents: 'none',
+                  position: 'absolute', inset: 0,
+                  background: 'linear-gradient(to top, rgba(10,22,46,0.72) 0%, transparent 50%)',
+                  display: 'flex', alignItems: 'flex-end', padding: '1.4rem',
+                  opacity: 0, transition: 'opacity 0.4s ease', pointerEvents: 'none',
                 }}>
                   <span style={{
-                    fontFamily: 'var(--font-sans)',
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.05em',
-                    color: '#ffffff',
+                    fontFamily: 'var(--font-sans)', fontSize: '0.82rem', fontWeight: 500,
+                    letterSpacing: '0.04em', color: '#fff',
                   }}>{img.label}</span>
                 </div>
               </div>

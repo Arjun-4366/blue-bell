@@ -1,14 +1,24 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans, Alex_Brush } from "next/font/google";
+import { Cormorant_Garamond, Playfair_Display, Plus_Jakarta_Sans, Alex_Brush } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import LenisProvider from "./components/providers/LenisProvider";
+import WhatsAppButton from "./components/layout/WhatsAppButton";
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -44,12 +54,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${plusJakarta.variable} ${alexBrush.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${playfair.variable} ${plusJakarta.variable} ${alexBrush.variable}`}>
       <body>
         <LenisProvider>
           <Navbar />
           <main className="page-wrapper">{children}</main>
           <Footer />
+          <WhatsAppButton />
         </LenisProvider>
       </body>
     </html>

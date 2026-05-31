@@ -2,85 +2,41 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import stay1 from '@/images/treehouse/zlkpjggmhq60elmgfepd.webp';
+import stay2 from '@/images/dome/AAL04276.webp';
+import stay3 from '@/images/treehouseroom/ewaplievvophiiabfsyy.webp';
+import stay4 from '@/images/dome/AAL04289.webp';
+import stay5 from '@/images/treehouse/aaimgllqgfwqnt83tkgy.webp';
+import stay6 from '@/images/treehouseroom/cao4vmabymep8aciw3jd.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const stays = [
-  {
-    id: 1,
-    name: 'Forest Pool Villa',
-    type: 'Signature Villa',
-    price: '₹18,500',
-    size: '120 sqm',
-    guests: 2,
-    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&q=85&fit=crop',
-    features: ['Private Infinity Pool', 'Valley Views', 'King Bed', 'Jungle Deck', 'Butler Service', 'Outdoor Fire Pit'],
-    desc: 'Perched on a private ridge surrounded by ancient canopy, this villa is the ultimate romantic escape. The private infinity pool opens directly to panoramic mountain mist.',
-    tag: 'Most Popular',
-  },
-  {
-    id: 2,
-    name: 'Canopy Treehouse Suite',
-    type: 'Signature Suite',
-    price: '₹24,000',
-    size: '90 sqm',
-    guests: 2,
-    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=85&fit=crop',
-    features: ['Treetop Views', 'Sunrise Deck', 'Outdoor Clawfoot Bath', 'Forest Sounds', 'Organic Welcome Basket'],
-    desc: 'Live amongst the green treetops in our signature elevated canopy treehouse. Wake up to birdsong, local mist, and a private sunrise bath.',
-    tag: 'Bestseller',
-  },
-  {
-    id: 3,
-    name: 'Heritage Cottage',
-    type: 'Classic Stay',
-    price: '₹12,500',
-    size: '70 sqm',
-    guests: 2,
-    image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=900&q=85&fit=crop',
-    features: ['Garden View', 'Sit-out Veranda', 'Traditional Kerala Craftsmanship', 'Private Courtyard'],
-    desc: 'A beautifully restored space capturing the charm of traditional Kerala architecture with teak wood finishings, vintage fittings, and a garden veranda.',
-    tag: null,
-  },
-  {
-    id: 4,
-    name: 'Family Bungalow',
-    type: 'Family Retreat',
-    price: '₹32,000',
-    size: '280 sqm',
-    guests: 6,
-    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=85&fit=crop',
-    features: ['3 Bed & Bath', 'Private Pool', 'Kitchenette', 'Dedicated Butler', 'Kids Play Space', 'Indoor Games'],
-    desc: 'Our largest villa layout, perfect for multi-generational families or group escapes. Expansive private pool decks and absolute privacy guaranteed.',
-    tag: 'Best for Families',
-  },
-  {
-    id: 5,
-    name: 'Bamboo Garden Suite',
-    type: 'Garden Suite',
-    price: '₹15,800',
-    size: '95 sqm',
-    guests: 2,
-    image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=85&fit=crop',
-    features: ['Private Bamboo Grove', 'Premium Soaking Tub', 'Outdoor Rain Shower', 'In-villa Garden Dining'],
-    desc: 'Surrounded by a private whispering bamboo forest, this suite offers absolute tranquility. Enjoy private al fresco dinners in your personal garden.',
-    tag: null,
-  },
-  {
-    id: 6,
-    name: 'Spice Garden Cottage',
-    type: 'Boutique Cottage',
-    price: '₹9,800',
-    size: '55 sqm',
-    guests: 2,
-    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900&q=85&fit=crop',
-    features: ['Spice Plantation Access', 'Cozy Interiors', 'Veranda Hammock', 'Mist Views'],
-    desc: 'Our most intimate nature option. Tucked beside cardamom and pepper vines, enjoy the hammocks, mountain breezes, and quiet rustic charm.',
-    tag: 'Best Value',
-  },
+  { id: 1, name: 'Canopy Treehouse Suite',     type: 'Signature Treetop Villa',       price: '₹24,000', size: '90 sqm',  guests: 2, image: stay1, tag: 'Best Seller',    features: ['Treetop Views', 'Sunrise Deck', 'Outdoor Clawfoot Bath', 'Teakwood Architecture', 'Organic Breakfast'],    desc: 'Perched high in the rainforest canopy, this hand-crafted treehouse is an engineering marvel. Modern premium amenities surrounded by pristine jungle.' },
+  { id: 2, name: 'Earthen Dome Sanctuary',      type: 'Luxury Geodesic Dome',          price: '₹19,500', size: '110 sqm', guests: 2, image: stay2, tag: 'Most Popular',  features: ['Geodesic Mud Walls', 'Private Garden Path', 'Tropical Garden View', 'Mist Deck', 'Eco-Luxury Bedding'], desc: 'Constructed from local clay and wood, our geodesic earthen dome blends traditional craftsmanship with futuristic architecture.' },
+  { id: 3, name: 'Treehouse Nesting Room',       type: 'Cozy Canopy Interior Nest',    price: '₹16,500', size: '60 sqm',  guests: 2, image: stay3, tag: 'Romantic Escape', features: ['Inner Forest Views', 'Warm Wood Panelling', 'Plush Bedding', 'Vintage Fixtures', 'Local Hand-woven Art'], desc: 'Adorned with warm teak walls, traditional Kerala styling, and circular ambient ceilings — the perfect romantic forest nest.' },
+  { id: 4, name: 'Earthen Pool Dome',            type: 'Luxury Glamping Dome Villa',   price: '₹28,000', size: '140 sqm', guests: 3, image: stay4, tag: 'Luxury Glamping', features: ['Private Plunge Pool', 'Clay-Carved Murals', 'Organic Mini-bar', 'Dedicated Butler', 'Garden Night Lighting'], desc: 'Our largest Earthen Dome with a private plunge pool steps from your entrance. Clay-carved mural walls and breathtaking garden lighting.' },
+  { id: 5, name: 'Whispering Bamboo Treehouse',  type: 'Premium Treetop Sanctuary',    price: '₹26,500', size: '95 sqm',  guests: 2, image: stay5, tag: 'Eco Award Winner', features: ['Multi-Level View Decks', 'Bamboo Grove Path', 'Clawfoot Bath', 'Rainforest Morning Mist', 'Premium Eco-Linens'], desc: 'Rising 40 feet above the forest floor surrounded by bamboo groves. Catch panoramic views of mist-clad tea plantations from your open deck.' },
+  { id: 6, name: 'Treehouse Canopy Suite',       type: 'Treetop Luxury Studio',        price: '₹18,000', size: '65 sqm',  guests: 2, image: stay6, tag: 'Best Value',     features: ['Smart TV & Concierge', 'Warm Teak Interiors', 'Ambient Lighting', 'Plush Linens', 'Forest Views'], desc: 'The perfect blend of modern comfort and pristine forest atmosphere with warm gold lighting and large windows onto the canopy.' },
 ];
+
+// Input style helper
+const inputStyle: React.CSSProperties = {
+  padding: '0.85rem 1.2rem',
+  border: '1.5px solid rgba(13,30,53,0.1)',
+  background: '#fff',
+  borderRadius: 'var(--radius)',
+  fontFamily: 'var(--font-sans)',
+  fontSize: '0.92rem',
+  width: '100%',
+  outline: 'none',
+  color: 'var(--color-text)',
+  transition: 'border-color 0.25s ease',
+};
 
 export default function StaysList() {
   const ref = useRef<HTMLElement>(null);
@@ -89,115 +45,107 @@ export default function StaysList() {
     const ctx = gsap.context(() => {
       gsap.from('.stay-full-card', {
         scrollTrigger: { trigger: '.stays-full-grid', start: 'top 75%' },
-        opacity: 0, y: 60, duration: 0.9, stagger: 0.15, ease: 'power3.out',
+        opacity: 0, y: 55, duration: 0.9, stagger: 0.14, ease: 'power3.out',
       });
     }, ref);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={ref} className="section" style={{ background: '#ffffff' }}>
+    <section ref={ref} className="section" style={{ background: '#fff' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 4vw, 5rem)' }}>
           <span className="section-label">Our Accommodations</span>
-          <h2 className="section-title" style={{ fontWeight: 800 }}>Choose Your Sanctuary</h2>
+          <h2 className="section-title">Choose Your Sanctuary</h2>
           <div className="divider center" />
         </div>
 
         <div className="stays-full-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-          gap: '2.5rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '2rem',
         }}>
           {stays.map((stay) => (
             <div key={stay.id} className="stay-full-card" style={{
-              background: '#ffffff',
-              borderRadius: 'var(--border-radius)',
+              background: '#fff', borderRadius: 'var(--radius)',
               overflow: 'hidden',
-              boxShadow: '0 10px 40px rgba(15, 23, 42, 0.04)',
-              border: '1px solid rgba(241, 245, 249, 1)',
-              transition: 'transform 0.4s ease, box-shadow 0.4s ease',
+              boxShadow: '0 4px 24px rgba(13,30,53,0.05)',
+              border: '1px solid rgba(6,181,211,0.08)',
+              transition: 'transform 0.4s var(--ease), box-shadow 0.4s var(--ease)',
             }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 50px rgba(15, 23, 42, 0.08)';
+                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 55px rgba(13,30,53,0.1)';
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(6,181,211,0.2)';
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
-                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 10px 40px rgba(15, 23, 42, 0.04)';
+                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 24px rgba(13,30,53,0.05)';
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(6,181,211,0.08)';
               }}
             >
+              {/* Image */}
               <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden' }}>
-                <img
-                  src={stay.image}
-                  alt={stay.name}
-                  style={{
-                    width: '100%', height: '100%', objectFit: 'cover',
-                    transition: 'transform 0.6s ease',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
+                <Image src={stay.image} alt={stay.name} fill
+                  sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                  style={{ objectFit: 'cover', transition: 'transform 0.6s var(--ease)' }}
+                  placeholder="blur"
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
                   onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                 />
                 {stay.tag && (
                   <span style={{
                     position: 'absolute', top: '1rem', left: '1rem',
-                    background: 'var(--color-sage)', color: '#ffffff',
-                    fontFamily: 'var(--font-sans)', fontSize: '0.62rem',
-                    fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
-                    padding: '6px 14px', borderRadius: '30px',
+                    background: 'var(--brand-cyan)', color: '#fff',
+                    fontFamily: 'var(--font-sans)', fontSize: '0.6rem', fontWeight: 700,
+                    letterSpacing: '0.12em', textTransform: 'uppercase',
+                    padding: '5px 14px', borderRadius: '2px',
                   }}>{stay.tag}</span>
                 )}
                 <div style={{
                   position: 'absolute', bottom: '1rem', right: '1rem',
-                  background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(8px)',
-                  padding: '6px 14px', borderRadius: '30px',
+                  background: 'rgba(10,22,46,0.8)', backdropFilter: 'blur(8px)',
+                  padding: '5px 12px', borderRadius: '3px',
                 }}>
-                  <span style={{
-                    fontFamily: 'var(--font-sans)', fontSize: '0.68rem',
-                    color: 'rgba(255,255,255,0.95)', fontWeight: 700,
-                  }}>Up to {stay.guests} guests · {stay.size}</span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.65rem', color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>
+                    {stay.guests} guests · {stay.size}
+                  </span>
                 </div>
               </div>
 
-              <div style={{ padding: '2rem' }}>
+              {/* Body */}
+              <div style={{ padding: '1.8rem' }}>
                 <span style={{
-                  fontFamily: 'var(--font-sans)', fontSize: '0.68rem',
-                  fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase',
-                  color: 'var(--color-sage)', display: 'block', marginBottom: '0.5rem',
+                  fontFamily: 'var(--font-sans)', fontSize: '0.62rem', fontWeight: 700,
+                  letterSpacing: '0.18em', textTransform: 'uppercase',
+                  color: 'var(--brand-cyan-muted)', display: 'block', marginBottom: '0.4rem',
                 }}>{stay.type}</span>
-                <h3 style={{
-                  fontFamily: 'var(--font-serif)', fontSize: '1.6rem',
-                  fontWeight: 700, color: 'var(--color-forest)', marginBottom: '0.75rem',
-                }}>{stay.name}</h3>
-                <p style={{ fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>{stay.desc}</p>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', fontWeight: 400, color: 'var(--color-text)', marginBottom: '0.7rem' }}>
+                  {stay.name}
+                </h3>
+                <p style={{ fontSize: '0.88rem', lineHeight: 1.75, color: 'var(--color-text-soft)', marginBottom: '1.3rem' }}>
+                  {stay.desc}
+                </p>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.75rem' }}>
+                {/* Feature tags */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '1.6rem' }}>
                   {stay.features.map((f) => (
                     <span key={f} style={{
-                      fontFamily: 'var(--font-sans)', fontSize: '0.7rem',
-                      color: 'var(--color-text-light)', background: 'var(--color-cream-dark)',
-                      padding: '4px 12px', borderRadius: '30px',
-                      border: '1px solid rgba(241, 245, 249, 1)',
-                      fontWeight: 600,
+                      fontFamily: 'var(--font-sans)', fontSize: '0.68rem', fontWeight: 500,
+                      color: 'var(--color-text-soft)',
+                      background: 'var(--color-bg-accent)',
+                      padding: '4px 10px', borderRadius: '3px',
+                      border: '1px solid rgba(6,181,211,0.15)',
                     }}>{f}</span>
                   ))}
                 </div>
 
-                <div style={{
-                  display: 'flex', justifyContent: 'space-between',
-                  alignItems: 'center', paddingTop: '1.25rem',
-                  borderTop: '1px solid rgba(241, 245, 249, 1)',
-                }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.1rem', borderTop: '1px solid rgba(13,30,53,0.07)' }}>
                   <div>
-                    <span style={{
-                      fontFamily: 'var(--font-sans)', fontSize: '1.6rem',
-                      fontWeight: 800, color: 'var(--color-sage)',
-                    }}>{stay.price}</span>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--color-text-light)', marginLeft: '4px', fontFamily: 'var(--font-sans)', fontWeight: 600 }}>/night</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--brand-cyan-muted)' }}>{stay.price}</span>
+                    <span style={{ fontSize: '0.72rem', color: 'var(--color-text-soft)', marginLeft: '3px', fontFamily: 'var(--font-sans)' }}>/night</span>
                   </div>
-                  <Link href="/book-now" className="btn btn-primary" style={{ padding: '0.7rem 1.6rem', fontSize: '0.7rem' }}>
-                    Book Stay
-                  </Link>
+                  <Link href="/book-now" className="btn btn-primary" style={{ padding: '0.62rem 1.5rem', fontSize: '0.63rem' }}>Book Stay</Link>
                 </div>
               </div>
             </div>

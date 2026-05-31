@@ -19,6 +19,7 @@
       }
     ],
     "paths": {
+      "@/images/*": ["./src/assests/images/*"],
       "@/*": ["./src/*"]
     }
   },

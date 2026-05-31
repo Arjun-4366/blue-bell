@@ -17,88 +17,115 @@ const footerLinks = {
   ],
 };
 
-const socialLinks = [
-  { label: 'Instagram', href: '#', icon: 'IG' },
-  { label: 'Facebook', href: '#', icon: 'FB' },
-  { label: 'Twitter', href: '#', icon: 'TW' },
-];
+// Real SVG social icons
+function IconInstagram() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function IconFacebook() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+    </svg>
+  );
+}
+
+function IconX() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
     <footer style={{
-      background: 'var(--color-forest-dark)',
-      color: 'rgba(255,255,255,0.7)',
+      background: '#FFFFFF',
+      color: 'var(--color-text-mid)',
       paddingTop: 'clamp(80px, 10vw, 120px)',
-      position: 'relative',
-      zIndex: 20, /* Always scroll on top of fixed/pinned components */
+      position: 'relative', zIndex: 20,
+      borderTop: '1px solid rgba(13, 30, 53, 0.08)',
     }}>
       <div className="container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: 'clamp(3rem, 5vw, 5rem)',
           paddingBottom: 'clamp(40px, 6vw, 60px)',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
+          borderBottom: '1px solid rgba(13, 30, 53, 0.08)',
         }}>
-          {/* Brand */}
+
+          {/* Brand column */}
           <div style={{ gridColumn: 'span 1' }}>
             <Link href="/" style={{ display: 'block', marginBottom: '1.5rem' }}>
+              {/* Script wordmark */}
               <span style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: '2rem',
-                fontWeight: 800,
-                color: '#fff',
+                fontFamily: 'var(--font-script)',
+                fontSize: '2.4rem',
+                fontWeight: 'normal',
+                color: 'var(--color-text)',
                 display: 'block',
-                letterSpacing: '-0.02em',
-              }}>blue bell.</span>
+                lineHeight: 1,
+              }}>Blue Bell</span>
               <span style={{
                 fontFamily: 'var(--font-sans)',
-                fontSize: '0.55rem',
+                fontSize: '0.5rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                fontWeight: 700,
-                color: 'var(--color-sage)',
+                fontWeight: 600,
+                color: 'var(--brand-blue)',
+                opacity: 0.9,
+                display: 'block',
+                marginTop: '3px',
               }}>Resort & Spa · Wayanad</span>
             </Link>
             <p style={{
-              fontSize: '0.9rem',
-              lineHeight: 1.8,
-              color: 'rgba(255,255,255,0.5)',
-              maxWidth: '300px',
+              fontSize: '0.88rem', lineHeight: 1.8,
+              color: 'var(--color-text-mid)', maxWidth: '280px',
             }}>
-              Nestled in the lush valleys of Wayanad's highlands, Blue Bell Resort is a premium organic sanctuary crafted for deep rejuvenation.
+              Nestled in the lush highlands of Periya, Wayanad, Blue Bell is a premium organic
+              sanctuary crafted for deep rejuvenation and quiet wonder.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
-              {socialLinks.map((s) => (
+
+            {/* Social icons */}
+            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '2rem' }}>
+              {[
+                { label: 'Instagram', icon: <IconInstagram /> },
+                { label: 'Facebook', icon: <IconFacebook /> },
+                { label: 'X (Twitter)', icon: <IconX /> },
+              ].map((s) => (
                 <a
                   key={s.label}
-                  href={s.href}
+                  href="#"
                   aria-label={s.label}
                   style={{
-                    width: '40px',
-                    height: '40px',
-                    border: '1px solid rgba(255,255,255,0.15)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.75rem',
-                    fontFamily: 'var(--font-sans)',
-                    fontWeight: 700,
-                    color: 'rgba(255,255,255,0.6)',
-                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                    width: '38px', height: '38px',
+                    border: '1px solid rgba(13, 30, 53, 0.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--color-text-mid)',
+                    transition: 'all 0.35s var(--ease)',
                     borderRadius: '50%',
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = 'var(--color-sage)';
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--color-sage)';
-                    (e.currentTarget as HTMLAnchorElement).style.color = '#fff';
-                    (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-3px)';
+                    const el = e.currentTarget as HTMLAnchorElement;
+                    el.style.background = 'var(--brand-blue)';
+                    el.style.borderColor = 'var(--brand-blue)';
+                    el.style.color = '#ffffff';
+                    el.style.transform = 'translateY(-3px)';
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.15)';
-                    (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.6)';
-                    (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)';
+                    const el = e.currentTarget as HTMLAnchorElement;
+                    el.style.background = 'transparent';
+                    el.style.borderColor = 'rgba(13, 30, 53, 0.1)';
+                    el.style.color = 'var(--color-text-mid)';
+                    el.style.transform = 'none';
                   }}
                 >
                   {s.icon}
@@ -112,112 +139,103 @@ export default function Footer() {
             <div key={group}>
               <h4 style={{
                 fontFamily: 'var(--font-sans)',
-                fontSize: '0.75rem',
-                fontWeight: 700,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'var(--color-sage)',
-                marginBottom: '1.75rem',
+                fontSize: '0.62rem', fontWeight: 700,
+                letterSpacing: '0.22em', textTransform: 'uppercase',
+                color: 'var(--brand-blue)', marginBottom: '1.75rem',
               }}>{group}</h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       style={{
                         fontFamily: 'var(--font-sans)',
-                        fontSize: '0.9rem',
-                        color: 'rgba(255,255,255,0.5)',
+                        fontSize: '0.88rem',
+                        color: 'var(--color-text-mid)',
                         transition: 'all 0.3s ease',
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.color = 'var(--color-sage)';
+                        e.currentTarget.style.color = 'var(--brand-blue)';
                         e.currentTarget.style.paddingLeft = '6px';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.color = 'rgba(255,255,255,0.5)';
+                        e.currentTarget.style.color = 'var(--color-text-mid)';
                         e.currentTarget.style.paddingLeft = '0px';
                       }}
-                    >
-                      {link.label}
-                    </Link>
+                    >{link.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
 
-          {/* Contact Info */}
+          {/* Contact column */}
           <div>
             <h4 style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: 'var(--color-sage)',
-              marginBottom: '1.75rem',
+              fontFamily: 'var(--font-sans)', fontSize: '0.62rem', fontWeight: 700,
+              letterSpacing: '0.22em', textTransform: 'uppercase',
+              color: 'var(--brand-blue)', marginBottom: '1.75rem',
             }}>Contact</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {[
-                { label: 'Address', value: 'Vythiri, Wayanad, Kerala 673576, India' },
+                { label: 'Address', value: 'Periya, Wayanad, Kerala 670644, India' },
                 { label: 'Phone', value: '+91 94960 00000' },
-                { label: 'Email', value: 'stay@bluebellresort.in' },
+                { label: 'Email', value: 'stay@bluebellresort.in', isEmail: true },
               ].map((item) => (
                 <div key={item.label}>
                   <span style={{
-                    display: 'block',
-                    fontSize: '0.65rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: 'rgba(255,255,255,0.3)',
-                    marginBottom: '4px',
+                    display: 'block', fontSize: '0.6rem', fontWeight: 700,
+                    letterSpacing: '0.14em', textTransform: 'uppercase',
+                    color: 'var(--color-text-soft)', marginBottom: '4px',
                     fontFamily: 'var(--font-sans)',
                   }}>{item.label}</span>
-                  <span style={{
-                    fontSize: '0.9rem',
-                    color: 'rgba(255,255,255,0.6)',
-                    fontFamily: 'var(--font-sans)',
-                  }}>{item.value}</span>
+                  {item.isEmail ? (
+                    <a
+                      href={`mailto:${item.value}`}
+                      style={{
+                        fontSize: '0.88rem', color: 'var(--brand-blue)',
+                        fontFamily: 'var(--font-sans)',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: '3px',
+                        transition: 'color 0.25s ease'
+                      }}
+                      className="hover:text-brand-blue-deep"
+                    >{item.value}</a>
+                  ) : (
+                    <span style={{
+                      fontSize: '0.88rem', color: 'var(--color-text)',
+                      fontFamily: 'var(--font-sans)',
+                    }}>{item.value}</span>
+                  )}
                 </div>
               ))}
             </div>
           </div>
+
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom bar */}
         <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '2rem 0',
-          flexWrap: 'wrap',
-          gap: '1rem',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          padding: '1.75rem 0', flexWrap: 'wrap', gap: '1rem',
         }}>
           <p style={{
-            fontSize: '0.8rem',
-            color: 'rgba(255,255,255,0.3)',
+            fontSize: '0.78rem', color: 'var(--color-text-soft)',
             fontFamily: 'var(--font-sans)',
           }}>
-            © {new Date().getFullYear()} Blue Bell Resort & Spa. All rights reserved.
+            © {new Date().getFullYear()} Blue Bell Resort & Spa, Wayanad. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '2rem' }}>
             {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item} href="#"
                 style={{
-                  fontSize: '0.75rem',
-                  color: 'rgba(255,255,255,0.3)',
-                  fontFamily: 'var(--font-sans)',
-                  transition: 'color 0.3s ease',
+                  fontSize: '0.72rem', color: 'var(--color-text-soft)',
+                  fontFamily: 'var(--font-sans)', transition: 'color 0.3s ease',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-sage)')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.3)')}
-              >
-                {item}
-              </a>
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--brand-blue)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-soft)')}
+              >{item}</a>
             ))}
           </div>
         </div>

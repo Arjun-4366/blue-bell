@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import AmenitiesHero from '../components/sections/amenities/AmenitiesHero';
+import AmenitiesOverview from '../components/sections/amenities/AmenitiesOverview';
 import AmenitiesGrid from '../components/sections/amenities/AmenitiesGrid';
 import HomeCTA from '../components/sections/home/HomeCTA';
 
@@ -12,6 +13,7 @@ export default function AmenitiesPage() {
   return (
     <>
       <AmenitiesHero />
+      <AmenitiesOverview />
       <AmenitiesGrid />
       <HomeCTA />
     </>

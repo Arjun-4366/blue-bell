@@ -1,43 +1,47 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import wellnessImg from '@/images/dome/AAL04280.webp';
+import diningImg from '@/images/dining/DSC02001.webp';
+import adventureImg from '@/images/dome/AAL04289.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const amenityCategories = [
   {
     category: 'Wellness & Spa',
-    color: 'var(--color-sage)',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80&fit=crop',
+    accent: 'var(--brand-cyan)',
+    image: wellnessImg,
     items: [
-      { icon: '🌿', name: 'Ayurveda Spa', desc: '12 luxury treatment rooms with qualified Ayurvedic physicians and authentic Kerala protocols.' },
-      { icon: '🧘', name: 'Yoga Pavilion', desc: 'Beautifully crafted open-air hilltop pavilion with guided daily yoga and breathing sessions.' },
-      { icon: '🛁', name: 'Herbal Baths', desc: 'Private bathing tubs utilizing wild local herbs, organic flowers, and pure spice oils.' },
-      { icon: '💆', name: 'Meditation Garden', desc: 'A quiet, secluded green grove designed specifically for mindfulness walks and contemplation.' },
+      { name: 'Ayurveda Spa',       desc: 'Organic mud-spa therapies and holistic treatments tailored for your body.' },
+      { name: 'Yoga Pavilion',      desc: 'Open-air hilltop pavilion with guided daily yoga and breathing sessions.' },
+      { name: 'Herbal Baths',       desc: 'Private bathing tubs with wild local herbs, organic flowers, and pure spice oils.' },
+      { name: 'Meditation Garden',  desc: 'A secluded green grove for mindfulness walks and quiet contemplation.' },
     ],
   },
   {
     category: 'Dining & Culinary',
-    color: 'var(--color-gold-dark)',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop',
+    accent: 'var(--brand-blue)',
+    image: diningImg,
     items: [
-      { icon: '🍃', name: 'The Canopy Restaurant', desc: 'Enjoy farm-to-table traditional Kerala cuisine elevated with modern culinary techniques.' },
-      { icon: '🌾', name: 'Organic Garden Café', desc: 'Casual organic breakfasts and herbal teas in our working vegetable and spice garden.' },
-      { icon: '🍹', name: 'The Forest Deck Bar', desc: 'Botanical signature cocktails served on our overhanging jungle terrace under the stars.' },
-      { icon: '🫖', name: 'Tea & Spice Tastings', desc: 'Guided masterclasses exploring rare regional tea leaves and hand-selected spices.' },
+      { name: 'The Canopy Restaurant', desc: 'Farm-to-table Kerala cuisine elevated with modern culinary techniques.' },
+      { name: 'Organic Garden Café',   desc: 'Casual breakfasts and herbal teas in our working vegetable garden.' },
+      { name: 'The Forest Deck Bar',   desc: 'Botanical signature cocktails on our overhanging jungle terrace.' },
+      { name: 'Tea & Spice Tastings',  desc: 'Guided masterclasses exploring rare regional teas and selected spices.' },
     ],
   },
   {
-    category: 'Recreation & Adventures',
-    color: '#0284c7', /* Vibrant blue accent */
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&fit=crop',
+    category: 'Recreation & Adventure',
+    accent: 'var(--brand-green)',
+    image: adventureImg,
     items: [
-      { icon: '🏊', name: 'Infinity Pool', desc: 'Our signature 40-metre pool with stunning views of the Wayanad valleys and peaks.' },
-      { icon: '🦅', name: 'Nature Treks', desc: 'Explore nearby waterfalls, coffee plantations, and mist trails with our naturalist.' },
-      { icon: '🧗', name: 'Adventure Climbing', desc: 'Certified instructors lead beginner and advanced sessions on natural local granite.' },
-      { icon: '🚵', name: 'Mountain Biking', desc: 'Curated cycling paths weaving through organic coffee estates and tribal villages.' },
+      { name: 'Earthen Dome Pool',  desc: 'Geodesic pool deck with panoramic views of the Wayanad rainforest.' },
+      { name: 'Nature Treks',       desc: 'Waterfalls, coffee plantations, and mist trails with our naturalist.' },
+      { name: 'Rock Climbing',      desc: 'Certified instructors on natural local granite for all skill levels.' },
+      { name: 'Mountain Biking',    desc: 'Curated trails weaving through organic estates and tribal villages.' },
     ],
   },
 ];
@@ -49,18 +53,18 @@ export default function AmenitiesGrid() {
     const ctx = gsap.context(() => {
       gsap.from('.amenity-category-block', {
         scrollTrigger: { trigger: '.amenities-full-list', start: 'top 75%' },
-        opacity: 0, y: 60, duration: 1, stagger: 0.2, ease: 'power3.out',
+        opacity: 0, y: 55, duration: 1, stagger: 0.2, ease: 'power3.out',
       });
     }, ref);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={ref} className="section" style={{ background: '#ffffff' }}>
+    <section ref={ref} className="section" style={{ background: '#fff' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 5vw, 5rem)' }}>
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem, 4vw, 5rem)' }}>
           <span className="section-label">World-Class Facilities</span>
-          <h2 className="section-title" style={{ fontWeight: 800 }}>Every Experience Crafted for You</h2>
+          <h2 className="section-title">Every Experience Crafted for You</h2>
           <div className="divider center" />
         </div>
 
@@ -69,58 +73,49 @@ export default function AmenitiesGrid() {
             <div key={cat.category} className="amenity-category-block" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: 'clamp(2rem, 5vw, 5rem)',
+              gap: 'clamp(2.5rem, 5vw, 5rem)',
               alignItems: 'center',
               direction: catIdx % 2 === 1 ? 'rtl' : 'ltr',
             }}>
-              <div style={{ direction: 'ltr', borderRadius: 'var(--border-radius-lg)', overflow: 'hidden', aspectRatio: '4/3', boxShadow: '0 20px 50px rgba(15, 23, 42, 0.04)' }}>
-                <img
-                  src={cat.image}
-                  alt={cat.category}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+              {/* Image */}
+              <div style={{ direction: 'ltr', borderRadius: 'var(--radius-lg)', overflow: 'hidden', aspectRatio: '4/3', boxShadow: '0 20px 60px rgba(13,30,53,0.08)' }}>
+                <Image src={cat.image} alt={cat.category} style={{ width: '100%', height: '100%', objectFit: 'cover' }} placeholder="blur" />
               </div>
+
+              {/* Items */}
               <div style={{ direction: 'ltr' }}>
                 <span style={{
-                  display: 'inline-block',
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '0.7rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.25em',
-                  textTransform: 'uppercase',
-                  color: cat.color,
-                  marginBottom: '1rem',
+                  fontFamily: 'var(--font-sans)', fontSize: '0.62rem', fontWeight: 700,
+                  letterSpacing: '0.28em', textTransform: 'uppercase',
+                  color: cat.accent, display: 'block', marginBottom: '0.9rem',
                 }}>{cat.category}</span>
                 <h3 style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
-                  fontWeight: 700,
-                  color: 'var(--color-forest)',
-                  marginBottom: '2rem',
-                  letterSpacing: '-0.01em',
-                }}>{cat.category.split(' ')[0]} Offerings</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)',
+                  fontWeight: 400, color: 'var(--color-text)',
+                  marginBottom: '2rem', letterSpacing: '-0.01em',
+                }}>{cat.category.split('&')[0].trim()} Offerings</h3>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {cat.items.map((item) => (
                     <div key={item.name} style={{
-                      display: 'flex',
-                      gap: '1.25rem',
-                      padding: '1.5rem',
-                      background: 'var(--color-cream-dark)',
-                      borderRadius: 'var(--border-radius)',
-                      borderLeft: `4px solid ${cat.color}`,
-                      border: '1px solid rgba(241, 245, 249, 1)',
-                      borderLeftWidth: '4px',
-                    }}>
-                      <span style={{ fontSize: '1.8rem', lineHeight: 1 }}>{item.icon}</span>
+                      display: 'flex', gap: '1.2rem', padding: '1.3rem 1.5rem',
+                      background: 'var(--color-bg-warm)',
+                      borderRadius: 'var(--radius)',
+                      borderLeft: `3px solid ${cat.accent}`,
+                      transition: 'all 0.3s var(--ease)',
+                    }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLDivElement).style.background = '#fff';
+                        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 24px rgba(13,30,53,0.07)';
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLDivElement).style.background = 'var(--color-bg-warm)';
+                        (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';
+                      }}
+                    >
                       <div>
-                        <h4 style={{
-                          fontFamily: 'var(--font-sans)',
-                          fontSize: '1.05rem',
-                          fontWeight: 700,
-                          color: 'var(--color-forest)',
-                          marginBottom: '4px',
-                        }}>{item.name}</h4>
-                        <p style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>{item.desc}</p>
+                        <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.93rem', fontWeight: 600, color: 'var(--color-text)', marginBottom: '3px' }}>{item.name}</h4>
+                        <p style={{ fontSize: '0.82rem', lineHeight: 1.6, color: 'var(--color-text-soft)' }}>{item.desc}</p>
                       </div>
                     </div>
                   ))}
