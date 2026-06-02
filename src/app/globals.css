@@ -245,3 +245,19 @@ img { max-width: 100%; display: block; }
   60%  { top: 100%; }
   100% { top: 100%; }
 }
+
+/* ─── VIDEO TOGGLE PREMIUM STYLES ────────────────────────── */
+.h-video-toggle:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: var(--brand-cyan) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6, 181, 211, 0.2);
+}
+.h-video-toggle:hover .toggle-label {
+  opacity: 1 !important;
+  color: var(--brand-cyan);
+}
+.h-video-toggle:hover div {
+  background: var(--brand-cyan) !important;
+  color: #ffffff !important;
+}

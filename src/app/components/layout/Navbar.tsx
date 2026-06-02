@@ -58,8 +58,7 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  const isHome = pathname === "/";
-  const isTransparent = isHome && !scrolled;
+  const isTransparent = !scrolled;
 
   return (
     <>
@@ -74,8 +73,8 @@ export default function Navbar() {
             "background 0.5s ease, box-shadow 0.4s ease, padding 0.35s ease",
           background: isTransparent ? "transparent" : "rgba(255,255,255,0.96)",
           boxShadow:
-            scrolled || !isHome ? "0 1px 0 rgba(13,30,53,0.08)" : "none",
-          backdropFilter: scrolled || !isHome ? "blur(18px)" : "none",
+            scrolled ? "0 1px 0 rgba(13,30,53,0.08)" : "none",
+          backdropFilter: scrolled ? "blur(18px)" : "none",
           padding: scrolled ? "0.55rem 0" : "0.85rem 0",
         }}
       >
