@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import EventsHero from '../components/sections/events/EventsHero';
-import EventsList from '../components/sections/events/EventsList';
-import HomeCTA from '../components/sections/home/HomeCTA';
+import EventsHero from '@/components/sections/events/EventsHero';
+import EventsList from '@/components/sections/events/EventsList';
+import HomeCTA from '@/components/sections/home/HomeCTA';
 
 export const metadata: Metadata = {
   title: 'Events & Experiences | Blue Bell Resort – Wayanad, Kerala',

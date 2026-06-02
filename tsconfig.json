@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@/images/*": ["./src/assests/images/*"],
+      "@/components/*": ["./src/components/*"],
       "@/*": ["./src/*"]
     }
   },

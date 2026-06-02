@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import GalleryHero from '../components/sections/gallery/GalleryHero';
-import GalleryGrid from '../components/sections/gallery/GalleryGrid';
+import GalleryHero from '@/components/sections/gallery/GalleryHero';
+import GalleryGrid from '@/components/sections/gallery/GalleryGrid';
 
 export const metadata: Metadata = {
   title: 'Gallery | Blue Bell Resort – Wayanad, Kerala',

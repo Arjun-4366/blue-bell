@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Playfair_Display, Plus_Jakarta_Sans, Alex_Brush } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import LenisProvider from "./components/providers/LenisProvider";
-import WhatsAppButton from "./components/layout/WhatsAppButton";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import LenisProvider from "@/components/providers/LenisProvider";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",

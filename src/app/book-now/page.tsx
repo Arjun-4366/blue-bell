@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import BookNowHero from '../components/sections/book-now/BookNowHero';
-import BookNowForm from '../components/sections/book-now/BookNowForm';
+import BookNowHero from '@/components/sections/book-now/BookNowHero';
+import BookNowForm from '@/components/sections/book-now/BookNowForm';
 
 export const metadata: Metadata = {
   title: 'Book Now | Blue Bell Resort – Wayanad, Kerala',

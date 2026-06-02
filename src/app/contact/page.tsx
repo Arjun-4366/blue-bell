@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import ContactHero from '../components/sections/contact/ContactHero';
-import ContactForm from '../components/sections/contact/ContactForm';
+import ContactHero from '@/components/sections/contact/ContactHero';
+import ContactForm from '@/components/sections/contact/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Blue Bell Resort – Wayanad, Kerala',

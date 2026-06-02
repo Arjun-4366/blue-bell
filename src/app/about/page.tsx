@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import AboutHero from '../components/sections/about/AboutHero';
-import AboutStory from '../components/sections/about/AboutStory';
-import AboutValues from '../components/sections/about/AboutValues';
-import HomeCTA from '../components/sections/home/HomeCTA';
+import AboutHero from '@/components/sections/about/AboutHero';
+import AboutStory from '@/components/sections/about/AboutStory';
+import AboutValues from '@/components/sections/about/AboutValues';
+import HomeCTA from '@/components/sections/home/HomeCTA';
 
 export const metadata: Metadata = {
   title: 'About Us | Blue Bell Resort – Wayanad, Kerala',
