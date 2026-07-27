@@ -14,10 +14,10 @@ import domeSuite from '@/images/dome/AAL04289.webp';
 gsap.registerPlugin(ScrollTrigger);
 
 const stays = [
-  { id: 1, name: 'Canopy Treehouse Suite',   tag: 'Signature Treetop', price: '₹24,000', image: treehouseMain, size: '90 sqm',  guests: '2 Guests' },
-  { id: 2, name: 'Earthen Dome Sanctuary',    tag: 'Popular Geodesic',  price: '₹19,500', image: domeMain,       size: '110 sqm', guests: '2 Guests' },
-  { id: 3, name: 'Canopy Nesting Room',       tag: 'Cozy Retreat',      price: '₹16,500', image: treehouseRoom,  size: '60 sqm',  guests: '2 Guests' },
-  { id: 4, name: 'Earthen Pool Dome',         tag: 'Luxury Villa',      price: '₹28,000', image: domeSuite,      size: '140 sqm', guests: '3 Guests' },
+  { id: 1, name: 'Canopy Treehouse Suite',   tag: 'Signature Treetop', image: treehouseMain, size: '90 sqm',  guests: '2 Guests' },
+  { id: 2, name: 'Earthen Dome Sanctuary',    tag: 'Popular Geodesic',  image: domeMain,       size: '110 sqm', guests: '2 Guests' },
+  { id: 3, name: 'Canopy Nesting Room',       tag: 'Cozy Retreat',      image: treehouseRoom,  size: '60 sqm',  guests: '2 Guests' },
+  { id: 4, name: 'Earthen Pool Dome',         tag: 'Luxury Villa',      image: domeSuite,      size: '140 sqm', guests: '3 Guests' },
 ];
 
 export default function FeaturedStays() {
@@ -119,30 +119,16 @@ export default function FeaturedStays() {
                   <span>·</span>
                   <span>{stay.guests}</span>
                 </div>
-                <div className="stay-footer" style={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  alignItems: 'center', 
-                  paddingTop: '1.1rem', 
-                  borderTop: '1px solid rgba(13,30,53,0.07)' 
+                <div className="stay-footer" style={{
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  alignItems: 'center',
+                  paddingTop: '1.1rem',
+                  borderTop: '1px solid rgba(13,30,53,0.07)'
                 }}>
-                  <div>
-                    <span style={{ 
-                      fontFamily: 'var(--font-sans)', 
-                      fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)', 
-                      fontWeight: 700, 
-                      color: 'var(--brand-cyan-muted)' 
-                    }}>{stay.price}</span>
-                    <span style={{ 
-                      fontSize: 'clamp(0.68rem, 0.9vw, 0.72rem)', 
-                      color: 'var(--color-text-soft)', 
-                      marginLeft: '3px', 
-                      fontFamily: 'var(--font-sans)' 
-                    }}>/night</span>
-                  </div>
-                  <Link href="/book-now" className="btn btn-primary" style={{ 
-                    padding: '0.55rem 1.3rem', 
-                    fontSize: 'clamp(0.58rem, 0.8vw, 0.62rem)' 
+                  <Link href="/book-now" className="btn btn-primary" style={{
+                    padding: '0.55rem 1.3rem',
+                    fontSize: 'clamp(0.58rem, 0.8vw, 0.62rem)'
                   }}>Reserve</Link>
                 </div>
               </div>

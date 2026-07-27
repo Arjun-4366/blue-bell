@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import valuesImage from '@/images/dome/AAL04280.webp';
+import teamImage from '@/images/team/team.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,20 +35,32 @@ export default function AboutValues() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo('.about-value-card', 
+      gsap.fromTo('.about-value-card',
         { opacity: 0, y: 45 },
         {
           scrollTrigger: { trigger: '.about-values-grid', start: 'top 78%' },
           opacity: 1, y: 0, duration: 0.9, stagger: 0.13, ease: 'power3.out',
         }
       );
+
+      gsap.fromTo('.team-photo',
+        { opacity: 0, scale: 1.06 },
+        {
+          scrollTrigger: { trigger: '.team-section', start: 'top 78%' },
+          opacity: 1, scale: 1, duration: 1.1, ease: 'power3.out',
+        }
+      );
+      gsap.from('.team-reveal-el', {
+        scrollTrigger: { trigger: '.team-section', start: 'top 78%' },
+        opacity: 0, y: 30, duration: 0.9, stagger: 0.12, ease: 'power3.out',
+      });
     }, ref);
     return () => ctx.revert();
   }, []);
 
   return (
     <section ref={ref} className="section-tint">
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: 'clamp(1rem, 2.5vw, 1.8rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 4rem)' }}>
         <div style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 5rem)' }}>
           <span className="section-label">What We Stand For</span>
           <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>Our Core Values</h2>
@@ -95,32 +107,54 @@ export default function AboutValues() {
           ))}
         </div>
 
-        {/* Full-width banner */}
-        <div className="values-banner" style={{
-          marginTop: 'clamp(2rem, 5vw, 5rem)',
-          borderRadius: 'var(--radius-lg)', overflow: 'hidden',
-          height: 'clamp(250px, 35vw, 460px)', position: 'relative',
+        {/* Team spotlight */}
+        <div className="team-section" style={{
+          marginTop: 'clamp(4rem, 9vw, 8rem)',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: 'clamp(2rem, 5vw, 4.5rem)',
+          alignItems: 'center',
         }}>
-          <Image src={valuesImage} alt="Blue Bell team" fill sizes="(max-width:768px) 100vw, 80vw" style={{ objectFit: 'cover' }} placeholder="blur" />
-          <div className="values-banner-overlay" style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(to right, rgba(10,22,46,0.88) 0%, rgba(6,50,90,0.3) 100%)',
-            display: 'flex', alignItems: 'center',
-            padding: 'clamp(1.5rem, 5vw, 5rem)',
+          <div className="team-photo" style={{
+            position: 'relative',
+            aspectRatio: '4/3',
+            borderRadius: 'var(--radius-lg)',
+            overflow: 'hidden',
+            boxShadow: '0 24px 60px rgba(13,30,53,0.14)',
           }}>
-            <div style={{ maxWidth: '440px' }}>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.55rem, 0.8vw, 0.62rem)', fontWeight: 700, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--brand-cyan)', display: 'block', marginBottom: 'clamp(0.8rem, 1.2vw, 1rem)' }}>Our Team</span>
-              <h3 style={{
-                fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem, 3.2vw, 3rem)',
-                fontWeight: 300, fontStyle: 'italic', color: '#fff',
-                lineHeight: 1.15, marginBottom: 'clamp(0.8rem, 1.2vw, 1rem)',
-              }}>
-                Meet the Family Behind Blue Bell.
-              </h3>
-              <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 'clamp(0.8rem, 1.1vw, 0.92rem)', lineHeight: 1.75 }}>
-                Over 150 dedicated naturalists, spa healers, executive chefs, and concierges — united by a singular promise: to make your Wayanad stay truly unforgettable.
-              </p>
-            </div>
+            <Image
+              src={teamImage}
+              alt="The Blue Bell team, standing together on the resort grounds"
+              fill
+              sizes="(max-width:768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
+              placeholder="blur"
+            />
+          </div>
+
+          <div className="team-copy">
+            <span className="team-reveal-el" style={{
+              fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.55rem, 0.8vw, 0.62rem)', fontWeight: 700,
+              letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--brand-cyan-muted)',
+              display: 'block', marginBottom: 'clamp(0.8rem, 1.2vw, 1rem)',
+            }}>Our Team</span>
+           <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)' }}>
+              Meet the Family Behind Blue Bell.
+            </h2>
+            <div className="team-reveal-el divider" />
+            <p className="team-reveal-el" style={{
+              fontSize: 'clamp(0.9rem, 1.3vw, 1rem)', color: 'var(--color-text-mid)',
+              lineHeight: 1.85, marginTop: '1.2rem', marginBottom: '1rem',
+            }}>
+              Every stay at Blue Bell is looked after by the same familiar faces — hosts, cooks, gardeners,
+              and caretakers who know these 5.5 acres like their own home.
+            </p>
+            <p className="team-reveal-el" style={{
+              fontSize: 'clamp(0.85rem, 1.2vw, 0.95rem)', color: 'var(--color-text-mid)', lineHeight: 1.8,
+            }}>
+              Many of them are from Periya itself, which is why guests tend to leave feeling less like they
+              stayed at a resort, and more like they were looked after by people who actually live here.
+            </p>
           </div>
         </div>
       </div>
@@ -132,53 +166,46 @@ export default function AboutValues() {
             gap: 1rem !important;
           }
           
-          .values-banner {
-            height: 300px !important;
+          .team-section {
+            gap: 2.5rem !important;
           }
-          
-          .values-banner-overlay {
-            background: linear-gradient(to right, rgba(10,22,46,0.92) 0%, rgba(6,50,90,0.4) 100%) !important;
+
+          .team-photo {
+            aspect-ratio: 16/10 !important;
           }
         }
-        
+
         @media (max-width: 480px) {
           .about-values-grid {
             grid-template-columns: 1fr !important;
             gap: 0.8rem !important;
           }
-          
+
           .about-value-card {
             padding: 1.5rem !important;
             text-align: center;
           }
-          
+
           .about-value-card > div:first-child {
             margin: 0 auto 1rem;
           }
-          
-          .values-banner {
-            height: 350px !important;
-            border-radius: var(--radius) !important;
+
+          .team-section {
+            gap: 2rem !important;
           }
-          
-          .values-banner-overlay {
-            background: linear-gradient(to bottom, rgba(10,22,46,0.7) 0%, rgba(10,22,46,0.92) 100%) !important;
-            align-items: flex-end !important;
+
+          .team-photo {
+            aspect-ratio: 4/3 !important;
+          }
+
+          .team-copy {
             text-align: center;
-            padding: 1.5rem !important;
+            
           }
-          
-          .values-banner-overlay > div {
-            max-width: 100% !important;
-          }
-          
-          .values-banner-overlay h3 {
-            font-size: 1.6rem !important;
-          }
-          
-          .values-banner-overlay p {
-            font-size: 0.85rem !important;
-            line-height: 1.65 !important;
+
+          .team-copy .divider {
+            margin-left: auto;
+            margin-right: auto;
           }
         }
       `}</style>

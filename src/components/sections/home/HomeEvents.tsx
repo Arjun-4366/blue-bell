@@ -21,42 +21,36 @@ const events = [
     day: '14', month: 'Jun',
     title: 'Grand Monsoon Wedding Fair',
     desc: 'Tour our scenic outdoor lawns, lakeside pavilions, and meet elite wedding designers.',
-    price: 'Free Entry',
     image: eventImg1,
   },
   {
     day: '21', month: 'Jun',
     title: 'Royal Malabar Banquet & Sangeet',
     desc: 'An evening of classical sangeet and a curated feast of royal Malabar cuisine.',
-    price: '₹4,500',
     image: eventImg2,
   },
   {
     day: '28', month: 'Jun',
     title: 'Kathakali & Traditional Art Night',
     desc: 'Witness the dramatic storytelling art of Kathakali live in our open-air amphitheater.',
-    price: '₹1,500',
     image: eventImg7,
   },
   {
     day: '04', month: 'Jul',
     title: 'Wayanad Spice Trail & Dining',
     desc: 'Discover organic spice farming followed by a traditional Malabar woodfire dinner.',
-    price: '₹3,500',
     image: eventImg3,
   },
   {
     day: '12', month: 'Jul',
     title: 'Lakeside Sufi & Ghazal Soiree',
     desc: 'A soulful evening of live Sufi and Ghazal music by the lakeside with local barbecue.',
-    price: '₹2,800',
     image: eventImg8,
   },
   {
     day: '18', month: 'Jul',
     title: 'Forest Dome Sunrise Yoga',
     desc: 'Rejuvenate with a morning yoga class and breathing exercises under our glass domes.',
-    price: '₹2,500',
     image: eventImg4,
   },
 ];
@@ -159,10 +153,7 @@ export default function HomeEvents() {
                 {/* Details */}
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)', fontWeight: 400, color: 'var(--color-text)', marginBottom: '0.3rem' }}>{evt.title}</h3>
-                  <p style={{ fontSize: 'clamp(0.72rem, 1vw, 0.82rem)', lineHeight: 1.6, color: 'var(--color-text-soft)', marginBottom: '0.5rem' }}>{evt.desc}</p>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.72rem, 1vw, 0.8rem)', fontWeight: 600, color: 'var(--brand-cyan-muted)' }}>
-                    {evt.price === 'Free Entry' ? 'Free Entry' : `${evt.price} / person`}
-                  </span>
+                  <p style={{ fontSize: 'clamp(0.72rem, 1vw, 0.82rem)', lineHeight: 1.6, color: 'var(--color-text-soft)' }}>{evt.desc}</p>
                 </div>
               </div>
             ))}

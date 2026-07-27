@@ -78,13 +78,7 @@ export default function HomeCTA() {
             <Link href="/contact" className="btn btn-outline">Enquire Now</Link>
           </div>
 
-          <p style={{
-            marginTop: 'clamp(1.8rem, 2.5vw, 2.4rem)', fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.6rem, 0.8vw, 0.68rem)',
-            fontWeight: 600, color: 'rgba(255,255,255,0.25)',
-            letterSpacing: '0.12em', textTransform: 'uppercase',
-          }}>
-            Best rate guaranteed · Free cancellation · 24/7 concierge
-          </p>
+   
         </div>
       </div>
 

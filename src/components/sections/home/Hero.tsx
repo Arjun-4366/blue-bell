@@ -63,6 +63,7 @@ export default function Hero() {
           width: '100%',
           display: 'flex',
           alignItems: 'center',
+          paddingTop: 'clamp(90px, 11vh, 130px)',
           background: '#060D1A',
         }}
       >
@@ -130,7 +131,7 @@ export default function Hero() {
           }}
         >
           <div style={{
-            maxWidth: '640px',
+            maxWidth: '700px',
             margin: '0 auto',
             marginLeft: 'clamp(0rem, 2vw, 4rem)',
           }}>
@@ -156,13 +157,13 @@ export default function Hero() {
                 letterSpacing: '0.3em',
                 textTransform: 'uppercase',
                 color: 'var(--brand-cyan)',
-              }}>Vythiri · Wayanad, Kerala</span>
+              }}>Periya · Wayanad, Kerala</span>
             </div>
 
             {/* Heading — Cormorant Garamond, refined size */}
             <h1 className="h-heading" style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2rem, 5.5vw, 5rem)',
+              fontSize: 'clamp(2.2rem, 5vw, 4.5rem)',
               fontWeight: 300,
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
@@ -170,11 +171,11 @@ export default function Hero() {
               marginBottom: '0.15em',
               opacity: 0,
             }}>
-              Where the Forest<br />
+              Wayanad&apos;s Best Resort<br />
               <span style={{
                 fontStyle: 'italic',
                 color: 'var(--brand-cyan)',
-              }}>Becomes Home.</span>
+              }}>for Every Kind of Getaway</span>
             </h1>
 
             {/* Divider */}
@@ -195,8 +196,8 @@ export default function Hero() {
               marginBottom: 'clamp(1.5rem, 2.5vw, 2.2rem)',
               opacity: 0,
             }}>
-              A luxury nature retreat in the highlands of Vythiri — treetop treehouses,
-              earthen dome sanctuaries, and timeless Kerala hospitality.
+              Treehouses and private-pool dome resort on 5.5 acres in Periya — the best resort
+              in Wayanad for family stays, and private-pool stays for couples.
             </p>
 
             {/* CTAs */}
@@ -214,67 +215,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Video toggle button */}
-        <button
-          onClick={togglePlay}
-          className="h-video-toggle"
-          aria-label={isPlaying ? 'Pause background video' : 'Play background video'}
-          style={{
-            position: 'absolute',
-            bottom: 'clamp(1rem, 3vw, 2rem)',
-            right: 'clamp(1rem, 3vw, 2rem)',
-            zIndex: 10,
-            background: 'rgba(0,0,0,0.4)',
-            backdropFilter: 'blur(8px)',
-            border: '1px solid rgba(255,255,255,0.2)',
-            borderRadius: '50%',
-            width: 'clamp(36px, 5vw, 44px)',
-            height: 'clamp(36px, 5vw, 44px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            opacity: 0,
-          }}
-        >
-          {isPlaying ? (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-              <rect x="6" y="4" width="4" height="16" />
-              <rect x="14" y="4" width="4" height="16" />
-            </svg>
-          ) : (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-              <polygon points="5,3 19,12 5,21" />
-            </svg>
-          )}
-        </button>
-
-        {/* Scroll indicator - hidden on mobile */}
-        <div className="h-scroll" style={{
-          position: 'absolute',
-          bottom: '2rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 10,
-          opacity: 0,
-          display: isMobile ? 'none' : 'block',
-        }}>
-          <div style={{
-            width: '1px',
-            height: '40px',
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)',
-            margin: '0 auto 0.5rem',
-          }} />
-          <span style={{
-            fontSize: '0.6rem',
-            textTransform: 'uppercase',
-            letterSpacing: '0.2em',
-            color: 'rgba(255,255,255,0.4)',
-            fontFamily: 'var(--font-sans)',
-          }}>Scroll</span>
-        </div>
+    
 
         <style jsx>{`
           @media (max-width: 768px) {

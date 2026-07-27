@@ -33,18 +33,18 @@ const ClockIcon = () => (
 const categories = ['All', 'Celebrations', 'Culinary', 'Wellness', 'Culture'];
 
 const allEvents = [
-  { id: 1, cat: 'Celebrations', date: { day: '14', month: 'Jun' }, title: 'Grand Monsoon Wedding Fair', type: 'Wedding Showcase', desc: 'Experience the ultimate luxury wedding showcase at Blue Bell. Tour our scenic outdoor lawns, lakeside pavilions, and meet elite wedding designers.', price: 'Free Entry', time: '11:00 AM – 06:00 PM', image: eventImg1 },
-  { id: 2, cat: 'Celebrations', date: { day: '21', month: 'Jun' }, title: 'Royal Malabar Banquet & Sangeet', type: 'Luxury Celebration', desc: 'An evening of grand celebration featuring live music, classical sangeet performances, and a curated feast of royal Malabar cuisine.', price: '₹4,500', time: '07:00 PM – 11:30 PM', image: eventImg2 },
-  { id: 3, cat: 'Culture', date: { day: '28', month: 'Jun' }, title: 'Kathakali & Traditional Art Night', type: 'Cultural Art Showcase', desc: 'Witness the dramatic, storytelling art of Kathakali and Mohiniyattam, performed live by master artists in our open-air amphitheater.', price: '₹1,500', time: '06:30 PM – 08:30 PM', image: eventImg7 },
-  { id: 4, cat: 'Culinary', date: { day: '04', month: 'Jul' }, title: 'Wayanad Spice Trail & Dining Experience', type: 'Culinary Experience', desc: 'Discover organic spice farming followed by a traditional multi-course Malabar dinner cooked over a wood fire with our executive chef.', price: '₹3,500', time: '05:00 PM – 09:00 PM', image: eventImg3 },
-  { id: 5, cat: 'Culture', date: { day: '12', month: 'Jul' }, title: 'Lakeside Sufi & Ghazal Soiree', type: 'Musical Evening', desc: 'A soulful evening of live Sufi and Ghazal music by the lakeside, accompanied by an authentic wood-fired barbecue and local delicacies.', price: '₹2,800', time: '07:00 PM – 10:30 PM', image: eventImg8 },
-  { id: 6, cat: 'Wellness', date: { day: '18', month: 'Jul' }, title: 'Forest Dome Sunrise Yoga & Meditation', type: 'Wellness Retreat', desc: 'Rejuvenate with a morning yoga class and breathing exercises under our glass domes, surrounded by mist-covered mountain valleys.', price: '₹2,500', time: '06:00 AM – 09:00 AM', image: eventImg4 },
-  { id: 7, cat: 'Culinary', date: { day: '26', month: 'Jul' }, title: 'Private Forest Deck Gala Dinner', type: 'Fine Dining', desc: 'An exclusive, multi-course culinary experience set on our elevated forest deck, featuring fusion cuisine under a canopy of stars.', price: '₹6,000', time: '07:30 PM – 11:00 PM', image: eventImg9 },
-  { id: 8, cat: 'Celebrations', date: { day: '01', month: 'Aug' }, title: 'Elite Bridal Couture Runway', type: 'Fashion & Bridal', desc: "An exclusive preview of the upcoming season's finest bridal couture collections, set against the backdrop of our mist-covered forest deck.", price: '₹5,000', time: '06:30 PM – 09:30 PM', image: eventImg5 },
-  { id: 9, cat: 'Culinary', date: { day: '09', month: 'Aug' }, title: 'Tropical Mixology & Cocktail Masterclass', type: 'Interactive Workshop', desc: 'Learn the art of crafting premium cocktails infused with local spices, fresh herbs, and tropical fruits under our master mixologists.', price: '₹2,200', time: '04:00 PM – 06:30 PM', image: eventImg10 },
-  { id: 10, cat: 'Culinary', date: { day: '18', month: 'Aug' }, title: 'Organic Tea Garden Tasting & High Tea', type: 'Tea Garden Tour', desc: "Walk through Wayanad's premier organic tea estate, sample rare artisanal single-origin teas, and enjoy a curated high-tea spread.", price: '₹1,800', time: '03:00 PM – 05:30 PM', image: eventImg11 },
-  { id: 11, cat: 'Wellness', date: { day: '24', month: 'Aug' }, title: 'Guided Forest Bathing & Canopy Walk', type: 'Nature Therapy', desc: 'Immerse in silent shinrin-yoku forest bathing, followed by a guided botanical canopy walk over the misty river valleys of Wayanad.', price: '₹1,200', time: '07:30 AM – 10:00 AM', image: eventImg12 },
-  { id: 12, cat: 'Wellness', date: { day: '31', month: 'Aug' }, title: 'Ayurvedic Rejuvenation & Healing Retreat', type: 'Wellness & Spa', desc: 'Experience a transformative day of classic Ayurveda therapies, custom herbal drinks, and a personalized holistic wellness consultation.', price: '₹4,800', time: '09:00 AM – 04:00 PM', image: eventImg13 },
+  { id: 1, cat: 'Celebrations', date: { day: '14', month: 'Jun' }, title: 'Grand Monsoon Wedding Fair', type: 'Wedding Showcase', desc: 'Experience the ultimate luxury wedding showcase at Blue Bell. Tour our scenic outdoor lawns, lakeside pavilions, and meet elite wedding designers.', time: '11:00 AM – 06:00 PM', image: eventImg1 },
+  { id: 2, cat: 'Celebrations', date: { day: '21', month: 'Jun' }, title: 'Royal Malabar Banquet & Sangeet', type: 'Luxury Celebration', desc: 'An evening of grand celebration featuring live music, classical sangeet performances, and a curated feast of royal Malabar cuisine.', time: '07:00 PM – 11:30 PM', image: eventImg2 },
+  { id: 3, cat: 'Culture', date: { day: '28', month: 'Jun' }, title: 'Kathakali & Traditional Art Night', type: 'Cultural Art Showcase', desc: 'Witness the dramatic, storytelling art of Kathakali and Mohiniyattam, performed live by master artists in our open-air amphitheater.', time: '06:30 PM – 08:30 PM', image: eventImg7 },
+  { id: 4, cat: 'Culinary', date: { day: '04', month: 'Jul' }, title: 'Wayanad Spice Trail & Dining Experience', type: 'Culinary Experience', desc: 'Discover organic spice farming followed by a traditional multi-course Malabar dinner cooked over a wood fire with our executive chef.', time: '05:00 PM – 09:00 PM', image: eventImg3 },
+  { id: 5, cat: 'Culture', date: { day: '12', month: 'Jul' }, title: 'Lakeside Sufi & Ghazal Soiree', type: 'Musical Evening', desc: 'A soulful evening of live Sufi and Ghazal music by the lakeside, accompanied by an authentic wood-fired barbecue and local delicacies.', time: '07:00 PM – 10:30 PM', image: eventImg8 },
+  { id: 6, cat: 'Wellness', date: { day: '18', month: 'Jul' }, title: 'Forest Dome Sunrise Yoga & Meditation', type: 'Wellness Retreat', desc: 'Rejuvenate with a morning yoga class and breathing exercises under our glass domes, surrounded by mist-covered mountain valleys.', time: '06:00 AM – 09:00 AM', image: eventImg4 },
+  { id: 7, cat: 'Culinary', date: { day: '26', month: 'Jul' }, title: 'Private Forest Deck Gala Dinner', type: 'Fine Dining', desc: 'An exclusive, multi-course culinary experience set on our elevated forest deck, featuring fusion cuisine under a canopy of stars.', time: '07:30 PM – 11:00 PM', image: eventImg9 },
+  { id: 8, cat: 'Celebrations', date: { day: '01', month: 'Aug' }, title: 'Elite Bridal Couture Runway', type: 'Fashion & Bridal', desc: "An exclusive preview of the upcoming season's finest bridal couture collections, set against the backdrop of our mist-covered forest deck.", time: '06:30 PM – 09:30 PM', image: eventImg5 },
+  { id: 9, cat: 'Culinary', date: { day: '09', month: 'Aug' }, title: 'Tropical Mixology & Cocktail Masterclass', type: 'Interactive Workshop', desc: 'Learn the art of crafting premium cocktails infused with local spices, fresh herbs, and tropical fruits under our master mixologists.', time: '04:00 PM – 06:30 PM', image: eventImg10 },
+  { id: 10, cat: 'Culinary', date: { day: '18', month: 'Aug' }, title: 'Organic Tea Garden Tasting & High Tea', type: 'Tea Garden Tour', desc: "Walk through Wayanad's premier organic tea estate, sample rare artisanal single-origin teas, and enjoy a curated high-tea spread.", time: '03:00 PM – 05:30 PM', image: eventImg11 },
+  { id: 11, cat: 'Wellness', date: { day: '24', month: 'Aug' }, title: 'Guided Forest Bathing & Canopy Walk', type: 'Nature Therapy', desc: 'Immerse in silent shinrin-yoku forest bathing, followed by a guided botanical canopy walk over the misty river valleys of Wayanad.', time: '07:30 AM – 10:00 AM', image: eventImg12 },
+  { id: 12, cat: 'Wellness', date: { day: '31', month: 'Aug' }, title: 'Ayurvedic Rejuvenation & Healing Retreat', type: 'Wellness & Spa', desc: 'Experience a transformative day of classic Ayurveda therapies, custom herbal drinks, and a personalized holistic wellness consultation.', time: '09:00 AM – 04:00 PM', image: eventImg13 },
 ];
 
 export default function EventsList() {
@@ -164,13 +164,12 @@ export default function EventsList() {
                   <h3 className="evt-title">{evt.title}</h3>
                   <p className="evt-desc">{evt.desc}</p>
                   
-                  {/* Meta (Time & Price) */}
+                  {/* Meta (Time) */}
                   <div className="evt-meta">
                     <div className="time">
                       <ClockIcon />
                       <span>{evt.time}</span>
                     </div>
-                    <div className="price">{evt.price}</div>
                   </div>
 
                   {/* Reserve Button */}
@@ -320,7 +319,6 @@ export default function EventsList() {
         .evt-meta {
           display: flex;
           align-items: center;
-          justify-content: space-between;
           padding-top: 1.2rem;
           border-top: 1px solid rgba(13, 30, 53, 0.06);
           margin-bottom: 1.2rem;
@@ -332,13 +330,6 @@ export default function EventsList() {
           gap: 6px;
           color: var(--color-text-soft);
           font-size: 0.8rem;
-        }
-
-        .evt-meta .price {
-          font-family: var(--font-serif);
-          font-size: 1.15rem;
-          font-weight: 400;
-          color: var(--brand-blue);
         }
 
         .evt-btn {

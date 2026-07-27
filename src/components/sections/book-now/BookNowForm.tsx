@@ -3,12 +3,12 @@
 import { useState } from 'react';
 
 const villasList = [
-  { id: 'treehouse',       name: 'Canopy Treehouse Suite — ₹24,000/night' },
-  { id: 'dome',           name: 'Earthen Dome Sanctuary — ₹19,500/night' },
-  { id: 'nest',           name: 'Treehouse Nesting Room — ₹16,500/night' },
-  { id: 'pool-dome',      name: 'Earthen Pool Dome — ₹28,000/night' },
-  { id: 'bamboo',         name: 'Whispering Bamboo Treehouse — ₹26,500/night' },
-  { id: 'canopy-suite',   name: 'Treehouse Canopy Suite — ₹18,000/night' },
+  { id: 'treehouse',       name: 'Canopy Treehouse Suite' },
+  { id: 'dome',           name: 'Earthen Dome Sanctuary' },
+  { id: 'nest',           name: 'Treehouse Nesting Room' },
+  { id: 'pool-dome',      name: 'Earthen Pool Dome' },
+  { id: 'bamboo',         name: 'Whispering Bamboo Treehouse' },
+  { id: 'canopy-suite',   name: 'Treehouse Canopy Suite' },
 ];
 
 const benefitIcons = [
@@ -120,7 +120,7 @@ export default function BookNowForm() {
                   Check-In: {formData.checkIn}<br />
                   Check-Out: {formData.checkOut}<br />
                   Guests: {formData.guests}<br />
-                  Villa: {villasList.find(v => v.id === formData.villaType)?.name.split(' —')[0]}
+                  Villa: {villasList.find(v => v.id === formData.villaType)?.name}
                 </div>
                 <p style={{ fontSize: 'clamp(0.7rem, 0.9vw, 0.78rem)', color: 'var(--color-text-soft)', marginTop: '1.2rem' }}>
                   We will call or email within 2 hours to confirm your dates.
