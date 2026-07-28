@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const faqs = [
   {
     question: 'How do I reach Blue Bell Resort in Wayanad?',
-    answer: 'We are located in Vythiri, Wayanad. The nearest airport is Calicut International Airport (CCJ), approximately 75 km away — a 2.5-hour scenic drive. The nearest railway station is Kozhikode. We offer premium private airport transfers upon request.',
+    answer: 'We are located in Periya, in Wayanad\'s quieter northern belt, and are easily reached from both Bangalore and Mysore. The nearest airport is Calicut International Airport (CCJ). We offer premium private airport transfers upon request.',
   },
   {
     question: 'What are the check-in and check-out timings?',
@@ -61,7 +61,7 @@ export default function HomeFAQ() {
             </h2>
             <div className="divider" />
             <p style={{ color: 'var(--color-text-soft)', marginBottom: '2.4rem', lineHeight: 1.85, fontSize: 'clamp(0.85rem, 1.2vw, 0.95rem)' }}>
-              Questions about reaching Vythiri, Ayurvedic packages, or your stay?
+              Questions about reaching Periya, Ayurvedic packages, or your stay?
               Our most common guest enquiries are answered here.
             </p>
 

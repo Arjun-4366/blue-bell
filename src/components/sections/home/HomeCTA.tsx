@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ctaBg from '@/images/dome/AAL04317.webp';
+import ctaBg from '@/images/dome/dome-12.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

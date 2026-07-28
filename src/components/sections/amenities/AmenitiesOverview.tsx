@@ -4,17 +4,16 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import amenityHero from '@/images/dome/AAL04291.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const amenityHero = 'https://images.unsplash.com/photo-1758272960816-6126b6607596?w=1600&q=80&fit=crop';
+
 const highlights = [
-  { title: 'Ayurveda Wellness',   desc: 'Organic therapies by certified Ayurvedic doctors.' },
-  { title: 'Geodesic Dome Pool',  desc: 'Heated pool with panoramic valley views.' },
-  { title: 'Organic Dining',      desc: 'Farm-to-table Malabar cuisine, freshly harvested.' },
-  { title: 'Nature Expeditions',  desc: 'Guided spice trails and jungle walks.' },
-  { title: 'Sunrise Yoga',        desc: 'Open-air hilltop pavilion each morning.' },
-  { title: 'Private Butler',      desc: 'Dedicated service around the clock.' },
+  { title: 'Campfire Evenings',   desc: 'Gather around the fire pit as the sun goes down over Periya.' },
+  { title: 'Barbecue Nights',     desc: 'Charcoal-grilled classics, cooked fresh most evenings.' },
+  { title: "Kids' Play Park",     desc: 'A dedicated play area for the younger guests to run around.' },
+  { title: 'Indoor Games Room',   desc: 'Carrom and board games for slow afternoons.' },
 ];
 
 export default function AmenitiesOverview() {
@@ -26,7 +25,7 @@ export default function AmenitiesOverview() {
         scrollTrigger: { trigger: ref.current, start: 'top 80%' },
         opacity: 0, x: -50, duration: 1, ease: 'power3.out',
       });
-      gsap.from('.am-overview-text > *', {
+      gsap.from('.am-overview-intro-el', {
         scrollTrigger: { trigger: ref.current, start: 'top 80%' },
         opacity: 0, y: 35, duration: 0.9, stagger: 0.12, ease: 'power3.out',
       });
@@ -43,36 +42,36 @@ export default function AmenitiesOverview() {
       <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
         <div className="am-header" style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 5rem)' }}>
           <span className="section-label">At a Glance</span>
-          <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>Designed for Complete Rejuvenation</h2>
+          <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>Simple Amenities, Done Right</h2>
           <div className="divider center" />
           <p style={{ color: 'var(--color-text-soft)', maxWidth: '540px', margin: '0 auto', lineHeight: 1.85, fontSize: 'clamp(0.85rem, 1.2vw, 0.95rem)' }}>
-            From wellness therapies to guided outdoor adventure, every aspect of Blue Bell is crafted to create a deep, life-affirming sense of rest and escape.
+            No spa menus or itineraries — just a handful of amenities built around how our guests actually like to spend an evening.
           </p>
         </div>
 
         <div className="am-layout" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(2rem, 6vw, 6rem)', alignItems: 'center' }}>
           {/* Image */}
           <div className="am-overview-img" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', aspectRatio: '4/5', boxShadow: '0 24px 70px rgba(13,30,53,0.1)' }}>
-            <Image src={amenityHero} alt="Geodesic Dome pathways" fill sizes="(max-width:768px) 100vw, 50vw" style={{ objectFit: 'cover' }} placeholder="blur" />
+            <Image src={amenityHero} alt="Guests gathered around the campfire at dusk" fill sizes="(max-width:768px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
             <div className="am-image-overlay" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,22,46,0.8) 0%, transparent 55%)' }} />
             <div className="am-image-content" style={{ position: 'absolute', bottom: 'clamp(1.5rem, 2.5vw, 2.2rem)', left: 'clamp(1.5rem, 2.5vw, 2.2rem)', right: 'clamp(1.5rem, 2.5vw, 2.2rem)' }}>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.55rem, 0.8vw, 0.62rem)', fontWeight: 700, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--brand-cyan)', display: 'block', marginBottom: '0.6rem' }}>Signature Sanctuary</span>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.3rem, 2.4vw, 2rem)', fontWeight: 300, fontStyle: 'italic', color: '#fff', marginBottom: '0.6rem', lineHeight: 1.15 }}>Veda Spa &amp; Dome Retreat</h3>
+              <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.55rem, 0.8vw, 0.62rem)', fontWeight: 700, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--brand-cyan)', display: 'block', marginBottom: '0.6rem' }}>Evening Ritual</span>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.3rem, 2.4vw, 2rem)', fontWeight: 300, fontStyle: 'italic', color: '#fff', marginBottom: '0.6rem', lineHeight: 1.15 }}>Campfire Nights</h3>
               <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 'clamp(0.78rem, 1vw, 0.87rem)', lineHeight: 1.7 }}>
-                Revitalise body and spirit under certified Ayurvedic doctors in our forest-immersed dome sanctuary.
+                Most evenings end the same way — gathered around the fire pit, Periya's cool night air settling in.
               </p>
             </div>
           </div>
 
           {/* Highlights */}
           <div className="am-overview-text">
-            <span className="section-label">Resort Highlights</span>
-            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.4rem, 2.6vw, 2.4rem)', fontWeight: 400, color: 'var(--color-text)', marginBottom: '1rem', lineHeight: 1.2 }}>
-              Six Pillars of the Blue Bell Experience
+            <span className="section-label am-overview-intro-el">What&apos;s Included</span>
+            <h3 className="am-overview-intro-el" style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.4rem, 2.6vw, 2.4rem)', fontWeight: 400, color: 'var(--color-text)', marginBottom: '1rem', lineHeight: 1.2 }}>
+              Four Amenities, Built Right
             </h3>
-            <div className="divider" />
-            <p style={{ color: 'var(--color-text-soft)', marginBottom: 'clamp(1.5rem, 2vw, 2rem)', lineHeight: 1.85, fontSize: 'clamp(0.85rem, 1.1vw, 0.95rem)' }}>
-              Each amenity is rooted in nature, guided by expertise, and perfected through genuine care.
+            <div className="divider am-overview-intro-el" />
+            <p className="am-overview-intro-el" style={{ color: 'var(--color-text-soft)', marginBottom: 'clamp(1.5rem, 2vw, 2rem)', lineHeight: 1.85, fontSize: 'clamp(0.85rem, 1.1vw, 0.95rem)' }}>
+              No filler, no padded spa menu — just the amenities guests actually use.
             </p>
 
             <div className="am-highlights" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(0.6rem, 1vw, 1rem)' }}>

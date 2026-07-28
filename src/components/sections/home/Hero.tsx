@@ -196,7 +196,7 @@ export default function Hero() {
               marginBottom: 'clamp(1.5rem, 2.5vw, 2.2rem)',
               opacity: 0,
             }}>
-              Treehouses and private-pool dome resort on 5.5 acres in Periya — the best resort
+              Treehouses and private-pool domes tucked into the forest in Periya — the best resort
               in Wayanad for family stays, and private-pool stays for couples.
             </p>
 

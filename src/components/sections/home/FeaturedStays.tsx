@@ -6,10 +6,10 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import treehouseMain from '@/images/treehouse/zlkpjggmhq60elmgfepd.webp';
-import domeMain from '@/images/dome/AAL04276.webp';
-import treehouseRoom from '@/images/treehouseroom/ewaplievvophiiabfsyy.webp';
-import domeSuite from '@/images/dome/AAL04289.webp';
+import treehouseMain from '@/images/treehouse/treehouse-7.webp';
+import domeMain from '@/images/dome/dome-1.webp';
+import treehouseRoom from '@/images/treehouseroom/treehouseroom-3.webp';
+import domeSuite from '@/images/dome/dome-4.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

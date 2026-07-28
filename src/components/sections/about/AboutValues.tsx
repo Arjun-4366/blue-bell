@@ -147,7 +147,7 @@ export default function AboutValues() {
               lineHeight: 1.85, marginTop: '1.2rem', marginBottom: '1rem',
             }}>
               Every stay at Blue Bell is looked after by the same familiar faces — hosts, cooks, gardeners,
-              and caretakers who know these 5.5 acres like their own home.
+              and caretakers who know this land like their own home.
             </p>
             <p className="team-reveal-el" style={{
               fontSize: 'clamp(0.85rem, 1.2vw, 0.95rem)', color: 'var(--color-text-mid)', lineHeight: 1.8,

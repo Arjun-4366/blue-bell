@@ -162,7 +162,7 @@ export default function AboutStory() {
               Indian, and Chinese food, for groups who don't all want the same
               thing for dinner. Whether it's a family stay in the Tree Hut or a
               private-pool dome for a couple's getaway, Blue Bell answers both
-              from the same 5.5 acres.
+              from the same forested address in Periya.
             </p>
           </div>
 

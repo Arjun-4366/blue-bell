@@ -6,14 +6,14 @@ import HomeCTA from '@/components/sections/home/HomeCTA';
 
 export const metadata: Metadata = {
   title: 'Amenities | Blue Bell Resort – Wayanad, Kerala',
-  description: 'Discover world-class amenities at Blue Bell Resort: Ayurveda spa, infinity pool, organic dining, nature trails, and more in the heart of Wayanad.',
+  description: 'Amenities at Blue Bell Resort: evening campfires, barbecue nights, a kids\' play park, and an indoor games room — simple, easy-going additions to your stay in Wayanad.',
 };
 
 export default function AmenitiesPage() {
   return (
     <>
       <AmenitiesHero />
-      <AmenitiesOverview />
+      {/* <AmenitiesOverview /> */}
       <AmenitiesGrid />
       <HomeCTA />
     </>

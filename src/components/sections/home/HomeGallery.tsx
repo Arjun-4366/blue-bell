@@ -6,11 +6,11 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import gallery1 from '@/images/dome/AAL04291.webp';
-import gallery2 from '@/images/dining/DSC02001.webp';
-import gallery3 from '@/images/treehouseroom/cao4vmabymep8aciw3jd.webp';
-import gallery4 from '@/images/treehouse/kfk86xvpr3wwf5hqmaf6.webp';
-import gallery5 from '@/images/dining/DSC02122.webp';
+import gallery1 from '@/images/dome/dome-5.webp';
+import gallery2 from '@/images/dining/dining-1.webp';
+import gallery3 from '@/images/treehouseroom/treehouseroom-1.webp';
+import gallery4 from '@/images/treehouse/treehouse-5.webp';
+import gallery5 from '@/images/dining/dining-5.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -6,12 +6,12 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import stay1 from '@/images/treehouse/zlkpjggmhq60elmgfepd.webp';
-import stay2 from '@/images/dome/AAL04276.webp';
-import stay3 from '@/images/treehouseroom/ewaplievvophiiabfsyy.webp';
-import stay4 from '@/images/dome/AAL04289.webp';
-import stay5 from '@/images/treehouse/aaimgllqgfwqnt83tkgy.webp';
-import stay6 from '@/images/treehouseroom/cao4vmabymep8aciw3jd.webp';
+import stay1 from '@/images/treehouse/treehouse-7.webp';
+import stay2 from '@/images/dome/dome-1.webp';
+import stay3 from '@/images/treehouseroom/treehouseroom-3.webp';
+import stay4 from '@/images/dome/dome-4.webp';
+import stay5 from '@/images/treehouse/treehouse-1.webp';
+import stay6 from '@/images/treehouseroom/treehouseroom-1.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

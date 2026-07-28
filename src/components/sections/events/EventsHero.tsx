@@ -1,4 +1,5 @@
 import PageHero from '../../layout/PageHero';
+import eventImg from '@/images/events/events-3.webp';
 
 export default function EventsHero() {
   return (
@@ -7,8 +8,8 @@ export default function EventsHero() {
       heading="Events &"
       headingItalic="Happenings."
       subtitle="Immerse yourself in Kerala's living culture — from spice trail walks and sunrise yoga to Kathakali evenings and private forest celebrations."
-      imageSrc="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1920&q=90&fit=crop"
-      imageAlt="Elegant outdoor resort gathering space"
+      imageSrc={eventImg.src}
+      imageAlt="Guests gathered at a Blue Bell event"
       scopeClass="evt-hero"
     />
   );

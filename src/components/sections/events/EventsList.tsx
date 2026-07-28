@@ -6,16 +6,16 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import eventImg1 from '@/assests/images/events/1C5A0043.webp';
-import eventImg2 from '@/assests/images/events/1C5A0034.webp';
-import eventImg3 from '@/assests/images/dining/DSC02122.webp';
-import eventImg4 from '@/assests/images/dome/AAL04291.webp';
-import eventImg5 from '@/assests/images/events/1C5A0693.webp';
-import eventImg6 from '@/assests/images/events/1C5A0853.webp';
-import eventImg7 from '@/assests/images/events/1C5A0037.webp';
-import eventImg8 from '@/assests/images/events/1C5A0376.webp';
-import eventImg9 from '@/assests/images/events/1C5A0403.webp';
-import eventImg10 from '@/assests/images/events/1C5A0656.webp';
+import eventImg1 from '@/assests/images/events/events-3.webp';
+import eventImg2 from '@/assests/images/events/events-1.webp';
+import eventImg3 from '@/assests/images/dining/dining-5.webp';
+import eventImg4 from '@/assests/images/dome/dome-5.webp';
+import eventImg5 from '@/assests/images/events/events-7.webp';
+import eventImg6 from '@/assests/images/events/events-8.webp';
+import eventImg7 from '@/assests/images/events/events-2.webp';
+import eventImg8 from '@/assests/images/events/events-4.webp';
+import eventImg9 from '@/assests/images/events/events-5.webp';
+import eventImg10 from '@/assests/images/events/events-6.webp';
 
 // Web images (Unsplash)
 const eventImg11 = 'https://images.unsplash.com/photo-1563889362-5819e22936c5?w=1000&q=80&fit=crop';

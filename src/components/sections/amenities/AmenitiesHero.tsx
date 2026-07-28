@@ -1,14 +1,15 @@
 import PageHero from '../../layout/PageHero';
+import amenitiesHeroImg from '@/assests/images/amenities/amenitiesHero.webp';
 
 export default function AmenitiesHero() {
   return (
     <PageHero
-      eyebrow="World-Class Facilities"
-      heading="Curated for"
-      headingItalic="Every Desire."
-      subtitle="From ancient Ayurvedic therapies to high-energy nature treks — every detail is crafted to elevate your stay far beyond the ordinary."
-      imageSrc="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=1920&q=90&fit=crop"
-      imageAlt="Infinity pool in misty Wayanad hills"
+      eyebrow="What Awaits You"
+      heading="Made for"
+      headingItalic="Easy Days."
+      subtitle="Every corner of Blue Bell is designed around how our guests actually spend their time — unhurried, together, and away from the everyday."
+      imageSrc={amenitiesHeroImg.src}
+      imageAlt="Guests gathered around an evening campfire at Blue Bell"
       scopeClass="am-hero"
     />
   );

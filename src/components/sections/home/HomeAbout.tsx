@@ -5,20 +5,20 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import treeTrunk1 from '@/images/treehouse/zlkpjggmhq60elmgfepd.webp';
-import treeTrunk2 from '@/images/treehouse/kwfdzddhhvcbaglapaol.webp';
-import treeTrunk3 from '@/images/treehouseroom/hovti9ywbnfxtbfpo9rt.webp';
-import treeTrunk4 from '@/images/treehouseroom/xxkihviwv9zirfyuqecz.webp';
+import treeTrunk1 from '@/images/treehouse/treehouse-7.webp';
+import treeTrunk2 from '@/images/treehouse/treehouse-6.webp';
+import treeTrunk3 from '@/images/treehouseroom/treehouseroom-4.webp';
+import treeTrunk4 from '@/images/treehouseroom/treehouseroom-8.webp';
 
-import treeHut1 from '@/images/treehouse/csyamo4f6uhksferbw0s.webp';
-import treeHut2 from '@/images/treehouse/i58khp2kg8capjmcl9ux.webp';
-import treeHut3 from '@/images/treehouseroom/hovti9ywbnfxtbfpo9rt.webp';
-import treeHut4 from '@/images/treehouseroom/hovti9ywbnfxtbfpo9rt.webp';
+import treeHut1 from '@/images/treehouse/treehouse-2.webp';
+import treeHut2 from '@/images/treehouse/treehouse-3.webp';
+import treeHut3 from '@/images/treehouseroom/treehouseroom-4.webp';
+import treeHut4 from '@/images/treehouseroom/treehouseroom-4.webp';
 
-import dome1 from '@/images/dome/AAL04276.webp';
-import dome2 from '@/images/dome/AAL04289.webp';
-import dome3 from '@/images/dome/AAL04306.webp';
-import dome4 from '@/images/dome/AAL04291.webp';
+import dome1 from '@/images/dome/dome-1.webp';
+import dome2 from '@/images/dome/dome-4.webp';
+import dome3 from '@/images/dome/dome-7.webp';
+import dome4 from '@/images/dome/dome-5.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -160,7 +160,7 @@ export default function HomeAbout() {
 
         {/* Stay type rows — image left, content right */}
         <div className="stay-rows">
-          {stayTypes.map((stay) => (
+          {stayTypes.map((stay, idx) => (
             <div key={stay.title} className="stay-row" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -168,9 +168,11 @@ export default function HomeAbout() {
               alignItems: 'center',
               marginBottom: 'clamp(3rem, 6vw, 4.5rem)',
             }}>
-              <RotatingImageCard images={stay.images} alt={stay.title} />
+              <div style={{ order: idx % 2 === 1 ? 2 : 1 }}>
+                <RotatingImageCard images={stay.images} alt={stay.title} />
+              </div>
 
-              <div>
+              <div style={{ order: idx % 2 === 1 ? 1 : 2 }}>
                 <span style={{
                   display: 'inline-block', fontFamily: 'var(--font-sans)', fontSize: '0.62rem',
                   fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase',
@@ -242,6 +244,12 @@ export default function HomeAbout() {
       </div>
 
       <style jsx>{`
+        @media (max-width: 768px) {
+          .stay-row > div {
+            order: 0 !important;
+          }
+        }
+
         @media (max-width: 480px) {
           .about-intro {
             padding: 0 0.5rem;

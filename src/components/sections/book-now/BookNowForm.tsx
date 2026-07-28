@@ -112,7 +112,7 @@ export default function BookNowForm() {
                 </div>
                 <h4 style={{ fontFamily: 'var(--font-serif)', fontWeight: 400, fontSize: 'clamp(1.2rem, 1.8vw, 1.4rem)', color: 'var(--color-text)', marginBottom: '0.6rem' }}>Request Submitted!</h4>
                 <p style={{ fontSize: 'clamp(0.82rem, 1vw, 0.9rem)', color: 'var(--color-text-soft)', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                  Your booking request has been forwarded to our Vythiri reservations desk.
+                  Your booking request has been forwarded to our Periya reservations desk.
                 </p>
                 <div style={{ background: 'var(--color-bg-warm)', padding: 'clamp(1rem, 1.5vw, 1.2rem) clamp(1rem, 1.8vw, 1.4rem)', borderRadius: 'var(--radius)', textAlign: 'left', fontSize: 'clamp(0.78rem, 1vw, 0.85rem)', fontFamily: 'var(--font-sans)', color: 'var(--color-text-mid)', lineHeight: 1.8 }}>
                   <strong style={{ color: 'var(--color-text)', display: 'block', marginBottom: '0.4rem' }}>Booking Summary</strong>

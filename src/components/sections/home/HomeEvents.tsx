@@ -6,13 +6,13 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import eventImg1 from '@/assests/images/events/1C5A0043.webp';
-import eventImg2 from '@/assests/images/events/1C5A0034.webp';
-import eventImg3 from '@/assests/images/dining/DSC02122.webp';
-import eventImg4 from '@/assests/images/dome/AAL04291.webp';
-import eventImg5 from '@/assests/images/events/1C5A0693.webp';
-import eventImg7 from '@/assests/images/events/1C5A0037.webp';
-import eventImg8 from '@/assests/images/events/1C5A0376.webp';
+import eventImg1 from '@/assests/images/events/events-3.webp';
+import eventImg2 from '@/assests/images/events/events-1.webp';
+import eventImg3 from '@/assests/images/dining/dining-5.webp';
+import eventImg4 from '@/assests/images/dome/dome-5.webp';
+import eventImg5 from '@/assests/images/events/events-7.webp';
+import eventImg7 from '@/assests/images/events/events-2.webp';
+import eventImg8 from '@/assests/images/events/events-4.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
