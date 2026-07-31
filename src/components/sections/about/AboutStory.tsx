@@ -92,7 +92,7 @@ export default function AboutStory() {
     <section ref={ref} className="section" style={{ background: "#fff" }}>
       <div
         className="container"
-        style={{ padding: "clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)" }}>
+        style={{ padding: "0 clamp(1rem, 3vw, 2rem)" }}>
         <div
           className="story-layout"
           style={{

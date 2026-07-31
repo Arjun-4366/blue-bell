@@ -61,7 +61,7 @@ export default function HomeCTA() {
             fontWeight: 300, fontStyle: 'italic',
             color: '#fff', lineHeight: 1.1, marginBottom: 'clamp(1rem, 1.8vw, 1.4rem)', letterSpacing: '-0.015em',
           }}>
-            Your Earthen Sanctuary Awaits.
+            Your Stay in Periya Awaits.
           </h2>
 
           <p style={{
@@ -69,8 +69,8 @@ export default function HomeCTA() {
             color: 'rgba(255,255,255,0.55)', maxWidth: '480px',
             margin: '0 auto clamp(1.8rem, 3vw, 2.4rem)', lineHeight: 1.85,
           }}>
-            Reserve direct and receive a complimentary Ayurvedic welcome treatment,
-            a guided spice garden tour, and sunrise yoga session.
+            Book direct with Blue Bell — treehouses and private-pool domes on a
+            genuinely quiet stretch of Wayanad's forest.
           </p>
 
           <div className="cta-buttons" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

@@ -17,17 +17,20 @@ const ValueIcon = ({ type }: { type: string }) => {
     sparkle: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.63 5.63l2.83 2.83M15.54 15.54l2.83 2.83M5.63 18.37l2.83-2.83M15.54 8.46l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>,
     heart: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>,
     users: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    landmark: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>,
+    layers: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.91a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>,
+    star: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+    lock: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>,
   };
   return icons[type] || null;
 };
 
 const values = [
-  { iconType: 'leaf',      title: 'Sustainability First',    desc: 'Every decision at Blue Bell is guided by our commitment to preserving Wayanad\'s precious rainforest ecosystem for future generations.' },
-  { iconType: 'handshake', title: 'Authentic Hospitality',   desc: 'We practice the ancient tradition of "Atithi Devo Bhava" — the guest is divine. Every visitor is welcomed with genuine warmth.' },
-  { iconType: 'palette',   title: 'Cultural Preservation',   desc: 'We support local weavers, promote tribal art forms, and preserve the rich indigenous heritage of the Western Ghats.' },
-  { iconType: 'sparkle',   title: 'Effortless Comfort',      desc: 'True luxury is subtle. We obsess over details so our guests can simply disconnect, breathe deeply, and find peace.' },
-  { iconType: 'heart',     title: 'Holistic Wellness',       desc: 'Rooted in ancient Ayurveda and traditional healing, we design paths for complete rejuvenation of body, mind, and spirit.' },
-  { iconType: 'users',     title: 'Local Empowerment',       desc: 'We employ local craftspeople, guide plantation tours with native experts, and source fresh ingredients from nearby farms.' },
+  { iconType: 'landmark', title: 'Rooted in Periya\'s History', desc: 'The land carries a real piece of Kerala\'s past — Periya\'s terrain was part of the ground Pazhassi Raja\'s forces used against the British, a history still traced today at the nearby Pazhassi Museum.' },
+  { iconType: 'layers',   title: 'Two Ways to Stay, One Property', desc: 'Treehouses and private-pool domes, both suited to families and couples — Blue Bell was built around both from day one in Periya.' },
+  { iconType: 'star',     title: 'Trusted by Real Guests',   desc: 'A 4.6★ rating on Google, from guests who\'ve actually stayed — not a number we chose for ourselves.' },
+  { iconType: 'leaf',     title: 'A Quiet Forest Setting',   desc: 'Periya sits in Wayanad\'s quieter northern belt — mist over the forest most mornings, and none of the crowds found elsewhere in the region.' },
+  { iconType: 'lock',     title: 'Real Privacy, Built In',   desc: 'Every dome comes with its own private pool, and each treehouse floor has one too — privacy that comes standard.' },
 ];
 
 export default function AboutValues() {
@@ -60,7 +63,7 @@ export default function AboutValues() {
 
   return (
     <section ref={ref} className="section-tint">
-      <div className="container" style={{ padding: 'clamp(1rem, 2.5vw, 1.8rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 4rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         <div style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 5rem)' }}>
           <span className="section-label">What We Stand For</span>
           <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>Our Core Values</h2>

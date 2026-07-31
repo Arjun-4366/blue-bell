@@ -39,7 +39,7 @@ export default function AmenitiesOverview() {
 
   return (
     <section ref={ref} className="section" style={{ background: 'linear-gradient(to bottom, var(--color-bg-warm), #fff)' }}>
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         <div className="am-header" style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 5rem)' }}>
           <span className="section-label">At a Glance</span>
           <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>Simple Amenities, Done Right</h2>

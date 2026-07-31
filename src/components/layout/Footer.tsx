@@ -12,7 +12,6 @@ const footerLinks = {
     { label: 'Gallery', href: '/gallery' },
   ],
   Discover: [
-    { label: 'Events', href: '/events' },
     { label: 'Reviews', href: '/reviews' },
     { label: 'Contact', href: '/contact' },
     { label: 'Book Now', href: '/book-now' },

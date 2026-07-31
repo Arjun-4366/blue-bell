@@ -6,20 +6,20 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import gallery1 from '@/images/dome/dome-5.webp';
-import gallery2 from '@/images/dining/dining-1.webp';
-import gallery3 from '@/images/treehouseroom/treehouseroom-1.webp';
-import gallery4 from '@/images/treehouse/treehouse-5.webp';
-import gallery5 from '@/images/dining/dining-5.webp';
+import gallery1 from '@/images/treehouse/treehouse-7.webp';
+import gallery2 from '@/images/dome/dome-3.webp';
+import gallery3 from '@/images/treehouse/treehouse-3.webp';
+import gallery4 from '@/images/dome/dome-15.jpeg';
+import gallery5 from '@/images/dining/dining-4.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const images = [
-  { src: gallery1, size: 'large',  label: 'Earthen Dome Pathway' },
-  { src: gallery2, size: 'small',  label: 'Gourmet Malabar Dining' },
-  { src: gallery3, size: 'small',  label: 'Luxury Treehouse Suite' },
-  { src: gallery4, size: 'medium', label: 'Misty Treehouse Canopy' },
-  { src: gallery5, size: 'medium', label: 'Main Lodge & Restaurant' },
+  { src: gallery1, size: 'large', label: 'Tree trunk' },
+  { src: gallery2, size: 'small', label: 'Ceaser Canopy' },
+  { src: gallery3, size: 'small', label: 'Tree Hut' },
+  { src: gallery4, size: 'small', label: 'Simbas Den' },
+  { src: gallery5, size: 'small', label: 'Dining' },
 ];
 
 export default function HomeGallery() {
@@ -37,7 +37,7 @@ export default function HomeGallery() {
 
   return (
     <section ref={ref} className="section-tint">
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         {/* Header */}
         <div className="gallery-header" style={{
           display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
@@ -58,7 +58,7 @@ export default function HomeGallery() {
           gridAutoRows: 'clamp(140px, 18vw, 260px)',
         }}>
           {images.map((img, i) => {
-            const colSpan = img.size === 'large' ? 'span 6' : img.size === 'medium' ? 'span 6' : 'span 4';
+            const colSpan = img.size === 'large' ? 'span 6' : 'span 3';
             const rowSpan = img.size === 'large' ? 'span 2' : 'span 1';
             return (
               <div key={i} className="gallery-tile" data-size={img.size} style={{
@@ -112,17 +112,12 @@ export default function HomeGallery() {
             gap: 0.6rem !important;
             grid-auto-rows: clamp(120px, 25vw, 200px) !important;
           }
-          
+
           .gallery-tile[data-size="large"] {
             grid-column: span 6 !important;
-            grid-row: span 2 !important;
-          }
-          
-          .gallery-tile[data-size="medium"] {
-            grid-column: span 3 !important;
             grid-row: span 1 !important;
           }
-          
+
           .gallery-tile[data-size="small"] {
             grid-column: span 3 !important;
             grid-row: span 1 !important;
@@ -156,17 +151,12 @@ export default function HomeGallery() {
             gap: 0.5rem !important;
             grid-auto-rows: clamp(100px, 30vw, 160px) !important;
           }
-          
+
           .gallery-tile[data-size="large"] {
-            grid-column: span 2 !important;
-            grid-row: span 2 !important;
-          }
-          
-          .gallery-tile[data-size="medium"] {
             grid-column: span 2 !important;
             grid-row: span 1 !important;
           }
-          
+
           .gallery-tile[data-size="small"] {
             grid-column: span 1 !important;
             grid-row: span 1 !important;

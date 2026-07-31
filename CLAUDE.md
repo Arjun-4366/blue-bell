@@ -19,12 +19,24 @@ Domain (already owned, on GoDaddy): `bluebellwayand.com`.
 ## Project structure
 
 - `src/app/` — one folder per route (`about`, `stays`, `book-now`, etc.), each with a
-  thin `page.tsx` that composes section components
+  thin `page.tsx` that composes section components. `stays/[slug]/page.tsx` is a
+  dynamic route (Next 16 async `params`) rendering one detail page per stay via
+  `generateStaticParams`.
 - `src/components/layout/` — `Navbar`, `Footer`, `PageHero` (generic sub-page hero),
   `WhatsAppButton`
 - `src/components/sections/<page>/` — the actual content blocks per page
-  (e.g. `sections/home/Hero.tsx`, `sections/stays/StaysList.tsx`)
+  (e.g. `sections/home/Hero.tsx`, `sections/stays/StaysList.tsx`,
+  `sections/stays/StayDetailHero.tsx` / `StayDetailInfo.tsx` for the `/stays/[slug]`
+  detail page)
 - `src/components/providers/LenisProvider.tsx`
+- `src/data/stays.ts` — single source of truth for all 10 real room/stay units
+  (Dome D1–D5, Tree Hut B1–B3, Tree Trunk A1–A3): rates, meal plans,
+  features, inclusions, and images. Consumed by the `/stays` overview list,
+  `/stays/[slug]` detail pages, and the `BookNowForm` stay-type dropdown — update
+  stay data here, not in the components. The home page's stay teaser
+  (`HomeAbout.tsx`) is a separate, hand-written 3-category narrative (Tree Trunk /
+  Tree Hut / Domes) that doesn't pull from this file — a `FeaturedStays.tsx` card
+  grid was tried and removed as redundant with it.
 - `src/assests/images/` — **note the typo is intentional/existing** (`assests`, not
   `assets`) — don't "fix" it, it'll break every import
 - `src/app/globals.css` — design tokens + shared utility classes (see below)
@@ -83,10 +95,13 @@ not as a dominant color.
 
 ## Pricing
 
-**No prices are shown anywhere on the site right now** — booking isn't live, so all
-`price`/`₹` fields and displays were deliberately stripped from `StaysList.tsx`,
-`FeaturedStays.tsx`, `EventsList.tsx`, `HomeEvents.tsx`, and `BookNowForm.tsx`. When
-real booking/pricing launches, that's the set of files to revisit.
+**Room rates ARE shown** on the `/stays` overview cards (`StaysList.tsx`) and stay
+detail pages (`/stays/[slug]`, via `StayDetailHero.tsx`) — reversing the earlier
+no-pricing decision. The user supplied real per-room rates (see `src/data/stays.ts`)
+and asked for them to display even though live booking/payment isn't wired up yet;
+showing a starting nightly rate doesn't require real-time availability.
+`EventsList.tsx` / `HomeEvents.tsx` still have no pricing (no rates were provided for
+events) — revisit those separately if/when event pricing is supplied.
 
 ## Known technical debt / open items
 

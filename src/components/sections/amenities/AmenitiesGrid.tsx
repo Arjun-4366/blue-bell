@@ -7,6 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import campfireImg from '@/assests/images/amenities/campfire.webp';
 import bbqImg from '@/assests/images/amenities/bbq.webp';
 import kidsParkImg from '@/assests/images/amenities/kids-park.webp';
+import eventimg from '@/images/events/events-1.webp'
+import tableTennis from '@/images/amenities/table tennis.webp'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,15 +41,16 @@ const amenities = [
     title: 'Indoor Games Room',
     category: 'Indoors',
     accent: 'var(--brand-cyan)',
-    image: 'https://images.unsplash.com/photo-1767619834318-63184920c4b1?w=1400&q=80&fit=crop',
+    image: tableTennis,
     imageAlt: 'Close-up of hands playing carrom',
-    desc: 'Carrom, board games, and a few quiet corners for when the weather turns or the afternoon calls for something unhurried.',
+    desc: 'A range of indoor games and a few quiet corners for when the weather turns or the afternoon calls for something unhurried.',
   },
+
   {
     title: 'Events Hall',
     category: 'Gatherings',
     accent: 'var(--brand-blue)',
-    image: 'https://images.unsplash.com/photo-1505409859467-3a796fd5798e?w=1400&q=80&fit=crop',
+    image: eventimg,
     imageAlt: 'Small indoor hall set up for a family gathering',
     desc: 'A cosy indoor hall for small celebrations, family functions, and get-togethers — a modest, dedicated space right on the property when guests want somewhere of their own to gather.',
   },
@@ -68,7 +71,7 @@ export default function AmenitiesGrid() {
 
   return (
     <section ref={ref} className="section" style={{ background: '#fff' }}>
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         <div style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 5rem)' }}>
           <span className="section-label">The Amenities</span>
           <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>Things We Actually Offer</h2>

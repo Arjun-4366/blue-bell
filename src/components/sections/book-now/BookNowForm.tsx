@@ -1,15 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { stayCategories, getStaysByCategory } from '@/data/stays';
 
-const villasList = [
-  { id: 'treehouse',       name: 'Canopy Treehouse Suite' },
-  { id: 'dome',           name: 'Earthen Dome Sanctuary' },
-  { id: 'nest',           name: 'Treehouse Nesting Room' },
-  { id: 'pool-dome',      name: 'Earthen Pool Dome' },
-  { id: 'bamboo',         name: 'Whispering Bamboo Treehouse' },
-  { id: 'canopy-suite',   name: 'Treehouse Canopy Suite' },
-];
+const villaGroups = stayCategories
+  .map((category) => ({ category, options: getStaysByCategory(category.slug) }))
+  .filter((group) => group.options.length > 0);
+
+const villasList = villaGroups.flatMap((group) => group.options);
 
 const benefitIcons = [
   // Price tag
@@ -50,14 +48,14 @@ export default function BookNowForm() {
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '',
     checkIn: '', checkOut: '', guests: '2',
-    villaType: 'treehouse', notes: '',
+    villaType: villasList[0]?.slug ?? '', notes: '',
   });
 
   const update = (field: keyof typeof formData, val: string) => setFormData({ ...formData, [field]: val });
 
   return (
     <section className="section" style={{ background: '#fff' }}>
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         <div className="booking-layout" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -120,7 +118,7 @@ export default function BookNowForm() {
                   Check-In: {formData.checkIn}<br />
                   Check-Out: {formData.checkOut}<br />
                   Guests: {formData.guests}<br />
-                  Villa: {villasList.find(v => v.id === formData.villaType)?.name}
+                  Stay: {villasList.find(v => v.slug === formData.villaType)?.name}
                 </div>
                 <p style={{ fontSize: 'clamp(0.7rem, 0.9vw, 0.78rem)', color: 'var(--color-text-soft)', marginTop: '1.2rem' }}>
                   We will call or email within 2 hours to confirm your dates.
@@ -154,9 +152,13 @@ export default function BookNowForm() {
                 </div>
                 <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(0.7rem, 1.2vw, 1rem)' }}>
                   <div>
-                    <label htmlFor="villa-type" style={labelStyle}>Villa / Suite</label>
+                    <label htmlFor="villa-type" style={labelStyle}>Stay Type</label>
                     <select id="villa-type" value={formData.villaType} onChange={(e) => update('villaType', e.target.value)} style={inputStyle} className="bb-input">
-                      {villasList.map(v => <option key={v.id} value={v.id}>{v.name}</option>)}
+                      {villaGroups.map(({ category, options }) => (
+                        <optgroup key={category.slug} label={category.name}>
+                          {options.map(v => <option key={v.slug} value={v.slug}>{v.name}</option>)}
+                        </optgroup>
+                      ))}
                     </select>
                   </div>
                   <div>

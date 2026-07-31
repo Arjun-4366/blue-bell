@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import GalleryHero from '@/components/sections/gallery/GalleryHero';
 import GalleryGrid from '@/components/sections/gallery/GalleryGrid';
+import HomeCTA from '@/components/sections/home/HomeCTA';
 
 export const metadata: Metadata = {
   title: 'Gallery | Blue Bell Resort – Wayanad, Kerala',
@@ -12,6 +13,7 @@ export default function GalleryPage() {
     <>
       <GalleryHero />
       <GalleryGrid />
+      <HomeCTA />
     </>
   );
 }

@@ -9,24 +9,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const faqs = [
   {
+    question: 'What\'s the difference between the Tree Trunk and the Tree Hut?',
+    answer: 'Both are three-floor treehouse stays, but built for different groups. The Tree Trunk is non-AC and made for two — a private room on each floor, best for couples. The Tree Hut is air-conditioned and built for families, comfortably fitting 3-4 guests per room with an extra bed available.',
+  },
+  {
     question: 'How do I reach Blue Bell Resort in Wayanad?',
-    answer: 'We are located in Periya, in Wayanad\'s quieter northern belt, and are easily reached from both Bangalore and Mysore. The nearest airport is Calicut International Airport (CCJ). We offer premium private airport transfers upon request.',
+    answer: 'Blue Bell is in Periya, in Wayanad\'s quieter northern belt, easily reached from both Bangalore and Mysore — making it a natural weekend option for Karnataka travelers as well as guests from within Kerala.',
+  },
+  {
+    question: 'Can guests choose their meals, and is a candlelight dinner available?',
+    answer: 'Yes — the in-house kitchen serves North Indian, South Indian, and Chinese food, so guests choose what suits them rather than a fixed set menu. Candlelight dinner is also available, as per wants.',
   },
   {
     question: 'What are the check-in and check-out timings?',
-    answer: 'Standard check-in is at 2:00 PM and check-out at 11:00 AM. Early check-in or late check-out is available based on availability and may incur a nominal charge.',
+    answer: 'Check-in is at 2 PM and check-out is at 11 AM.',
   },
   {
-    question: 'Is high-speed Wi-Fi available at the resort?',
-    answer: 'Yes — complimentary high-speed fibre Wi-Fi is available throughout all sanctuaries and public spaces, ensuring you stay connected while immersed in nature.',
-  },
-  {
-    question: 'Are spa treatments included in the room rates?',
-    answer: 'Standard rates do not include full spa packages, though most direct bookings include a complimentary 15-minute Ayurvedic welcome foot massage. We recommend booking wellness packages in advance.',
-  },
-  {
-    question: 'What is your cancellation policy?',
-    answer: 'Free cancellation is available if requested 14 days or more before check-in. Cancellations within 14 days are subject to a one-night charge.',
+    question: 'What\'s with all the artwork on the walls at Blue Bell?',
+    answer: 'It\'s not decoration for its own sake — the artistic, tribal-inspired walls are Blue Bell\'s way of keeping the stay connected to Periya and Wayanad\'s own local culture.',
   },
 ];
 
@@ -46,7 +46,7 @@ export default function HomeFAQ() {
 
   return (
     <section ref={ref} className="section" style={{ background: '#fff' }}>
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         <div className="faq-layout" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',

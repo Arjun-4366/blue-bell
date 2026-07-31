@@ -86,7 +86,7 @@ export default function GalleryGrid() {
 
   return (
     <section ref={ref} className="section" style={{ background: '#fff' }}>
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         {/* Filters */}
         <div className="gallery-filters" style={{ 
           display: 'flex', gap: 'clamp(0.4rem, 0.8vw, 0.6rem)', 

@@ -88,7 +88,7 @@ export default function ContactForm() {
   return (
     <section className="section" style={{ background: '#fff' }}>
       <style>{inputFocus}</style>
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         <div className="contact-layout" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',

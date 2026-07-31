@@ -74,7 +74,7 @@ export default function EventsList() {
 
   return (
     <section ref={ref} className="section" style={{ background: '#fafbfc' }}>
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         
         {/* Title */}
         <div style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>

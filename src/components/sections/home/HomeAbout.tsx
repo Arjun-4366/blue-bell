@@ -2,23 +2,24 @@
 import { useEffect, useRef, useState } from 'react';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import treeTrunk1 from '@/images/treehouse/treehouse-7.webp';
 import treeTrunk2 from '@/images/treehouse/treehouse-6.webp';
-import treeTrunk3 from '@/images/treehouseroom/treehouseroom-4.webp';
-import treeTrunk4 from '@/images/treehouseroom/treehouseroom-8.webp';
+import treeTrunk3 from '@/images/treehouseroom/treehouseroom-5.webp';
+import treeTrunk4 from '@/images/treehouseroom/treehouseroom-7.webp';
 
 import treeHut1 from '@/images/treehouse/treehouse-2.webp';
 import treeHut2 from '@/images/treehouse/treehouse-3.webp';
-import treeHut3 from '@/images/treehouseroom/treehouseroom-4.webp';
-import treeHut4 from '@/images/treehouseroom/treehouseroom-4.webp';
+import treeHut3 from '@/images/treehouseroom/treehouseroom-1.webp';
+import treeHut4 from '@/images/treehouseroom/treehouseroom-3.webp';
 
 import dome1 from '@/images/dome/dome-1.webp';
-import dome2 from '@/images/dome/dome-4.webp';
+import dome2 from '@/images/dome/dome-13.jpeg';
 import dome3 from '@/images/dome/dome-7.webp';
-import dome4 from '@/images/dome/dome-5.webp';
+import dome4 from '@/images/dome/dome-14.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,19 +28,19 @@ const stayTypes = [
     title: 'Tree Trunk',
     tag: 'Best for Couples',
     images: [treeTrunk1, treeTrunk2, treeTrunk3,treeTrunk4],
-    desc: "Have you ever wanted to sleep inside the trunk of a tree, three floors above the ground, with the Periya mist still sitting on the hills when you wake up? Our Tree Trunk stay is exactly that — one private room on each floor, a single trunk-shaped structure, pool access, and built for two.",
+    desc: 'One private room on every floor of a single trunk-shaped structure, with pool access — built for two.',
   },
   {
     title: 'Tree Hut',
     tag: 'Best for Families',
     images: [treeHut1, treeHut2, treeHut3,treeHut4],
-    desc: "Our Tree Hut is the same three-floor design, built instead for families — air-conditioned, with room for 2–3 guests. Same forest, same pool, just built to hold a few more people.",
+    desc: 'The same three-floor design, air-conditioned and built for families — room for 3–4 guests, same forest, same pool.',
   },
   {
     title: 'Domes',
     tag: 'Best for Couples & Families',
     images: [dome1, dome2, dome3,dome4],
-    desc: "Our five domes are built around their own private pools — each dome has its own name and its own pool. Dumbo Vault pairs two domes around one shared pool, built for 3–4 guests.",
+    desc: 'Private-pool earthen domes for couples, plus Dumbo Vault — two domes sharing one pool, built for up to 4.',
   },
 ];
 
@@ -137,7 +138,7 @@ export default function HomeAbout() {
 
   return (
     <section ref={sectionRef} className="section" style={{ background: '#fff' }}>
-      <div className="container" style={{ padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)' }}>
+      <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
 
         {/* Intro */}
         <div className="about-intro" style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto clamp(3rem, 6vw, 4.5rem)' }}>
@@ -188,9 +189,12 @@ export default function HomeAbout() {
                   {stay.title}
                 </h3>
                 <div className="divider" />
-                <p style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1rem)', lineHeight: 1.85, color: 'var(--color-text-mid)' }}>
+                <p style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1rem)', lineHeight: 1.85, color: 'var(--color-text-mid)', marginBottom: '1.4rem' }}>
                   {stay.desc}
                 </p>
+                <Link href="/stays" className="btn btn-outline-dark" style={{ padding: '0.7rem 1.6rem', fontSize: '0.63rem' }}>
+                  View Stays
+                </Link>
               </div>
             </div>
           ))}
