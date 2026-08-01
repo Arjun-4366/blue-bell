@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Playfair_Display, Plus_Jakarta_Sans, Alex_Brush } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -46,6 +46,11 @@ export const metadata: Metadata = {
     description: "Nestled in the misty hills of Wayanad, Blue Bell Resort offers an unparalleled luxury escape amidst nature.",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({

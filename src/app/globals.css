@@ -46,6 +46,11 @@
 
 /* ─── RESET ──────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* Site is light-only by design — without this, Android/Samsung Internet's
+   forced-dark heuristics and OS/battery-saver dark modes will try to
+   auto-repaint colors, washing out the brand theme and flipping native
+   form controls/scrollbars dark. This opts every element out of that. */
+:root { color-scheme: light only; }
 html { scroll-behavior: auto; overflow-x: hidden; }
 body {
   font-family: var(--font-sans);
