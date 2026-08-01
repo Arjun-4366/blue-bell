@@ -65,7 +65,7 @@ export default function StaysList() {
                   gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                   gap: 'clamp(1rem, 2.5vw, 1.8rem)',
                 }}>
-                  {categoryStays.map((stay, stayIdx) => (
+                  {categoryStays.map((stay) => (
                     <div key={stay.slug} className="stay-card" style={{
                       background: '#fff', borderRadius: 'var(--radius)',
                       overflow: 'hidden',
@@ -91,7 +91,6 @@ export default function StaysList() {
                             images={stay.images}
                             alt={stay.name}
                             sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                            startIndex={stayIdx * 2}
                           />
                         </div>
                         <span className="stay-tag" style={{

@@ -12,19 +12,19 @@ const villasList = villaGroups.flatMap((group) => group.options);
 const benefitIcons = [
   // Price tag
   <svg key="price" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>,
-  // Spa leaf
-  <svg key="spa" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>,
+  // Info
+  <svg key="info" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>,
   // Upgrade arrow
   <svg key="upgrade" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/><path d="M6 21V9"/><path d="M18 21V9"/></svg>,
-  // Calendar
-  <svg key="cal" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>,
+  // Utensils
+  <svg key="food" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>,
 ];
 
 const benefits = [
-  { title: 'Best Rate Guaranteed',        desc: 'No booking agent commissions. Direct reservations always receive our lowest guaranteed rates.', iconIdx: 0 },
-  { title: 'Complimentary Welcome Massage', desc: 'Relax on arrival with a complimentary 15-minute Ayurvedic foot therapy.', iconIdx: 1 },
-  { title: 'Priority Villa Upgrades',     desc: 'Enjoy complimentary villa upgrades based on availability at check-in.', iconIdx: 2 },
-  { title: 'Flexible Cancellations',      desc: 'Change or cancel bookings up to 14 days before arrival at no charge.', iconIdx: 3 },
+  { title: 'No OTA Commissions',        desc: 'Book direct and skip the commission markups added by third-party travel sites — the same stay, at a fairer price.', iconIdx: 0 },
+  { title: 'Know the Resort Inside Out', desc: 'Our team walks you through detailed information on the resort, rooms, and amenities before you confirm, so you know exactly what you’re booking.', iconIdx: 1 },
+  { title: 'More Nights, Bigger Savings', desc: 'Stay two nights or more and you’ll automatically get our maximum available discount on direct bookings.', iconIdx: 2 },
+  { title: 'Meals Made Your Way',        desc: 'Let us know your food preferences and dietary needs in advance, and our kitchen will prepare your meals accordingly.', iconIdx: 3 },
 ];
 
 const inputStyle: React.CSSProperties = {

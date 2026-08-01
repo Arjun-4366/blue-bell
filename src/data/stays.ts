@@ -1,17 +1,17 @@
 import { StaticImageData } from 'next/image';
 
-import dome1 from '@/images/dome/dome-1.webp';
 import dome2 from '@/images/dome/dome-2.webp';
-import dome3 from '@/images/dome/dome-3.webp';
 import dome4 from '@/images/dome/dome-4.webp';
 import dome5 from '@/images/dome/dome-5.webp';
 import dome6 from '@/images/dome/dome-6.webp';
-import dome7 from '@/images/dome/dome-7.webp';
-import dome8 from '@/images/dome/dome-8.webp';
-import dome9 from '@/images/dome/dome-9.webp';
-import dome10 from '@/images/dome/dome-10.webp';
-import dome11 from '@/images/dome/dome-11.webp';
-import dome12 from '@/images/dome/dome-12.webp';
+import dome13 from '@/images/dome/dome-13.jpeg';
+import dome14 from '@/images/dome/dome-14.jpeg';
+import dome15 from '@/images/dome/dome-15.jpeg';
+import dome16 from '@/images/dome/dome-16.jpeg';
+import dome17 from '@/images/dome/dome-17.jpeg';
+import dome18 from '@/images/dome/dome-18.jpeg';
+import dome19 from '@/images/dome/dome-19.webp';
+import dome20 from '@/images/dome/dome-20.webp';
 import treehouse2 from '@/images/treehouse/treehouse-2.webp';
 import treehouse3 from '@/images/treehouse/treehouse-3.webp';
 import treehouse6 from '@/images/treehouse/treehouse-6.webp';
@@ -21,6 +21,12 @@ import treehouseroom2 from '@/images/treehouseroom/treehouseroom-2.webp';
 import treehouseroom3 from '@/images/treehouseroom/treehouseroom-3.webp';
 import treehouseroom5 from '@/images/treehouseroom/treehouseroom-5.webp';
 import treehouseroom7 from '@/images/treehouseroom/treehouseroom-7.webp';
+import treehutB1 from '@/images/treehouseroom/treehut b1.jpeg';
+import treehutB2 from '@/images/treehouseroom/treehut b2.jpeg';
+import treehutB3 from '@/images/treehouseroom/treehut b3.jpeg';
+import treetrunkA1 from '@/images/treehouseroom/treetrunk A1.jpeg';
+import treetrunkA2 from '@/images/treehouseroom/treetrunk A2.jpeg';
+import treetrunkA3 from '@/images/treehouseroom/treetrunk A3.jpeg';
 
 export type CategorySlug = 'dome' | 'tree-hut' | 'tree-trunk';
 
@@ -100,7 +106,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [dome1, dome2, dome3],
+    images: [dome4,dome14,dome13,dome5],
     featured: false,
   },
   {
@@ -128,7 +134,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [dome4, dome5, dome6],
+    images: [dome6, dome2, dome14, dome15],
     featured: true,
   },
   {
@@ -156,7 +162,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [dome7, dome8, dome9],
+    images: [dome16, dome17, dome18],
     featured: false,
   },
   {
@@ -183,7 +189,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [dome10, dome11, dome12],
+    images: [dome19, dome13, dome20, dome14],
     featured: true,
   },
   {
@@ -210,7 +216,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehouse2, treehouse3, treehouseroom1, treehouseroom3, treehouseroom5, treehouseroom7],
+    images: [treehutB1, treehouse2, treehouse3, treehouseroom1, treehouseroom3, treehouseroom5, treehouseroom7],
     featured: true,
   },
   {
@@ -237,7 +243,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehouse2, treehouse3, treehouseroom1, treehouseroom3, treehouseroom5, treehouseroom7],
+    images: [treehutB2, treehouseroom1, treehouseroom3, treehouseroom5, treehouseroom7, treehouse2, treehouse3],
     featured: false,
   },
   {
@@ -264,7 +270,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehouse2, treehouse3, treehouseroom1, treehouseroom3, treehouseroom5, treehouseroom7],
+    images: [treehutB3, treehouseroom5, treehouseroom7, treehouse2, treehouse3, treehouseroom1, treehouseroom3],
     featured: false,
   },
   {
@@ -291,7 +297,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehouseroom3, treehouse7, treehouse6, treehouseroom5, treehouseroom7],
+    images: [treetrunkA1, treehouseroom1, treehouseroom2, treehouseroom3, treehouse6, treehouse7],
     featured: false,
   },
   {
@@ -318,7 +324,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehouseroom1, treehouse7, treehouse6, treehouseroom5, treehouseroom7],
+    images: [treetrunkA2, treehouseroom3, treehouse6, treehouse7, treehouseroom1, treehouseroom2],
     featured: false,
   },
   {
@@ -345,7 +351,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehouseroom2, treehouse7, treehouse6, treehouseroom5, treehouseroom7],
+    images: [treetrunkA3, treehouse7, treehouseroom1, treehouseroom2, treehouseroom3, treehouse6],
     featured: true,
   },
 ];
