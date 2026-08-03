@@ -121,10 +121,10 @@ export default function AboutStory() {
               }}>
               Established in 2020, Blue Bell Resort is one of Wayanad's
               best-known treehouse resorts, built around three ways to stay: the
-              Tree Trunk for couples, the Tree Hut for families, and five
-              private-pool domes suited to both. Guests can choose between
-              treehouses raised nearly 35 feet into the canopy, or domes with
-              their own private pool.
+              Tree Trunk and the Tree Hut, both made for two per room, and five
+              private-pool domes — including Dumbo Vault, built for families of
+              up to four. Guests can choose between treehouses raised nearly 35
+              feet into the canopy, or domes with their own private pool.
             </p>
             <p
               style={{
@@ -160,8 +160,8 @@ export default function AboutStory() {
               the property, and birdlife is loud enough to notice without a
               guided walk. The in-house kitchen serves North Indian, South
               Indian, and Chinese food, for groups who don't all want the same
-              thing for dinner. Whether it's a family stay in the Tree Hut or a
-              private-pool dome for a couple's getaway, Blue Bell answers both
+              thing for dinner. Whether it's a couple's stay in the Tree Hut or
+              a family stay in a private-pool dome, Blue Bell answers both
               from the same forested address in Periya.
             </p>
           </div>

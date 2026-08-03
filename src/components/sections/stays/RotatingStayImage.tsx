@@ -38,6 +38,7 @@ export default function RotatingStayImage({ images, alt, sizes, intervalMs = 320
             inset: 0,
             opacity: i === active ? 1 : 0,
             transition: 'opacity 1.4s ease',
+            filter: 'brightness(1.12)',
           }}
         />
       ))}

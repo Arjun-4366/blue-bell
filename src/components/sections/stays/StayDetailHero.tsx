@@ -54,6 +54,7 @@ export default function StayDetailHero({ stay, category }: StayDetailHeroProps) 
                     objectFit: 'cover', position: 'absolute', inset: 0,
                     opacity: i === activeIdx ? 1 : 0,
                     transition: 'opacity 1.2s ease',
+                    filter: 'brightness(1.12)',
                   }}
                   placeholder="blur"
                   priority={i === 0}
@@ -84,7 +85,7 @@ export default function StayDetailHero({ stay, category }: StayDetailHeroProps) 
                       transition: 'opacity 0.25s ease, border-color 0.25s ease',
                     }}
                   >
-                    <Image src={img} alt="" fill sizes="84px" style={{ objectFit: 'cover' }} />
+                    <Image src={img} alt="" fill sizes="84px" style={{ objectFit: 'cover', filter: 'brightness(1.12)' }} />
                   </button>
                 ))}
               </div>

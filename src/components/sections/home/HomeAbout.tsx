@@ -6,15 +6,15 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import treeTrunk1 from '@/images/treehouse/treehouse-7.webp';
-import treeTrunk2 from '@/images/treehouse/treehouse-6.webp';
-import treeTrunk3 from '@/images/treehouseroom/treehouseroom-5.webp';
-import treeTrunk4 from '@/images/treehouseroom/treehouseroom-7.webp';
+import treeHut1 from '@/images/treehouse/treehouse-7.webp';
+import treeHut2 from '@/images/treehouse/treehouse-6.webp';
+import treeHut3 from '@/images/treehouseroom/treehut/treehut B2-1.webp';
+import treeHut4 from '@/images/treehouseroom/treehut/treehut B2-2.webp';
 
-import treeHut1 from '@/images/treehouse/treehouse-2.webp';
-import treeHut2 from '@/images/treehouse/treehouse-3.webp';
-import treeHut3 from '@/images/treehouseroom/treehouseroom-1.webp';
-import treeHut4 from '@/images/treehouseroom/treehouseroom-3.webp';
+import treeTrunk1 from '@/images/treehouse/treehouse-2.webp';
+import treeTrunk2 from '@/images/treehouse/treehouse-3.webp';
+import treeTrunk3 from '@/images/treehouseroom/treetrunk/treetrunk A3-1.webp';
+import treeTrunk4 from '@/images/treehouseroom/treetrunk/treetrunk A2-1.webp';
 
 import dome1 from '@/images/dome/dome-1.webp';
 import dome2 from '@/images/dome/dome-13.jpeg';
@@ -32,9 +32,9 @@ const stayTypes = [
   },
   {
     title: 'Tree Hut',
-    tag: 'Best for Families',
+    tag: 'Best for Couples',
     images: [treeHut1, treeHut2, treeHut3,treeHut4],
-    desc: 'The same three-floor design, air-conditioned and built for families — room for 3–4 guests, same forest, same pool.',
+    desc: 'The same three-floor design with three rooms per level, air-conditioned — built for two per room, same forest, same pool.',
   },
   {
     title: 'Domes',

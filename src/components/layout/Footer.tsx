@@ -110,13 +110,14 @@ export default function Footer() {
             {/* Social icons */}
             <div style={{ display: 'flex', gap: '0.75rem', marginTop: 'clamp(1.5rem, 2.5vw, 2rem)' }}>
               {[
-                { label: 'Instagram', icon: <IconInstagram /> },
-                { label: 'Facebook', icon: <IconFacebook /> },
-                { label: 'X (Twitter)', icon: <IconX /> },
+                { label: 'Instagram', icon: <IconInstagram />,href:"https://www.instagram.com/bluebell_wayanad?igsh=N3lsZmd6bGhpY3By" },
+                { label: 'Facebook', icon: <IconFacebook />,href:"https://www.facebook.com/share/1DFmvkGUuo/" },
               ].map((s) => (
                 <a
                   key={s.label}
-                  href="#"
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
                   style={{
                     width: 'clamp(34px, 4.5vw, 38px)', height: 'clamp(34px, 4.5vw, 38px)',

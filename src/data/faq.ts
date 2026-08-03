@@ -1,7 +1,7 @@
 export const faqs = [
   {
     question: 'What\'s the difference between the Tree Trunk and the Tree Hut?',
-    answer: 'Both are three-floor treehouse stays, but built for different groups. The Tree Trunk is non-AC and made for two — a private room on each floor, best for couples. The Tree Hut is air-conditioned and built for families, comfortably fitting 3-4 guests per room with an extra bed available.',
+    answer: 'Both are three-floor treehouse stays, and each room is made for two. The Tree Trunk is non-AC, with one private room on every floor — best for couples. The Tree Hut is air-conditioned, with three rooms sharing every floor — also made for two per room, best for couples who\'d prefer AC.',
   },
   {
     question: 'How do I reach Blue Bell Resort in Wayanad?',

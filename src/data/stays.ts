@@ -12,26 +12,37 @@ import dome17 from '@/images/dome/dome-17.jpeg';
 import dome18 from '@/images/dome/dome-18.jpeg';
 import dome19 from '@/images/dome/dome-19.webp';
 import dome20 from '@/images/dome/dome-20.webp';
-import treehouse2 from '@/images/treehouse/treehouse-2.webp';
-import treehouse3 from '@/images/treehouse/treehouse-3.webp';
+import d1Pool from '@/images/dome/D1 pool.jpeg';
+import d2Pool from '@/images/dome/D2 pool.jpeg';
+import d3Pool from '@/images/dome/D3 pool.jpeg';
+import d4d5Pool from '@/images/dome/D4&D5 pool.jpeg';
+// Shared/common shots — swapped: these actually depict the Tree Hut structure,
+// not Tree Trunk (previously misassigned), so they're used on the Tree Hut rooms.
 import treehouse6 from '@/images/treehouse/treehouse-6.webp';
 import treehouse7 from '@/images/treehouse/treehouse-7.webp';
-import treehouseroom1 from '@/images/treehouseroom/treehouseroom-1.webp';
-import treehouseroom2 from '@/images/treehouseroom/treehouseroom-2.webp';
-import treehouseroom3 from '@/images/treehouseroom/treehouseroom-3.webp';
-import treehouseroom5 from '@/images/treehouseroom/treehouseroom-5.webp';
-import treehouseroom7 from '@/images/treehouseroom/treehouseroom-7.webp';
-import treehutB1 from '@/images/treehouseroom/treehut b1.jpeg';
-import treehutB2 from '@/images/treehouseroom/treehut b2.jpeg';
-import treehutB3 from '@/images/treehouseroom/treehut b3.jpeg';
-import treetrunkA1 from '@/images/treehouseroom/treetrunk A1.jpeg';
-import treetrunkA2 from '@/images/treehouseroom/treetrunk A2.jpeg';
-import treetrunkA3 from '@/images/treehouseroom/treetrunk A3.jpeg';
+// Shared/common shots that actually depict the Tree Trunk structure.
+import treehouse2 from '@/images/treehouse/treehouse-2.webp';
+import treehouse3 from '@/images/treehouse/treehouse-3.webp';
+
+import treehutB1_1 from '@/images/treehouseroom/treehut/treehut B1 -1.jpeg';
+import treehutB2_1 from '@/images/treehouseroom/treehut/treehut B2-1.webp';
+import treehutB2_2 from '@/images/treehouseroom/treehut/treehut B2-2.webp';
+import treehutB2_3 from '@/images/treehouseroom/treehut/treehut B2-3.jpeg';
+import treehutB3_1 from '@/images/treehouseroom/treehut/treehut B3-1.jpeg';
+
+import treetrunkA1_1 from '@/images/treehouseroom/treetrunk/treetrunk A1-1.webp';
+import treetrunkA1_2 from '@/images/treehouseroom/treetrunk/treetrunk A1-2.jpeg';
+import treetrunkA2_1 from '@/images/treehouseroom/treetrunk/treetrunk A2-1.webp';
+import treetrunkA2_2 from '@/images/treehouseroom/treetrunk/treetrunk A2-2.webp';
+import treetrunkA2_3 from '@/images/treehouseroom/treetrunk/treetrunk A2-3.webp';
+import treetrunkA2_4 from '@/images/treehouseroom/treetrunk/treetrunk A2-4.jpeg';
+import treetrunkA3_1 from '@/images/treehouseroom/treetrunk/treetrunk A3-1.webp';
+import treetrunkA3_2 from '@/images/treehouseroom/treetrunk/treetrunk A3-2.jpeg';
 
 export type CategorySlug = 'dome' | 'tree-hut' | 'tree-trunk';
 
 export interface StayCategory {
-  slug: CategorySlug;
+slug: CategorySlug;
   name: string;
   shortName: string;
   description: string;
@@ -106,7 +117,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [dome4,dome14,dome13,dome5],
+    images: [dome4, dome14, dome13, dome5, d1Pool],
     featured: false,
   },
   {
@@ -134,7 +145,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [dome6, dome2, dome14, dome15],
+    images: [dome6, dome2, dome14, dome15, d2Pool],
     featured: true,
   },
   {
@@ -162,7 +173,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [dome16, dome17, dome18],
+    images: [dome16, dome17, dome18, d3Pool],
     featured: false,
   },
   {
@@ -189,7 +200,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [dome19, dome13, dome20, dome14],
+    images: [dome19, dome13, dome20, dome14, d4d5Pool],
     featured: true,
   },
   {
@@ -197,16 +208,16 @@ export const stays: Stay[] = [
     code: 'B1',
     name: 'Tree Hut — B1',
     categorySlug: 'tree-hut',
-    tagline: 'Perfect for family.',
+    tagline: 'Made for two.',
     rate: 5499,
     mealPlan: 'CP — breakfast & evening tea, snacks',
     acType: 'AC',
-    minGuests: 3,
-    maxGuests: 4,
-    guestsLabel: '3–4 Guests',
+    minGuests: 2,
+    maxGuests: 2,
+    guestsLabel: '2 Guests',
     hasPrivatePool: false,
     description:
-      'One of three rooms in our three-floor Tree Hut, comfortably accommodating 3–4 guests with extra bed arrangements available for added convenience — a warm, elevated stay among the trees.',
+      'One of three rooms in our three-floor Tree Hut, thoughtfully designed for a comfortable, air-conditioned stay for two — a warm, elevated stay among the trees.',
     features: ['AC room', 'Private washroom', 'Private balcony'],
     inclusions: [
       'Common campfire',
@@ -216,7 +227,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehutB1, treehouse2, treehouse3, treehouseroom1, treehouseroom3, treehouseroom5, treehouseroom7],
+    images: [treehouse6,treehutB1_1, treehouse7],
     featured: true,
   },
   {
@@ -224,16 +235,16 @@ export const stays: Stay[] = [
     code: 'B2',
     name: 'Tree Hut — B2',
     categorySlug: 'tree-hut',
-    tagline: 'Perfect for family.',
+    tagline: 'Made for two.',
     rate: 5499,
     mealPlan: 'CP — breakfast & evening tea, snacks',
     acType: 'AC',
-    minGuests: 3,
-    maxGuests: 4,
-    guestsLabel: '3–4 Guests',
+    minGuests: 2,
+    maxGuests: 2,
+    guestsLabel: '2 Guests',
     hasPrivatePool: false,
     description:
-      'One of three rooms in our three-floor Tree Hut, comfortably accommodating 3–4 guests with extra bed arrangements available for added convenience — a warm, elevated stay among the trees.',
+      'One of three rooms in our three-floor Tree Hut, thoughtfully designed for a comfortable, air-conditioned stay for two — a warm, elevated stay among the trees.',
     features: ['AC room', 'Private washroom', 'Private balcony'],
     inclusions: [
       'Common campfire',
@@ -243,7 +254,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehutB2, treehouseroom1, treehouseroom3, treehouseroom5, treehouseroom7, treehouse2, treehouse3],
+    images: [treehutB2_1, treehutB2_2,treehouse6, treehutB2_3, treehouse7],
     featured: false,
   },
   {
@@ -251,16 +262,16 @@ export const stays: Stay[] = [
     code: 'B3',
     name: 'Tree Hut — B3',
     categorySlug: 'tree-hut',
-    tagline: 'Perfect for family.',
+    tagline: 'Made for two.',
     rate: 5499,
     mealPlan: 'CP — breakfast & evening tea, snacks',
     acType: 'AC',
-    minGuests: 3,
-    maxGuests: 4,
-    guestsLabel: '3–4 Guests',
+    minGuests: 2,
+    maxGuests: 2,
+    guestsLabel: '2 Guests',
     hasPrivatePool: false,
     description:
-      'One of three rooms in our three-floor Tree Hut, comfortably accommodating 3–4 guests with extra bed arrangements available for added convenience — a warm, elevated stay among the trees.',
+      'One of three rooms in our three-floor Tree Hut, thoughtfully designed for a comfortable, air-conditioned stay for two — a warm, elevated stay among the trees.',
     features: ['AC room', 'Private washroom', 'Private balcony'],
     inclusions: [
       'Common campfire',
@@ -270,7 +281,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehutB3, treehouseroom5, treehouseroom7, treehouse2, treehouse3, treehouseroom1, treehouseroom3],
+    images: [treehutB3_1, treehouse6, treehouse7],
     featured: false,
   },
   {
@@ -297,7 +308,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treetrunkA1, treehouseroom1, treehouseroom2, treehouseroom3, treehouse6, treehouse7],
+    images: [treehouse2,treetrunkA1_1, treetrunkA1_2, treehouse3],
     featured: false,
   },
   {
@@ -324,7 +335,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treetrunkA2, treehouseroom3, treehouse6, treehouse7, treehouseroom1, treehouseroom2],
+    images: [treehouse3,treetrunkA2_1, treetrunkA2_2, treetrunkA2_3, treetrunkA2_4, treehouse2 ],
     featured: false,
   },
   {
@@ -351,7 +362,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treetrunkA3, treehouse7, treehouseroom1, treehouseroom2, treehouseroom3, treehouse6],
+    images: [treetrunkA3_1, treetrunkA3_2, treehouse3,treehouse2 ],
     featured: true,
   },
 ];
