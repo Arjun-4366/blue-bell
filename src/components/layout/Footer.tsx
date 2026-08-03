@@ -96,7 +96,7 @@ export default function Footer() {
                   opacity: 0.9,
                   display: 'block',
                   marginTop: '2px',
-                }}>Resort & Spa · Wayanad</span>
+                }}>Nature's Masterpiece</span>
               </div>
             </Link>
             <p style={{
@@ -192,9 +192,9 @@ export default function Footer() {
             }}>Contact</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 1.5vw, 1.25rem)' }}>
               {[
-                { label: 'Address', value: 'Periya, Wayanad, Kerala 670644, India' },
-                { label: 'Phone', value: '+91 94960 00000' },
-                { label: 'Email', value: 'stay@bluebellresort.in', isEmail: true },
+                { label: 'Address', value: 'Peria Korome Rd, Alattil, Kerala 670644, India' },
+                { label: 'Phone', value: '+91 73060 45321' },
+                { label: 'Email', value: 'bluebelllwayanad0@gmail.com', isEmail: true },
               ].map((item) => (
                 <div key={item.label}>
                   <span style={{
@@ -238,12 +238,15 @@ export default function Footer() {
             fontSize: 'clamp(0.7rem, 0.9vw, 0.78rem)', color: 'var(--color-text-soft)',
             fontFamily: 'var(--font-sans)',
           }}>
-            © {new Date().getFullYear()} Blue Bell Resort & Spa, Wayanad. All rights reserved.
+            © {new Date().getFullYear()} Blue Bell Resort, Wayanad. All rights reserved.
           </p>
           <div className="footer-legal" style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 2rem)' }}>
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
-              <a
-                key={item} href="#"
+            {[
+              { label: 'Privacy Policy', href: '/privacy-policy' },
+              { label: 'Terms of Service', href: '/terms-of-service' },
+            ].map((item) => (
+              <Link
+                key={item.href} href={item.href}
                 style={{
                   fontSize: 'clamp(0.65rem, 0.85vw, 0.72rem)', color: 'var(--color-text-soft)',
                   fontFamily: 'var(--font-sans)', transition: 'color 0.3s ease',
@@ -251,7 +254,7 @@ export default function Footer() {
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--brand-blue)')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-soft)')}
-              >{item}</a>
+              >{item.label}</Link>
             ))}
           </div>
         </div>

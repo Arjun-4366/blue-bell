@@ -5,7 +5,8 @@ import HomeCTA from '@/components/sections/home/HomeCTA';
 
 export const metadata: Metadata = {
   title: 'Gallery | Blue Bell Resort – Wayanad, Kerala',
-  description: 'Browse stunning photos of Blue Bell Resort — forest villas, infinity pool, Ayurveda spa, Kerala cuisine, and the beauty of Wayanad.',
+  description: 'Browse photos of Blue Bell Resort — earthen domes, treehouses, private pools, campfire evenings, and the misty hills of Periya, Wayanad.',
+  alternates: { canonical: '/gallery' },
 };
 
 export default function GalleryPage() {

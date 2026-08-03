@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: StayPageProps): Promise<Metad
   return {
     title: `${stay.name} | Blue Bell Resort – Wayanad, Kerala`,
     description: stay.description,
+    alternates: { canonical: `/stays/${stay.slug}` },
   };
 }
 

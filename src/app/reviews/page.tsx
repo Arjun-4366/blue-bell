@@ -5,7 +5,8 @@ import HomeCTA from '@/components/sections/home/HomeCTA';
 
 export const metadata: Metadata = {
   title: 'Guest Reviews | Blue Bell Resort – Wayanad, Kerala',
-  description: 'Read reviews and stories from guests who have experienced the magic, luxury, and authentic hospitality of Blue Bell Resort in Wayanad.',
+  description: 'Read reviews and stories from guests who have stayed in Blue Bell\'s treehouses and private-pool domes in Periya, Wayanad.',
+  alternates: { canonical: '/reviews' },
 };
 
 export default function ReviewsPage() {

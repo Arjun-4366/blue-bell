@@ -5,7 +5,8 @@ import HomeCTA from '@/components/sections/home/HomeCTA';
 
 export const metadata: Metadata = {
   title: 'Our Stays | Blue Bell Resort – Wayanad, Kerala',
-  description: 'Choose from forest villas, treehouse suites, heritage cottages, and family bungalows at Blue Bell Resort in Wayanad.',
+  description: 'Choose from earthen domes with private pools, family tree huts, and tree trunk rooms at Blue Bell Resort in Periya, Wayanad.',
+  alternates: { canonical: '/stays' },
 };
 
 export default function StaysPage() {

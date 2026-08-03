@@ -74,15 +74,13 @@ export default function ContactForm() {
   const contactItems: ContactItem[] = [
     { 
       title: 'Location', 
-      text: 'Periya, Wayanad, Kerala 670644, India', 
+      text: 'Peria Korome Rd, Alattil, Kerala 670644, India', 
       email: null, 
       Icon: LocationIcon,
       link: 'https://www.google.com/maps/place/Blue+Bell+Resort+Wayanad+-+Periya/@11.8167165,75.8512375,17z/data=!3m1!4b1!4m9!3m8!1s0x3ba5d157f9094acf:0x94b5ad585705afe7!5m2!4m1!1i2!8m2!3d11.8167113!4d75.8538124!16s%2Fg%2F11c1wwf0n3?hl=en&entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D',
       linkText: 'View on Google Maps'
     },
-    { title: 'General Enquiries & Bookings', text: '+91 94960 00000',                       email: 'stay@bluebellresort.in',          Icon: PhoneIcon },
-    { title: 'Events & Wedding Planning',    text: '+91 94960 11111',                       email: 'events@bluebellresort.in',        Icon: EventIcon },
-    { title: 'Ayurveda & Wellness',          text: '+91 94960 22222',                       email: 'spa@bluebellresort.in',           Icon: SpaIcon },
+    { title: 'General Enquiries & Bookings', text: '+91 73060 45321',                       email: 'bluebelllwayanad0@gmail.com',          Icon: PhoneIcon },
   ];
 
   return (
