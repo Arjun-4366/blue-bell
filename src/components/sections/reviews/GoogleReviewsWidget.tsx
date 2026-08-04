@@ -26,7 +26,6 @@ function colorForName(name: string) {
 
 export default async function GoogleReviewsWidget() {
   const data = await getGooglePlaceReviews();
-
   if (!data || data.reviews.length === 0) return null;
 
   return (

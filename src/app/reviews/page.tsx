@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import ReviewsHero from '@/components/sections/reviews/ReviewsHero';
-import GoogleReviewsWidget from '@/components/sections/reviews/GoogleReviewsWidget';
+// import GoogleReviewsWidget from '@/components/sections/reviews/GoogleReviewsWidget';
 import ReviewsGrid from '@/components/sections/reviews/ReviewsGrid';
 import HomeCTA from '@/components/sections/home/HomeCTA';
 
@@ -14,7 +14,7 @@ export default function ReviewsPage() {
   return (
     <>
       <ReviewsHero />
-      <GoogleReviewsWidget />
+      {/* <GoogleReviewsWidget /> */}
       <ReviewsGrid />
       <HomeCTA />
     </>
