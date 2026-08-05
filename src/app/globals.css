@@ -242,6 +242,12 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .hero-mobile-intro {
+    display: block !important;
+  }
+}
+
 /* ─── ANIMATIONS ──────────────────────────────────────────── */
 .reveal-text-wrap { overflow: hidden; }
 

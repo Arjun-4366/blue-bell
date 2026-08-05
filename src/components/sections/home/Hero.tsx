@@ -32,7 +32,7 @@ export default function Hero() {
     }
   };
 
-  useEffect(() => {
+useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
@@ -53,6 +53,7 @@ export default function Hero() {
   }, [isMobile]);
 
   return (
+    <>
     <div className="hero-fixed-container">
       <section
         ref={heroRef}
@@ -172,7 +173,7 @@ export default function Hero() {
               opacity: 0,
               textShadow: '0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)',
             }}>
-              Wayanad&apos;s Best Resort<br />
+              Wayanad&apos;s Best Resort<br />{' '}
               <span style={{
                 fontStyle: 'italic',
                 color: '#ffffff',
@@ -210,8 +211,7 @@ export default function Hero() {
               flexWrap: 'wrap',
               opacity: 0,
             }}>
-              <Link href="/book-now" className="btn btn-primary h-cta-btn">Reserve Your Stay</Link>
-              <Link href="/book-now" className="btn btn-outline h-cta-btn">Explore Sanctuaries</Link>
+              <Link href="/book-now" className="btn btn-primary h-cta-btn">Explore Sanctuaries</Link>
             </div>
 
           </div>
@@ -219,47 +219,110 @@ export default function Hero() {
 
     
 
-        <style jsx>{`
-          @media (max-width: 768px) {
-            .hero-section {
-              align-items: flex-end !important;
-              padding-bottom: 20vh;
-            }
+<style jsx>{`
+  @media (max-width: 768px) {
+    .hero-section {
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
 
-            .h-bg-video {
-              height: 105% !important;
-              object-position: center 60% !important;
-            }
+    .h-bg-video {
+      height: 100% !important;
+      object-position: center 55% !important;
+    
+    }
 
-            .hero-content {
-              padding-left: 1.5rem !important;
-              padding-right: 1.5rem !important;
-            }
-          }
+    .hero-content {
+      padding: 1.5rem !important;
+    }
 
-          @media (max-width: 480px) {
-            .hero-section {
-              padding-bottom: 25vh;
-            }
+    .hero-content > div {
+      margin: 0 auto !important;
+      max-width: 100% !important;
+    }
 
-             .h-bg-video {
-          
-             }
+    .h-label {
+      justify-content: center !important;
+      margin-bottom: 1.5rem !important;
+    }
 
-            /* Compact side-by-side buttons on mobile */
-            .h-cta-btn {
-              flex: 1 1 0 !important;
-              min-width: 0 !important;
-              padding: 0.6rem 0.6rem !important;
-              font-size: 0.6rem !important;
-              letter-spacing: 0.1em !important;
-              text-align: center !important;
-              white-space: nowrap !important;
-            }
-          }
-        `}</style>
+    .h-heading {
+      font-size: clamp(2rem, 8vw, 2.8rem) !important;
+      text-align: center !important;
+      margin-bottom: 0.7rem !important;
+    }
+
+    .h-heading br {
+      display: none !important;
+    }
+
+    .h-sub {
+      display: none !important;
+    }
+
+    /* Vertical stacked buttons */
+    .h-ctas {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 0.8rem !important;
+    }
+
+    .h-cta-btn {
+      width: 100% !important;
+      max-width: 280px !important;
+      padding: 0.9rem 1.5rem !important;
+      font-size: 0.85rem !important;
+      text-align: center !important;
+      border-radius: 8px !important;
+    }
+
+    /* Divider centered */
+    .hero-content > div > div:nth-child(3) {
+      margin: 1.4rem auto 2rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-section {
+      padding-top: 70px !important;
+    }
+
+    .h-heading {
+      font-size: clamp(1.8rem, 7vw, 2.2rem) !important;
+      line-height: 1.2 !important;
+    }
+
+    .h-sub {
+      font-size: 0.85rem !important;
+      line-height: 1.6 !important;
+    }
+  }
+`}</style>
 
       </section>
     </div>
+
+    {/* Mobile-only value prop — hidden in the hero itself on small screens,
+        shown here instead so the copy isn't lost, just relocated */}
+    <div className="hero-mobile-intro" style={{
+      display: 'none',
+      background: '#fff',
+      padding: 'clamp(1.75rem, 6vw, 2.25rem) 1.5rem',
+      textAlign: 'center',
+    }}>
+      <p style={{
+        fontFamily: 'var(--font-sans)',
+        fontSize: '0.9rem',
+        color: 'var(--color-text-mid)',
+        lineHeight: 1.85,
+        maxWidth: '420px',
+        margin: '0 auto',
+      }}>
+        Treehouses and private-pool domes tucked into the forest in Periya — the best resort
+        in Wayanad for family stays, and private-pool stays for couples.
+      </p>
+    </div>
+    </>
   );
 }

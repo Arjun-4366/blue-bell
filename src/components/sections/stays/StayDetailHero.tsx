@@ -38,7 +38,7 @@ export default function StayDetailHero({ stay, category }: StayDetailHeroProps) 
           gap: 'clamp(1.5rem, 4vw, 3.5rem)', alignItems: 'start',
         }}>
           {/* Gallery */}
-          <div>
+          <div style={{ minWidth: 0 }}>
             <div style={{
               position: 'relative', aspectRatio: '4/3', borderRadius: 'var(--radius-lg)',
               overflow: 'hidden', boxShadow: '0 20px 60px rgba(13,30,53,0.1)',
@@ -93,7 +93,7 @@ export default function StayDetailHero({ stay, category }: StayDetailHeroProps) 
           </div>
 
           {/* Info */}
-          <div>
+          <div style={{ minWidth: 0 }}>
             <span className="section-label">{category.name}</span>
             <h1 style={{
               fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.9rem, 3.6vw, 2.8rem)',
