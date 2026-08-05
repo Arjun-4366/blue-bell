@@ -14,10 +14,20 @@ interface PageHeroProps {
   imageSrc: string;
   imageAlt: string;
   scopeClass: string;
+  imagePosition?: string;
+  imagePositionMobile?: string;
+  /** Mobile-only crop override — needed because on narrow/tall viewports
+   * object-fit:cover is usually height-bound, making imagePositionMobile's
+   * vertical value a no-op. Scaling the image up first frees vertical slack
+   * so transformOriginMobile can actually move the visible crop. */
+  imageZoomMobile?: number;
+  imageTransformOriginMobile?: string;
 }
 
 export default function PageHero({
   eyebrow, heading, headingItalic, subtitle, imageSrc, imageAlt, scopeClass,
+  imagePosition = 'center 50%', imagePositionMobile,
+  imageZoomMobile, imageTransformOriginMobile = 'center 50%',
 }: PageHeroProps) {
   const ref = useRef<HTMLElement>(null);
   const blackRef = useRef<HTMLDivElement>(null);
@@ -54,7 +64,7 @@ export default function PageHero({
           src={imageSrc} alt={imageAlt} className={`${scopeClass}-bg`}
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '115%',
-            objectFit: 'cover', objectPosition: 'center 50%',
+            objectFit: 'cover', objectPosition: imagePosition,
             // filter: 'brightness(0.62) saturate(0.9)',
           }}
         />
@@ -92,22 +102,24 @@ export default function PageHero({
             <h1 style={{ margin: '0 0 0.1em', opacity: 0 }}>
               <span style={{
                 display: 'block', fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(2rem, 5vw, 4.8rem)', fontWeight: 300,
+                fontSize: 'clamp(2rem, 5vw, 4.8rem)', fontWeight: 600,
                 color: '#FFFFFF', lineHeight: 1.05, letterSpacing: '-0.02em',
+                textShadow: '0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)',
               }}>{heading}</span>
               {headingItalic && (
                 <span style={{
                   display: 'block', fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(2rem, 5vw, 4.8rem)', fontWeight: 300,
-                  fontStyle: 'italic', color: 'var(--brand-cyan)',
+                  fontSize: 'clamp(2rem, 5vw, 4.8rem)', fontWeight: 600,
+                  fontStyle: 'italic', color: '#FFFFFF',
                   lineHeight: 1.1, letterSpacing: '-0.01em',
+                  textShadow: '0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)',
                 }}>{headingItalic}</span>
               )}
             </h1>
 
             {/* Rule */}
             <div style={{
-              width: 'clamp(32px, 5vw, 40px)', height: '1.5px', 
+              width: 'clamp(32px, 5vw, 40px)', height: '1.5px',
               margin: 'clamp(1.2rem, 2.5vw, 1.8rem) auto',
               background: 'linear-gradient(to right, var(--brand-cyan), var(--brand-green))',
               opacity: 0,
@@ -116,8 +128,9 @@ export default function PageHero({
             {/* Subtitle */}
             <p style={{
               fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.82rem, 1.2vw, 0.95rem)',
-              color: 'rgba(255,255,255,0.55)', maxWidth: '480px',
+              color: 'rgba(255,255,255,0.85)', maxWidth: '480px',
               margin: '0 auto', lineHeight: 1.85, opacity: 0,
+              textShadow: '0 1px 8px rgba(0,0,0,0.5)',
             }}>{subtitle}</p>
 
           </div>
@@ -129,6 +142,8 @@ export default function PageHero({
           .hero-gradient {
             background: linear-gradient(to bottom, rgba(6,13,26,0.15) 0%, rgba(6,13,26,0.38) 50%, rgba(6,13,26,0.68) 100%) !important;
           }
+          ${imagePositionMobile ? `img { object-position: ${imagePositionMobile} !important; }` : ''}
+          ${imageZoomMobile ? `img { transform: scale(${imageZoomMobile}); transform-origin: ${imageTransformOriginMobile} !important; }` : ''}
         }
 
         @media (max-width: 480px) {

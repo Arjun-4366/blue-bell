@@ -11,6 +11,8 @@ export default function ContactHero() {
       imageSrc={domeImg.src}
       imageAlt="Earthen dome villa at Blue Bell"
       scopeClass="con-hero"
+      imageZoomMobile={1.4}
+      imageTransformOriginMobile="center 20%"
     />
   );
 }

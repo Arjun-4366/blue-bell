@@ -164,17 +164,18 @@ export default function Hero() {
             <h1 className="h-heading" style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2.2rem, 5vw, 4.5rem)',
-              fontWeight: 300,
+              fontWeight: 600,
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
               color: '#ffffff',
               marginBottom: '0.15em',
               opacity: 0,
+              textShadow: '0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)',
             }}>
               Wayanad&apos;s Best Resort<br />
               <span style={{
                 fontStyle: 'italic',
-                color: 'var(--brand-cyan)',
+                color: '#ffffff',
               }}>for Every Kind of Getaway</span>
             </h1>
 
@@ -190,11 +191,12 @@ export default function Hero() {
             <p className="h-sub" style={{
               fontFamily: 'var(--font-sans)',
               fontSize: 'clamp(0.85rem, 1.3vw, 0.97rem)',
-              color: 'rgba(255,255,255,0.58)',
+              color: 'rgba(255,255,255,0.85)',
               lineHeight: 1.85,
               maxWidth: '420px',
               marginBottom: 'clamp(1.5rem, 2.5vw, 2.2rem)',
               opacity: 0,
+              textShadow: '0 1px 8px rgba(0,0,0,0.5)',
             }}>
               Treehouses and private-pool domes tucked into the forest in Periya — the best resort
               in Wayanad for family stays, and private-pool stays for couples.
@@ -240,9 +242,9 @@ export default function Hero() {
               padding-bottom: 25vh;
             }
 
-            .h-bg-video {
-              filter: brightness(0.7) saturate(0.95) !important;
-            }
+             .h-bg-video {
+          
+             }
 
             /* Compact side-by-side buttons on mobile */
             .h-cta-btn {

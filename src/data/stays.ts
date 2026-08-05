@@ -34,7 +34,6 @@ import treetrunkA1_1 from '@/images/treehouseroom/treetrunk/treetrunk A1-1.webp'
 import treetrunkA1_2 from '@/images/treehouseroom/treetrunk/treetrunk A1-2.jpeg';
 import treetrunkA2_1 from '@/images/treehouseroom/treetrunk/treetrunk A2-1.webp';
 import treetrunkA2_2 from '@/images/treehouseroom/treetrunk/treetrunk A2-2.webp';
-import treetrunkA2_3 from '@/images/treehouseroom/treetrunk/treetrunk A2-3.webp';
 import treetrunkA2_4 from '@/images/treehouseroom/treetrunk/treetrunk A2-4.jpeg';
 import treetrunkA3_1 from '@/images/treehouseroom/treetrunk/treetrunk A3-1.webp';
 import treetrunkA3_2 from '@/images/treehouseroom/treetrunk/treetrunk A3-2.jpeg';
@@ -335,7 +334,7 @@ export const stays: Stay[] = [
       'Restaurant access',
       'BBQ facilities (charges apply)',
     ],
-    images: [treehouse3,treetrunkA2_1, treetrunkA2_2, treetrunkA2_3, treetrunkA2_4, treehouse2 ],
+    images: [treehouse3,treetrunkA2_1, treetrunkA2_2, treetrunkA2_4, treehouse2 ],
     featured: false,
   },
   {
