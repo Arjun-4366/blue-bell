@@ -55,14 +55,14 @@ export default function PageHero({
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '115%',
             objectFit: 'cover', objectPosition: 'center 50%',
-            filter: 'brightness(0.45) saturate(0.8)',
+            filter: 'brightness(0.62) saturate(0.9)',
           }}
         />
 
         {/* Central gradient — darkens all edges */}
         <div className="hero-gradient" style={{
           position: 'absolute', inset: 0, zIndex: 1,
-          background: 'linear-gradient(to bottom, rgba(6,13,26,0.3) 0%, rgba(6,13,26,0.5) 50%, rgba(6,13,26,0.82) 100%)',
+          background: 'linear-gradient(to bottom, rgba(6,13,26,0.15) 0%, rgba(6,13,26,0.3) 50%, rgba(6,13,26,0.62) 100%)',
         }} />
 
         <div ref={blackRef} style={{ position: 'absolute', inset: 0, background: '#060D1A', zIndex: 2 }} />
@@ -127,18 +127,18 @@ export default function PageHero({
       <style jsx>{`
         @media (max-width: 768px) {
           .hero-gradient {
-            background: linear-gradient(to bottom, rgba(6,13,26,0.25) 0%, rgba(6,13,26,0.55) 50%, rgba(6,13,26,0.85) 100%) !important;
+            background: linear-gradient(to bottom, rgba(6,13,26,0.15) 0%, rgba(6,13,26,0.38) 50%, rgba(6,13,26,0.68) 100%) !important;
           }
         }
-        
+
         @media (max-width: 480px) {
           section {
             align-items: center !important;
             padding-bottom: 0 !important;
           }
-          
+
           .hero-gradient {
-            background: linear-gradient(to bottom, rgba(6,13,26,0.2) 0%, rgba(6,13,26,0.6) 60%, rgba(6,13,26,0.92) 100%) !important;
+            background: linear-gradient(to bottom, rgba(6,13,26,0.12) 0%, rgba(6,13,26,0.42) 60%, rgba(6,13,26,0.75) 100%) !important;
           }
           
           h1 span {

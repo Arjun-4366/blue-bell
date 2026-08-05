@@ -83,7 +83,7 @@ export default function Hero() {
             height: '115%',
             objectFit: 'cover',
             objectPosition: 'center 55%',
-            filter: 'brightness(0.62) saturate(0.95)',
+            filter: 'brightness(0.78) saturate(1)',
           }}
         />
 
@@ -92,10 +92,10 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           zIndex: 1,
-          background: `linear-gradient(100deg, 
-            rgba(6,13,26,0.92) 0%, 
-            rgba(6,13,26,0.45) 45%, 
-            rgba(6,13,26,0.08) 100%)`,
+          background: `linear-gradient(100deg,
+            rgba(6,13,26,0.75) 0%,
+            rgba(6,13,26,0.32) 45%,
+            rgba(6,13,26,0.05) 100%)`,
         }} />
 
         {/* Bottom fade for clean edge into next section */}
@@ -106,7 +106,7 @@ export default function Hero() {
           right: 0,
           height: '160px',
           zIndex: 1,
-          background: 'linear-gradient(to bottom, transparent, rgba(6,13,26,0.6))',
+          background: 'linear-gradient(to bottom, transparent, rgba(6,13,26,0.4))',
         }} />
 
         {/* Black entry panel */}
@@ -241,7 +241,7 @@ export default function Hero() {
             }
 
             .h-bg-video {
-              filter: brightness(0.55) saturate(0.9) !important;
+              filter: brightness(0.7) saturate(0.95) !important;
             }
 
             /* Compact side-by-side buttons on mobile */
