@@ -18,8 +18,10 @@ import treeTrunk4 from '@/images/treehouseroom/treetrunk/treetrunk A2-1.webp';
 
 import dome1 from '@/images/dome/dome-1.webp';
 import dome2 from '@/images/dome/dome-13.jpeg';
-import dome3 from '@/images/dome/dome-7.webp';
+import dome3 from '@/images/dome/dome-16.jpeg';
 import dome4 from '@/images/dome/dome-14.jpeg';
+import dome5 from '@/images/dome/dome-19.webp';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,7 +41,7 @@ const stayTypes = [
   {
     title: 'Domes',
     tag: 'Best for Couples & Families',
-    images: [dome1, dome2, dome3,dome4],
+    images: [dome1, dome2, dome3,dome4,dome5],
     desc: 'Private-pool earthen domes for couples, plus Dumbo Vault — two domes sharing one pool, built for up to 4.',
   },
 ];
