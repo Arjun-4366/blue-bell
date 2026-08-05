@@ -6,13 +6,13 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import treeHut1 from '@/images/treehouse/treehouse-7.webp';
-import treeHut2 from '@/images/treehouse/treehouse-6.webp';
+import treeHut1 from '@/images/treehouse/treehouse-2.webp'; // 2,3
+import treeHut2 from '@/images/treehouse/treehouse-3.webp';
 import treeHut3 from '@/images/treehouseroom/treehut/treehut B2-1.webp';
 import treeHut4 from '@/images/treehouseroom/treehut/treehut B2-2.webp';
 
-import treeTrunk1 from '@/images/treehouse/treehouse-2.webp';
-import treeTrunk2 from '@/images/treehouse/treehouse-3.webp';
+import treeTrunk1 from '@/images/treehouse/treehouse-7.webp'; // 7 6
+import treeTrunk2 from '@/images/treehouse/treehouse-6.webp';
 import treeTrunk3 from '@/images/treehouseroom/treetrunk/treetrunk A3-1.webp';
 import treeTrunk4 from '@/images/treehouseroom/treetrunk/treetrunk A2-1.webp';
 

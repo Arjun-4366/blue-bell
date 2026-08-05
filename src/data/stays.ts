@@ -18,11 +18,11 @@ import d3Pool from '@/images/dome/D3 pool.jpeg';
 import d4d5Pool from '@/images/dome/D4&D5 pool.jpeg';
 // Shared/common shots — swapped: these actually depict the Tree Hut structure,
 // not Tree Trunk (previously misassigned), so they're used on the Tree Hut rooms.
-import treehouse6 from '@/images/treehouse/treehouse-6.webp';
-import treehouse7 from '@/images/treehouse/treehouse-7.webp';
+import treehouse6 from '@/images/treehouse/treehouse-2.webp';//2,3
+import treehouse7 from '@/images/treehouse/treehouse-3.webp';
 // Shared/common shots that actually depict the Tree Trunk structure.
-import treehouse2 from '@/images/treehouse/treehouse-2.webp';
-import treehouse3 from '@/images/treehouse/treehouse-3.webp';
+import treehouse2 from '@/images/treehouse/treehouse-6.webp';//6,7
+import treehouse3 from '@/images/treehouse/treehouse-7.webp';
 
 import treehutB1_1 from '@/images/treehouseroom/treehut/treehut B1 -1.jpeg';
 import treehutB2_1 from '@/images/treehouseroom/treehut/treehut B2-1.webp';
