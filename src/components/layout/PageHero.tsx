@@ -55,7 +55,7 @@ export default function PageHero({
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '115%',
             objectFit: 'cover', objectPosition: 'center 50%',
-            filter: 'brightness(0.62) saturate(0.9)',
+            // filter: 'brightness(0.62) saturate(0.9)',
           }}
         />
 

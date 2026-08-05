@@ -83,7 +83,7 @@ export default function Hero() {
             height: '115%',
             objectFit: 'cover',
             objectPosition: 'center 55%',
-            filter: 'brightness(0.78) saturate(1)',
+            // filter: 'brightness(0.78) saturate(1)',
           }}
         />
 
