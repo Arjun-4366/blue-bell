@@ -211,7 +211,7 @@ useEffect(() => {
               flexWrap: 'wrap',
               opacity: 0,
             }}>
-              <Link href="/book-now" className="btn btn-primary h-cta-btn">Explore Sanctuaries</Link>
+              <Link href="/stays" className="btn btn-primary h-cta-btn">Explore Sanctuaries</Link>
             </div>
 
           </div>
