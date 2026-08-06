@@ -64,7 +64,7 @@ export default function PageHero({
         <div style={{ position: 'absolute', inset: 0, width: '100%', height: '115%' }}>
           <Image
             src={imageSrc} alt={imageAlt} className={`${scopeClass}-bg`}
-            fill priority sizes="100vw"
+            fill priority sizes="(max-width: 768px) 180vw, 100vw"
             style={{
               objectFit: 'cover', objectPosition: imagePosition,
               // filter: 'brightness(0.62) saturate(0.9)',
