@@ -169,10 +169,11 @@ export default function GalleryGrid() {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             zIndex: 1,
           }}>✕</button>
-          <img
-            src={typeof lightbox.src === 'string' ? lightbox.src : lightbox.src.src}
+          <Image
+            src={lightbox.src}
             alt={lightbox.label}
-            style={{ maxWidth: '100%', maxHeight: '85vh', objectFit: 'contain', borderRadius: 'var(--radius)' }}
+            sizes="100vw"
+            style={{ maxWidth: '100%', maxHeight: '85vh', width: 'auto', height: 'auto', objectFit: 'contain', borderRadius: 'var(--radius)' }}
             onClick={(e) => e.stopPropagation()}
           />
           <span style={{

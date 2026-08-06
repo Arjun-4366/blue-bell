@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -60,14 +61,16 @@ export default function PageHero({
         position: 'relative', height: '100%', width: '100%',
         display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#060D1A',
       }}>
-        <img
-          src={imageSrc} alt={imageAlt} className={`${scopeClass}-bg`}
-          style={{
-            position: 'absolute', inset: 0, width: '100%', height: '115%',
-            objectFit: 'cover', objectPosition: imagePosition,
-            // filter: 'brightness(0.62) saturate(0.9)',
-          }}
-        />
+        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '115%' }}>
+          <Image
+            src={imageSrc} alt={imageAlt} className={`${scopeClass}-bg`}
+            fill priority sizes="100vw"
+            style={{
+              objectFit: 'cover', objectPosition: imagePosition,
+              // filter: 'brightness(0.62) saturate(0.9)',
+            }}
+          />
+        </div>
 
         {/* Central gradient — darkens all edges */}
         <div className="hero-gradient" style={{

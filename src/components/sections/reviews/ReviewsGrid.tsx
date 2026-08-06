@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -117,7 +118,7 @@ export default function ReviewsGrid() {
 
               {/* Author */}
               <div className="review-author" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderTop: '1px solid rgba(13,30,53,0.07)', paddingTop: 'clamp(0.8rem, 1.2vw, 1.1rem)' }}>
-                <img src={r.avatar} alt={r.name} style={{ width: 'clamp(36px, 5vw, 42px)', height: 'clamp(36px, 5vw, 42px)', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--brand-cyan)', flexShrink: 0 }} />
+                <Image src={r.avatar} alt={r.name} width={42} height={42} style={{ width: 'clamp(36px, 5vw, 42px)', height: 'clamp(36px, 5vw, 42px)', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--brand-cyan)', flexShrink: 0 }} />
                 <div className="review-author-info">
                   <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, color: 'var(--color-text)', fontSize: 'clamp(0.8rem, 1.1vw, 0.88rem)', display: 'block' }}>{r.name}</span>
                   <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.65rem, 0.85vw, 0.72rem)', color: 'var(--color-text-soft)' }}>{r.location} · {r.stay} · {r.date}</span>
