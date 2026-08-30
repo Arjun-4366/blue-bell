@@ -94,7 +94,7 @@ export interface Stay {
 export const stays: Stay[] = [
   {
     slug: 'simbas-den',
-    code: 'D1',
+    code: 'D1',   
     name: "Simba's Den",
     categorySlug: 'dome',
     tagline: 'A perfect stay for couples.',
