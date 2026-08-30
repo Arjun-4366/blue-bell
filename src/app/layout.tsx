@@ -5,6 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LenisProvider from "@/components/providers/LenisProvider";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import { getSiteContent } from '@/services/api';
+import { ISingleResponse } from '@/types/common';
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -100,23 +102,32 @@ const lodgingBusinessJsonLd = {
   "priceRange": "₹₹₹",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteContent = await getSiteContent();
+  const contactInfo = siteContent.contactInfo;
+
+  const dynamicJsonLd = {
+    ...lodgingBusinessJsonLd,
+    telephone: contactInfo?.phone || lodgingBusinessJsonLd.telephone,
+    email: contactInfo?.email || lodgingBusinessJsonLd.email,
+  };
+
   return (
     <html lang="en" className={`${cormorant.variable} ${playfair.variable} ${plusJakarta.variable} ${alexBrush.variable}`}>
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(lodgingBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(dynamicJsonLd) }}
         />
         <LenisProvider>
           <Navbar />
           <main className="page-wrapper">{children}</main>
-          <Footer />
-          <WhatsAppButton />
+          <Footer contactInfo={contactInfo} />
+          <WhatsAppButton whatsapp={contactInfo?.whatsapp} />
         </LenisProvider>
       </body>
     </html>

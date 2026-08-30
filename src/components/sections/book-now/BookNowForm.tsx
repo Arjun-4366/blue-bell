@@ -1,13 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { stayCategories, getStaysByCategory } from '@/data/stays';
-
-const villaGroups = stayCategories
-  .map((category) => ({ category, options: getStaysByCategory(category.slug) }))
-  .filter((group) => group.options.length > 0);
-
-const villasList = villaGroups.flatMap((group) => group.options);
+import { Stay } from '@/types/stay';
 
 const benefitIcons = [
   // Price tag
@@ -43,12 +37,18 @@ const labelStyle: React.CSSProperties = {
   color: 'var(--color-text-soft)', marginBottom: '6px', display: 'block',
 };
 
-export default function BookNowForm() {
+export default function BookNowForm({ stays = [] }: { stays: Stay[] }) {
+  // Group stays by category
+  const categories = Array.from(new Set(stays.map(s => s.categorySlug)));
+  const villaGroups = categories.map(cat => ({
+    category: cat,
+    options: stays.filter(s => s.categorySlug === cat)
+  })).filter(g => g.options.length > 0);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '',
     checkIn: '', checkOut: '', guests: '2',
-    villaType: villasList[0]?.slug ?? '', notes: '',
+    villaType: stays.length > 0 ? stays[0].slug : '', notes: '',
   });
 
   const update = (field: keyof typeof formData, val: string) => setFormData({ ...formData, [field]: val });
@@ -118,7 +118,7 @@ export default function BookNowForm() {
                   Check-In: {formData.checkIn}<br />
                   Check-Out: {formData.checkOut}<br />
                   Guests: {formData.guests}<br />
-                  Stay: {villasList.find(v => v.slug === formData.villaType)?.name}
+                  Stay: {stays.find(v => v.slug === formData.villaType)?.name || formData.villaType}
                 </div>
                 <p style={{ fontSize: 'clamp(0.7rem, 0.9vw, 0.78rem)', color: 'var(--color-text-soft)', marginTop: '1.2rem' }}>
                   We will call or email within 2 hours to confirm your dates.
@@ -155,7 +155,7 @@ export default function BookNowForm() {
                     <label htmlFor="villa-type" style={labelStyle}>Stay Type</label>
                     <select id="villa-type" value={formData.villaType} onChange={(e) => update('villaType', e.target.value)} style={inputStyle} className="bb-input">
                       {villaGroups.map(({ category, options }) => (
-                        <optgroup key={category.slug} label={category.name}>
+                        <optgroup key={category} label={category}>
                           {options.map(v => <option key={v.slug} value={v.slug}>{v.name}</option>)}
                         </optgroup>
                       ))}

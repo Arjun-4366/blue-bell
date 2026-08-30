@@ -26,34 +26,14 @@ import dome5 from '@/images/dome/dome-12.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const categories = ['All', 'Stays', 'Interiors', 'Dining', 'Domes'];
+import { GalleryImage } from '@/types/gallery';
 
-const allImages = [
-  { src: stay1, cat: 'Stays',     label: 'Canopy Treehouse Exterior' },
-  { src: dome1, cat: 'Domes',     label: 'Earthen Dome Pathway' },
-  { src: room1, cat: 'Interiors', label: 'Cozy Wood Treetop Interior' },
-  { src: dine2, cat: 'Dining',    label: 'Gourmet Malabar Dining' },
-  { src: stay3, cat: 'Stays',     label: 'Whispering Bamboo Treehouse' },
-  { src: dome2, cat: 'Domes',     label: 'Geodesic Mud Dome Pathways' },
-  { src: room2, cat: 'Interiors', label: 'Luxury Treehouse Studio' },
-  { src: stay2, cat: 'Stays',     label: 'Earthen Dome Sanctuary' },
-  { src: dine1, cat: 'Dining',    label: 'Blue Bell Main Lodge' },
-  { src: stay5, cat: 'Stays',     label: 'Geodesic Dome Poolside View' },
-  { src: room3, cat: 'Interiors', label: 'High Canopy Balcony Suite' },
-  { src: dome3, cat: 'Domes',     label: 'Tropical Earthen Dome Bridge' },
-  { src: stay4, cat: 'Stays',     label: 'Misty Treehouse High Canopy' },
-  { src: dine3, cat: 'Dining',    label: 'Lodge Patio Seating' },
-  { src: dome4, cat: 'Domes',     label: 'Earthen Archway Sculptures' },
-  { src: room4, cat: 'Interiors', label: 'Geometric Wooden Ceilings' },
-  { src: dine4, cat: 'Dining',    label: 'Lodge Evening Dining Area' },
-  { src: dome5, cat: 'Domes',     label: 'Valley View from Earthen Dome' },
-];
-
-export default function GalleryGrid() {
+export default function GalleryGrid({ images = [] }: { images: GalleryImage[] }) {
+  const dynamicCategories = ['All', ...Array.from(new Set(images.map(i => i.category)))];
   const ref = useRef<HTMLElement>(null);
   const [activeCategory, setActiveCategory] = useState('All');
-  const [lightbox, setLightbox] = useState<{ src: any; label: string } | null>(null);
-  const filtered = activeCategory === 'All' ? allImages : allImages.filter((i) => i.cat === activeCategory);
+  const [lightbox, setLightbox] = useState<{ src: string; label: string } | null>(null);
+  const filtered = activeCategory === 'All' ? images : images.filter((i) => i.category === activeCategory);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -94,7 +74,7 @@ export default function GalleryGrid() {
           marginBottom: 'clamp(2rem, 4vw, 3.5rem)',
           padding: '0',
         }}>
-          {categories.map((cat) => {
+          {dynamicCategories.map((cat) => {
             const active = activeCategory === cat;
             return (
               <button key={cat} className="gallery-filter-btn" onClick={() => setActiveCategory(cat)} style={{
@@ -119,15 +99,14 @@ export default function GalleryGrid() {
         {/* Masonry grid */}
         <div className="gallery-masonry" style={{ columns: 'auto 280px', gap: 'clamp(10px, 1.5vw, 14px)' }}>
           {filtered.map((img, i) => (
-            <div key={img.label + i} className="gallery-item" onClick={() => setLightbox(img)} style={{
+            <div key={img.title + i} className="gallery-item" onClick={() => setLightbox({ src: img.image, label: img.title })} style={{
               breakInside: 'avoid', marginBottom: 'clamp(10px, 1.5vw, 14px)',
               borderRadius: 'var(--radius)', overflow: 'hidden',
               cursor: 'pointer', position: 'relative',
               boxShadow: '0 4px 20px rgba(13,30,53,0.04)',
             }}>
-              <Image src={img.src} alt={img.label}
-                style={{ width: '100%', display: 'block', transition: 'transform 0.55s var(--ease)' }}
-                placeholder="blur"
+              <Image src={img.image} alt={img.alt || img.title} fill={false} width={800} height={600}
+                style={{ width: '100%', height: 'auto', display: 'block', transition: 'transform 0.55s var(--ease)' }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.04)';
                   const o = e.currentTarget.nextSibling as HTMLElement;
@@ -146,7 +125,7 @@ export default function GalleryGrid() {
                 display: 'flex', alignItems: 'flex-end', padding: 'clamp(0.8rem, 1.5vw, 1.3rem)',
                 pointerEvents: 'none',
               }}>
-                <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.7rem, 0.9vw, 0.8rem)', fontWeight: 500, color: '#fff' }}>{img.label}</span>
+                <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.7rem, 0.9vw, 0.8rem)', fontWeight: 500, color: '#fff' }}>{img.title}</span>
               </div>
             </div>
           ))}
@@ -172,6 +151,9 @@ export default function GalleryGrid() {
           <Image
             src={lightbox.src}
             alt={lightbox.label}
+            fill={false}
+            width={1200}
+            height={800}
             sizes="100vw"
             style={{ maxWidth: '100%', maxHeight: '85vh', width: 'auto', height: 'auto', objectFit: 'contain', borderRadius: 'var(--radius)' }}
             onClick={(e) => e.stopPropagation()}

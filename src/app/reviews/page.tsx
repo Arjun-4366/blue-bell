@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import ReviewsHero from '@/components/sections/reviews/ReviewsHero';
 // import GoogleReviewsWidget from '@/components/sections/reviews/GoogleReviewsWidget';
 import ReviewsGrid from '@/components/sections/reviews/ReviewsGrid';
+import { getSiteContent, getReviews } from '@/services/api';
 import HomeCTA from '@/components/sections/home/HomeCTA';
 
 export const metadata: Metadata = {
@@ -10,12 +11,18 @@ export const metadata: Metadata = {
   alternates: { canonical: '/reviews' },
 };
 
-export default function ReviewsPage() {
+export default async function ReviewsPage() {
+  const [siteContent, reviews] = await Promise.all([
+    getSiteContent(),
+    getReviews(),
+  ]);
+  const heroData = siteContent?.reviewsHero;
+
   return (
     <>
-      <ReviewsHero />
+      <ReviewsHero data={heroData} />
       {/* <GoogleReviewsWidget /> */}
-      <ReviewsGrid />
+      <ReviewsGrid reviews={reviews} />
       <HomeCTA />
     </>
   );

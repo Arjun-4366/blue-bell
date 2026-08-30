@@ -5,12 +5,21 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { stayCategories, getStaysByCategory, formatRate } from '@/data/stays';
+import { StayCategory, Stay } from '@/types/stay';
+import { stayCategories } from '@/lib/stayCategories';
 import RotatingStayImage from './RotatingStayImage';
+
+const formatRate = (rate: number) => {
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    maximumFractionDigits: 0,
+  }).format(rate);
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function StaysList() {
+export default function StaysList({ stays }: { stays: Stay[] }) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -46,7 +55,7 @@ export default function StaysList() {
 
         <div className="stays-full-list" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(3rem, 6vw, 5.5rem)' }}>
           {stayCategories.map((category) => {
-            const categoryStays = getStaysByCategory(category.slug);
+            const categoryStays = stays.filter((s) => s.categorySlug === category.slug);
             if (categoryStays.length === 0) return null;
 
             return (

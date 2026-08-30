@@ -1,15 +1,17 @@
 import PageHero from '../../layout/PageHero';
 import amenitiesHeroImg from '@/assests/images/amenities/amenitiesHero.webp';
 
-export default function AmenitiesHero() {
+import { PageHeroContent } from '@/types/siteContent';
+
+export default function AmenitiesHero({ data }: { data?: PageHeroContent }) {
   return (
     <PageHero
-      eyebrow="What Awaits You"
-      heading="Made for"
-      headingItalic="Easy Days."
-      subtitle="Every corner of Blue Bell is designed around how our guests actually spend their time — unhurried, together, and away from the everyday."
-      imageSrc={amenitiesHeroImg.src}
-      imageAlt="Guests gathered around an evening campfire at Blue Bell"
+      eyebrow={data?.eyebrow || "What Awaits You"}
+      heading={data?.heading || "Made for"}
+      headingItalic={data?.headingItalic || "Easy Days."}
+      subtitle={data?.subtitle || "Every corner of Blue Bell is designed around how our guests actually spend their time — unhurried, together, and away from the everyday."}
+      imageSrc={data?.imageUrl || amenitiesHeroImg.src}
+      imageAlt={data?.imageAlt || "Guests gathered around an evening campfire at Blue Bell"}
       scopeClass="am-hero"
     />
   );

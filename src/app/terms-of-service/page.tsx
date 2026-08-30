@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import LegalLayout from '@/components/sections/legal/LegalLayout';
+import { getSiteContent } from '@/services/api';
+import { ISingleResponse } from '@/types/common';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Blue Bell Resort – Wayanad, Kerala',
@@ -8,7 +10,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function TermsOfServicePage() {
+export default async function TermsOfServicePage() {
+  const siteContent = await getSiteContent();
+  // const data = siteContent.termsOfService;
+
   return (
     <LegalLayout eyebrow="Legal" title="Terms of Service" lastUpdated="August 3, 2026">
       <p>
@@ -77,9 +82,9 @@ export default function TermsOfServicePage() {
       <h2>12. Contact Us</h2>
       <p>Questions about these Terms can be sent to:</p>
       <ul>
-        <li><strong>Address:</strong> Peria Korome Rd, Alattil, Kerala 670644, India</li>
-        <li><strong>Phone:</strong> +91 73060 45321</li>
-        <li><strong>Email:</strong> <a href="mailto:bluebelllwayanad0@gmail.com">bluebelllwayanad0@gmail.com</a></li>
+        <li><strong>Address:</strong> { 'Peria Korome Rd, Alattil, Kerala 670644, India'}</li>
+        <li><strong>Phone:</strong> {'+91 73060 45321'}</li>
+        <li><strong>Email:</strong> <a href='bluebelllwayanad0@gmail.com'>{'bluebelllwayanad0@gmail.com'}</a></li>
       </ul>
     </LegalLayout>
   );

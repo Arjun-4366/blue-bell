@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { faqs } from '@/data/faq';
+import { Faq } from '@/types/faq';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HomeFAQ() {
+export default function HomeFAQ({ faqs = [] }: { faqs: Faq[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const ref = useRef<HTMLElement>(null);
 

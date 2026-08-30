@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import ContactHero from '@/components/sections/contact/ContactHero';
 import ContactForm from '@/components/sections/contact/ContactForm';
+import { getSiteContent } from '@/services/api';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Blue Bell Resort – Wayanad, Kerala',
@@ -8,11 +9,15 @@ export const metadata: Metadata = {
   alternates: { canonical: '/contact' },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const siteContent = await getSiteContent();
+  const heroData = siteContent?.contactHero;
+  const contactInfo = siteContent?.contactInfo;
+
   return (
     <>
-      <ContactHero />
-      <ContactForm />
+      <ContactHero data={heroData} />
+      <ContactForm contactInfo={contactInfo} />
     </>
   );
 }

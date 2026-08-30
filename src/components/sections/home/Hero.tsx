@@ -7,7 +7,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Hero() {
+import { HomeHeroContent } from '@/types/siteContent';
+
+export default function Hero({ data }: { data?: HomeHeroContent }) {
   const heroRef = useRef<HTMLElement>(null);
   const blackRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -40,8 +42,7 @@ useEffect(() => {
         .fromTo('.h-label',    { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.9 }, '-=1.2')
         .fromTo('.h-heading',  { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.1 }, '-=0.7')
         .fromTo('.h-sub',      { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9 }, '-=0.7')
-        .fromTo('.h-ctas',     { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.6')
-        .fromTo('.h-scroll, .h-video-toggle', { opacity: 0 }, { opacity: 1, duration: 0.6 }, '-=0.3');
+        .fromTo('.h-ctas',     { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.6');
 
       gsap.fromTo('.h-bg-video', { y: 0 }, {
         y: isMobile ? '5%' : '14%',
@@ -71,7 +72,9 @@ useEffect(() => {
         {/* Background video */}
         <video
           ref={videoRef}
-          src="/heroVideo.mp4"
+          src={data?.videoUrl || "/heroVideo.mp4"}
+          poster="/heroVideoPoster.jpg"
+          preload="none"
           autoPlay
           muted
           loop
@@ -143,7 +146,6 @@ useEffect(() => {
               alignItems: 'center',
               gap: '0.7rem',
               marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
-              opacity: 0,
             }}>
               <span style={{
                 width: 'clamp(20px, 4vw, 28px)',
@@ -158,7 +160,7 @@ useEffect(() => {
                 letterSpacing: '0.3em',
                 textTransform: 'uppercase',
                 color: 'var(--brand-cyan)',
-              }}>Periya · Wayanad, Kerala</span>
+              }}>{data?.locationTag || 'Periya · Wayanad, Kerala'}</span>
             </div>
 
             {/* Heading — Cormorant Garamond, refined size */}
@@ -170,14 +172,13 @@ useEffect(() => {
               letterSpacing: '-0.02em',
               color: '#ffffff',
               marginBottom: '0.15em',
-              opacity: 0,
               textShadow: '0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)',
             }}>
-              Wayanad&apos;s Best Resort<br />{' '}
+              {data?.headingLine1 || "Wayanad's Best Resort"}<br />{' '}
               <span style={{
                 fontStyle: 'italic',
                 color: '#ffffff',
-              }}>for Every Kind of Getaway</span>
+              }}>{data?.headingLine2 || "for Every Kind of Getaway"}</span>
             </h1>
 
             {/* Divider */}
@@ -196,11 +197,9 @@ useEffect(() => {
               lineHeight: 1.85,
               maxWidth: '420px',
               marginBottom: 'clamp(1.5rem, 2.5vw, 2.2rem)',
-              opacity: 0,
               textShadow: '0 1px 8px rgba(0,0,0,0.5)',
             }}>
-              Treehouses and private-pool domes tucked into the forest in Periya — the best resort
-              in Wayanad for family stays, and private-pool stays for couples.
+              {data?.subtitle || "Treehouses and private-pool domes tucked into the forest in Periya — the best resort in Wayanad for family stays, and private-pool stays for couples."}
             </p>
 
             {/* CTAs */}
@@ -209,7 +208,6 @@ useEffect(() => {
               flexDirection: 'row',
               gap: '0.75rem',
               flexWrap: 'wrap',
-              opacity: 0,
             }}>
               <Link href="/stays" className="btn btn-primary h-cta-btn">Explore Sanctuaries</Link>
             </div>
@@ -319,8 +317,7 @@ useEffect(() => {
         maxWidth: '420px',
         margin: '0 auto',
       }}>
-        Treehouses and private-pool domes tucked into the forest in Periya — the best resort
-        in Wayanad for family stays, and private-pool stays for couples.
+        {data?.subtitle || "Treehouses and private-pool domes tucked into the forest in Periya — the best resort in Wayanad for family stays, and private-pool stays for couples."}
       </p>
     </div>
     </>

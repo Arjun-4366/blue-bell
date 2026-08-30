@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import BookNowHero from '@/components/sections/book-now/BookNowHero';
 import BookNowForm from '@/components/sections/book-now/BookNowForm';
+import { getSiteContent, getStays } from '@/services/api';
 
 export const metadata: Metadata = {
   title: 'Book Now | Blue Bell Resort – Wayanad, Kerala',
@@ -8,11 +9,17 @@ export const metadata: Metadata = {
   alternates: { canonical: '/book-now' },
 };
 
-export default function BookNowPage() {
+export default async function BookNowPage() {
+  const [siteContent, stays] = await Promise.all([
+    getSiteContent(),
+    getStays(),
+  ]);
+  const heroData = siteContent?.bookNowHero;
+
   return (
     <>
-      <BookNowHero />
-      <BookNowForm />
+      <BookNowHero data={heroData} />
+      <BookNowForm stays={stays} />
     </>
   );
 }

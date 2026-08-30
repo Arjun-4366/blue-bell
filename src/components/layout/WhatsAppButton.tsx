@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ whatsapp }: { whatsapp?: string }) {
   const [visible, setVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -57,7 +57,7 @@ export default function WhatsAppButton() {
 
       {/* Button */}
       <a
-        href="https://wa.me/+917306045321"
+        href={whatsapp ? (whatsapp.startsWith('http') ? whatsapp : `https://wa.me/${whatsapp}`) : "https://wa.me/+917306045321"}
         target="_blank"
         rel="noopener noreferrer"
         style={{

@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import LegalLayout from '@/components/sections/legal/LegalLayout';
+import { getSiteContent } from '@/services/api';
+import { ISingleResponse } from '@/types/common';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Blue Bell Resort – Wayanad, Kerala',
@@ -8,7 +10,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function PrivacyPolicyPage() {
+export default async function PrivacyPolicyPage() {
+  const siteContent = await getSiteContent();
+  const contactInfo = siteContent?.contactInfo;
+
   return (
     <LegalLayout eyebrow="Legal" title="Privacy Policy" lastUpdated="August 3, 2026">
       <p>
@@ -94,9 +99,9 @@ export default function PrivacyPolicyPage() {
       <h2>11. Contact Us</h2>
       <p>If you have questions about this Privacy Policy or how we handle your information, please reach out:</p>
       <ul>
-        <li><strong>Address:</strong> Peria Korome Rd, Alattil, Kerala 670644, India</li>
-        <li><strong>Phone:</strong> +91 73060 45321</li>
-        <li><strong>Email:</strong> <a href="mailto:bluebelllwayanad0@gmail.com">bluebelllwayanad0@gmail.com</a></li>
+        <li><strong>Address:</strong> {contactInfo?.address || 'Peria Korome Rd, Alattil, Kerala 670644, India'}</li>
+        <li><strong>Phone:</strong> {contactInfo?.phone || '+91 73060 45321'}</li>
+        <li><strong>Email:</strong> <a href={`mailto:${contactInfo?.email || 'bluebelllwayanad0@gmail.com'}`}>{contactInfo?.email || 'bluebelllwayanad0@gmail.com'}</a></li>
       </ul>
     </LegalLayout>
   );

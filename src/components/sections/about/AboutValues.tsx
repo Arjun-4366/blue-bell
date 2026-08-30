@@ -33,7 +33,9 @@ const values = [
   { iconType: 'lock',     title: 'Real Privacy, Built In',   desc: 'Every dome comes with its own private pool, and each treehouse floor has one too — privacy that comes standard.' },
 ];
 
-export default function AboutValues() {
+import { AboutPageContent } from '@/types/siteContent';
+
+export default function AboutValues({ data }: { data?: AboutPageContent }) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -65,8 +67,8 @@ export default function AboutValues() {
     <section ref={ref} className="section-tint">
       <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         <div style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 5rem)' }}>
-          <span className="section-label">What We Stand For</span>
-          <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>Our Core Values</h2>
+          <span className="section-label">{data?.valuesLabel || 'What We Stand For'}</span>
+          <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>{data?.valuesTitle || 'Our Core Values'}</h2>
         </div>
 
         <div className="about-values-grid" style={{
@@ -74,7 +76,7 @@ export default function AboutValues() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
           gap: 'clamp(0.8rem, 1.5vw, 1.4rem)',
         }}>
-          {values.map((v) => (
+          {(data?.values || values).map((v, idx) => (
             <div key={v.title} className="about-value-card" style={{
               padding: 'clamp(1.2rem, 3vw, 2.4rem)',
               background: '#fff',
@@ -102,7 +104,7 @@ export default function AboutValues() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: 'var(--brand-cyan-muted)', marginBottom: '1.2rem',
               }}>
-                <ValueIcon type={v.iconType} />
+                <ValueIcon type={(v as any).iconType || ['landmark', 'layers', 'star', 'leaf', 'lock'][idx % 5]} />
               </div>
               <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1rem, 1.4vw, 1.1rem)', fontWeight: 400, color: 'var(--color-text)', marginBottom: '0.6rem' }}>{v.title}</h3>
               <p style={{ fontSize: 'clamp(0.78rem, 1vw, 0.86rem)', color: 'var(--color-text-soft)', lineHeight: 1.75 }}>{v.desc}</p>

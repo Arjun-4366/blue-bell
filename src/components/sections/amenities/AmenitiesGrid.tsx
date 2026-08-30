@@ -12,51 +12,9 @@ import tableTennis from '@/images/amenities/table tennis.webp'
 
 gsap.registerPlugin(ScrollTrigger);
 
-const amenities = [
-  {
-    title: 'Campfire Evenings',
-    category: 'Outdoors',
-    accent: 'var(--brand-cyan)',
-    image: campfireImg,
-    imageAlt: 'Guests gathered around an evening campfire',
-    desc: "As the sun drops behind the hills, we light the fire pit. Pull up a seat, order something warm, and let the evening go slow — no schedule, just good company and the forest settling in for the night.",
-  },
-  {
-    title: 'Barbecue Nights',
-    category: 'Dining',
-    accent: 'var(--brand-blue)',
-    image: bbqImg,
-    imageAlt: 'Skewers cooking on an outdoor barbecue grill',
-    desc: 'Charcoal-grilled skewers, marinated classics, and whatever\'s fresh that day, cooked right there on the grill and served hot. A regular fixture on evenings when guests want something more than a sit-down dinner.',
-  },
-  {
-    title: "Kids' Play Park",
-    category: 'Family',
-    accent: 'var(--brand-green)',
-    image: kidsParkImg,
-    imageAlt: "Colourful children's play park surrounded by trees",
-    desc: 'A dedicated play area gives younger guests their own patch of the property — slides, climbing frames, and open ground to run around, all within easy sight of the main grounds.',
-  },
-  {
-    title: 'Indoor Games Room',
-    category: 'Indoors',
-    accent: 'var(--brand-cyan)',
-    image: tableTennis,
-    imageAlt: 'Close-up of hands playing carrom',
-    desc: 'A range of indoor games and a few quiet corners for when the weather turns or the afternoon calls for something unhurried.',
-  },
+import { Amenity } from '@/types/amenity';
 
-  {
-    title: 'Events Hall',
-    category: 'Gatherings',
-    accent: 'var(--brand-blue)',
-    image: eventimg,
-    imageAlt: 'Small indoor hall set up for a family gathering',
-    desc: 'A cosy indoor hall for small celebrations, family functions, and get-togethers — a modest, dedicated space right on the property when guests want somewhere of their own to gather.',
-  },
-];
-
-export default function AmenitiesGrid() {
+export default function AmenitiesGrid({ amenities = [] }: { amenities: Amenity[] }) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {

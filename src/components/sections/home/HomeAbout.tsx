@@ -61,12 +61,18 @@ function parseStatValue(value: string) {
   return { target: parseFloat(num), decimals, suffix };
 }
 
-function RotatingImageCard({ images, alt }: { images: StaticImageData[]; alt: string }) {
+function RotatingImageCard({ images, alt }: { images: (StaticImageData | string)[]; alt: string }) {
   const [active, setActive] = useState(0);
+  const [renderedIndices, setRenderedIndices] = useState<number[]>([0]);
 
   useEffect(() => {
+    if (images.length <= 1) return;
     const id = setInterval(() => {
-      setActive((i) => (i + 1) % images.length);
+      setActive((i) => {
+        const next = (i + 1) % images.length;
+        setRenderedIndices((prev) => (prev.includes(next) ? prev : [...prev, next]));
+        return next;
+      });
     }, 3500);
     return () => clearInterval(id);
   }, [images.length]);
@@ -78,29 +84,38 @@ function RotatingImageCard({ images, alt }: { images: StaticImageData[]; alt: st
       borderRadius: 'var(--radius-lg)',
       overflow: 'hidden',
       boxShadow: '0 20px 50px rgba(13,30,53,0.1)',
+      transform: 'translateZ(0)',
     }}>
-      {images.map((img, i) => (
-        <Image
-          key={i}
-          src={img}
-          alt={alt}
-          fill
-          placeholder="blur"
-          style={{
-            objectFit: 'cover',
-            position: 'absolute',
-            inset: 0,
-            opacity: i === active ? 1 : 0,
-            transition: 'opacity 1.2s ease',
-          }}
-        />
-      ))}
+      {images.map((img, i) => {
+        if (!renderedIndices.includes(i)) return null;
+        return (
+          <Image
+            key={i}
+            src={img}
+            alt={alt}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            style={{
+              objectFit: 'cover',
+              position: 'absolute',
+              inset: 0,
+              opacity: i === active ? 1 : 0,
+              transition: 'opacity 1.2s ease',
+            }}
+          />
+        );
+      })}
     </div>
   );
 }
 
-export default function HomeAbout() {
+import { HomeSanctuariesContent, HomeStatsContent } from '@/types/siteContent';
+
+export default function HomeAbout({ sanctuaries, statsData }: { sanctuaries?: HomeSanctuariesContent, statsData?: HomeStatsContent }) {
   const sectionRef = useRef<HTMLElement>(null);
+
+  console.log("santuries",sanctuaries)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -152,18 +167,18 @@ export default function HomeAbout() {
             border: '1px solid rgba(6,181,211,0.2)', borderRadius: '999px',
             padding: '0.45rem 1rem', marginBottom: '1.2rem',
           }}>
-            6 Years of Excellence
+            {sanctuaries?.badgeText || '6 Years of Excellence'}
           </span>
-          <span className="section-label about-reveal-el" style={{ display: 'block' }}>Our Sanctuaries</span>
+          <span className="section-label about-reveal-el" style={{ display: 'block' }}>{sanctuaries?.sectionLabel || 'Our Sanctuaries'}</span>
           <h2 className="section-title about-reveal-el" style={{ marginBottom: '1.1rem' }}>
-            Three Ways to Call Wayanad Home
+            {sanctuaries?.title || 'Three Ways to Call Wayanad Home'}
           </h2>
           <div className="divider center about-reveal-el" />
         </div>
 
         {/* Stay type rows — image left, content right */}
         <div className="stay-rows">
-          {stayTypes.map((stay, idx) => (
+          {(sanctuaries?.stayTypes || stayTypes).map((stay, idx) => (
             <div key={stay.title} className="stay-row" style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -210,7 +225,7 @@ export default function HomeAbout() {
           maxWidth: '920px',
           margin: '0 auto',
         }}>
-          {stats.map((stat) => {
+          {(statsData?.stats || stats).map((stat) => {
             const { target, decimals, suffix } = parseStatValue(stat.value);
             return (
             <div key={stat.label} style={{

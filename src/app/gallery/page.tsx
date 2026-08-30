@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import GalleryHero from '@/components/sections/gallery/GalleryHero';
 import GalleryGrid from '@/components/sections/gallery/GalleryGrid';
 import HomeCTA from '@/components/sections/home/HomeCTA';
+import { getSiteContent, getGalleryImages } from '@/services/api';
 
 export const metadata: Metadata = {
   title: 'Gallery | Blue Bell Resort – Wayanad, Kerala',
@@ -9,11 +10,17 @@ export const metadata: Metadata = {
   alternates: { canonical: '/gallery' },
 };
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const [siteContent, galleryImages] = await Promise.all([
+    getSiteContent(),
+    getGalleryImages(),
+  ]);
+  const heroData = siteContent?.galleryHero;
+
   return (
     <>
-      <GalleryHero />
-      <GalleryGrid />
+      <GalleryHero data={heroData} />
+      <GalleryGrid images={galleryImages} />
       <HomeCTA />
     </>
   );

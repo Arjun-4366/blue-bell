@@ -3,6 +3,7 @@ import AmenitiesHero from '@/components/sections/amenities/AmenitiesHero';
 import AmenitiesOverview from '@/components/sections/amenities/AmenitiesOverview';
 import AmenitiesGrid from '@/components/sections/amenities/AmenitiesGrid';
 import HomeCTA from '@/components/sections/home/HomeCTA';
+import { getSiteContent, getAmenities } from '@/services/api';
 
 export const metadata: Metadata = {
   title: 'Amenities | Blue Bell Resort – Wayanad, Kerala',
@@ -10,12 +11,18 @@ export const metadata: Metadata = {
   alternates: { canonical: '/amenities' },
 };
 
-export default function AmenitiesPage() {
+export default async function AmenitiesPage() {
+  const [siteContent, amenities] = await Promise.all([
+    getSiteContent(),
+    getAmenities(),
+  ]);
+  const heroData = siteContent?.amenitiesHero;
+
   return (
     <>
-      <AmenitiesHero />
+      <AmenitiesHero data={heroData} />
       {/* <AmenitiesOverview /> */}
-      <AmenitiesGrid />
+      <AmenitiesGrid amenities={amenities} />
       <HomeCTA />
     </>
   );

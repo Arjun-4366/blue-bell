@@ -1,22 +1,12 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const allReviews = [
-  { name: 'Priya Menon', location: 'Bangalore', rating: 5, date: 'March 2025', stay: 'Treehouse Suite', avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&q=80&fit=crop', text: 'Blue Bell is nothing short of magical. The treehouse suite exceeded all expectations — waking to birdsong with the forest at eye level was a dream. The Ayurvedic spa treatments were divinely restorative.' },
-  { name: 'Arjun & Kavitha Sharma', location: 'Mumbai', rating: 5, date: 'February 2025', stay: 'Forest Pool Dome', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80&fit=crop', text: 'Our honeymoon was the most romantic experience of our lives. The private pool villa, the candlelit forest dinner, the attentive staff who anticipated our every need — it was absolute perfection.' },
-  { name: 'David Thompson', location: 'London, UK', rating: 5, date: 'January 2025', stay: 'Earthen Dome Sanctuary', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80&fit=crop', text: 'Nothing compares to Blue Bell. The seamless blend of luxury and raw nature, the impeccable service, and the genuine Kerala warmth sets this resort apart as a true hidden gem of the world.' },
-  { name: 'Ananya Krishnan', location: 'Chennai', rating: 5, date: 'December 2024', stay: 'Canopy Treehouse Suite', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&q=80&fit=crop', text: 'I\'ve been to many luxury resorts but Blue Bell is something else entirely. Absolute silence, the fragrance of the rainforest, and the most comfortable bed I have ever slept in.' },
-  { name: 'Rahul Patel', location: 'Delhi', rating: 5, date: 'November 2024', stay: 'Earthen Pool Dome', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80&fit=crop', text: 'Brought the entire family for a week-long stay. The children loved the nature walks, the team was incredible with kids, and the private pool gave us all the space we needed. Best family holiday ever.' },
-  { name: 'Sophie Laurent', location: 'Paris, France', rating: 5, date: 'October 2024', stay: 'Whispering Bamboo Treehouse', avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&q=80&fit=crop', text: 'I travelled solo for a wellness retreat and it completely transformed me. The Ayurvedic treatments, sunrise yoga, and organic food — every element was perfectly curated for genuine healing.' },
-  { name: 'Dr. Amit Verma', location: 'Hyderabad', rating: 5, date: 'September 2024', stay: 'Veda Spa Suite', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&fit=crop', text: 'As a medical professional, I was deeply impressed by the authenticity of their Ayurveda program. The consultations were thorough, and the herbal gardens on-site are pristine. A wellness experience.' },
-  { name: 'Elena Rostova', location: 'Berlin, Germany', rating: 5, date: 'August 2024', stay: 'Canopy Treehouse Suite', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80&fit=crop', text: 'Watching the sunrise over the misty tea valleys from the treehouse balcony is a memory I will cherish forever. Absolute serenity, eco-friendly practices, and top-tier luxury.' },
-];
+import { Review } from '@/types/review';
 
 const StarIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--brand-cyan)" style={{ flexShrink: 0 }}>
@@ -24,7 +14,7 @@ const StarIcon = () => (
   </svg>
 );
 
-export default function ReviewsGrid() {
+export default function ReviewsGrid({ reviews = [] }: { reviews: Review[] }) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -68,7 +58,7 @@ export default function ReviewsGrid() {
           ].map((s, i) => (
             <div key={s.label} className="stat-item" style={{
               background: i % 2 === 0 ? '#fff' : 'var(--color-bg-warm)',
-              padding: 'clamp(1.2rem, 2.5vw, 2rem) clamp(1rem, 1.8vw, 1.5rem)', 
+              padding: 'clamp(1.2rem, 2.5vw, 2.2rem) clamp(1rem, 1.8vw, 1.5rem)', 
               textAlign: 'center',
             }}>
               <span style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)', fontWeight: 400, color: 'var(--brand-cyan-muted)', display: 'block', lineHeight: 1 }}>{s.value}</span>
@@ -83,7 +73,7 @@ export default function ReviewsGrid() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: 'clamp(0.8rem, 1.8vw, 1.4rem)',
         }}>
-          {allReviews.map((r, i) => (
+          {reviews.map((r, i) => (
             <div key={i} className="review-full-card" style={{
               background: '#fff', borderRadius: 'var(--radius)',
               border: '1px solid rgba(6,181,211,0.1)',
@@ -117,11 +107,10 @@ export default function ReviewsGrid() {
               }}>"{r.text}"</p>
 
               {/* Author */}
-              <div className="review-author" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderTop: '1px solid rgba(13,30,53,0.07)', paddingTop: 'clamp(0.8rem, 1.2vw, 1.1rem)' }}>
-                <Image src={r.avatar} alt={r.name} width={42} height={42} style={{ width: 'clamp(36px, 5vw, 42px)', height: 'clamp(36px, 5vw, 42px)', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--brand-cyan)', flexShrink: 0 }} />
+              <div className="review-author" style={{ display: 'flex', alignItems: 'center', borderTop: '1px solid rgba(13,30,53,0.07)', paddingTop: 'clamp(0.8rem, 1.2vw, 1.1rem)' }}>
                 <div className="review-author-info">
                   <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, color: 'var(--color-text)', fontSize: 'clamp(0.8rem, 1.1vw, 0.88rem)', display: 'block' }}>{r.name}</span>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.65rem, 0.85vw, 0.72rem)', color: 'var(--color-text-soft)' }}>{r.location} · {r.stay} · {r.date}</span>
+                  <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(0.65rem, 0.85vw, 0.72rem)', color: 'var(--color-text-soft)' }}>{r.date}</span>
                 </div>
               </div>
             </div>

@@ -45,7 +45,9 @@ function IconX() {
   );
 }
 
-export default function Footer() {
+import { ContactInfoContent } from '@/types/siteContent';
+
+export default function Footer({ contactInfo }: { contactInfo?: ContactInfoContent }) {
   return (
     <footer className="footer" style={{
       background: '#FFFFFF',
@@ -110,8 +112,8 @@ export default function Footer() {
             {/* Social icons */}
             <div style={{ display: 'flex', gap: '0.75rem', marginTop: 'clamp(1.5rem, 2.5vw, 2rem)' }}>
               {[
-                { label: 'Instagram', icon: <IconInstagram />,href:"https://www.instagram.com/bluebell_wayanad?igsh=N3lsZmd6bGhpY3By" },
-                { label: 'Facebook', icon: <IconFacebook />,href:"https://www.facebook.com/share/1DFmvkGUuo/" },
+                { label: 'Instagram', icon: <IconInstagram />, href: contactInfo?.instagramUrl || "https://www.instagram.com/bluebell_wayanad?igsh=N3lsZmd6bGhpY3By" },
+                { label: 'Facebook', icon: <IconFacebook />, href: contactInfo?.facebookUrl || "https://www.facebook.com/share/1DFmvkGUuo/" },
               ].map((s) => (
                 <a
                   key={s.label}
@@ -193,9 +195,9 @@ export default function Footer() {
             }}>Contact</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1rem, 1.5vw, 1.25rem)' }}>
               {[
-                { label: 'Address', value: 'Peria Korome Rd, Alattil, Kerala 670644, India' },
-                { label: 'Phone', value: '+91 73060 45321' },
-                { label: 'Email', value: 'bluebelllwayanad0@gmail.com', isEmail: true },
+                { label: 'Address', value: contactInfo?.address || 'Peria Korome Rd, Alattil, Kerala 670644, India' },
+                { label: 'Phone', value: contactInfo?.phone || '+91 73060 45321' },
+                { label: 'Email', value: contactInfo?.email || 'bluebelllwayanad0@gmail.com', isEmail: true },
               ].map((item) => (
                 <div key={item.label}>
                   <span style={{

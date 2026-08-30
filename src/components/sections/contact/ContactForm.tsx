@@ -28,7 +28,9 @@ const inputFocus = `
   .bb-input:focus { border-color: var(--brand-cyan) !important; box-shadow: 0 0 0 3px rgba(6,181,211,0.08); }
 `;
 
-export default function ContactForm() {
+import { ContactInfoContent } from '@/types/siteContent';
+
+export default function ContactForm({ contactInfo }: { contactInfo?: ContactInfoContent }) {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: 'General Enquiry', message: '' });
 
@@ -74,13 +76,13 @@ export default function ContactForm() {
   const contactItems: ContactItem[] = [
     { 
       title: 'Location', 
-      text: 'Peria Korome Rd, Alattil, Kerala 670644, India', 
+      text: contactInfo?.address || 'Peria Korome Rd, Alattil, Kerala 670644, India', 
       email: null, 
       Icon: LocationIcon,
       link: 'https://www.google.com/maps/place/Blue+Bell+Resort+Wayanad+-+Periya/@11.8167165,75.8512375,17z/data=!3m1!4b1!4m9!3m8!1s0x3ba5d157f9094acf:0x94b5ad585705afe7!5m2!4m1!1i2!8m2!3d11.8167113!4d75.8538124!16s%2Fg%2F11c1wwf0n3?hl=en&entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D',
       linkText: 'View on Google Maps'
     },
-    { title: 'General Enquiries & Bookings', text: '+91 73060 45321',                       email: 'bluebelllwayanad0@gmail.com',          Icon: PhoneIcon },
+    { title: 'General Enquiries & Bookings', text: contactInfo?.phone || '+91 73060 45321', email: contactInfo?.email || 'bluebelllwayanad0@gmail.com', Icon: PhoneIcon },
   ];
 
   return (

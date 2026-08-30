@@ -34,7 +34,9 @@ const milestones = [
   },
 ];
 
-export default function AboutStory() {
+import { AboutPageContent } from '@/types/siteContent';
+
+export default function AboutStory({ data }: { data?: AboutPageContent }) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -103,16 +105,20 @@ export default function AboutStory() {
           }}>
           {/* Story text */}
           <div className="story-text-reveal">
-            <span className="section-label">The Blue Bell Story</span>
+            <span className="section-label">{data?.storyLabel || 'The Blue Bell Story'}</span>
             <h2
               className="section-title"
               style={{
                 marginBottom: "1.2rem",
                 fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
               }}>
-              Six Years in the Heart of Periya
+              {data?.storyTitle || 'Six Years in the Heart of Periya'}
             </h2>
             <div className="divider" />
+            {data?.storyBody ? (
+              <div dangerouslySetInnerHTML={{ __html: data.storyBody }} className="story-body-content" />
+            ) : (
+              <>
             <p
               style={{
                 fontSize: "clamp(0.9rem, 1.3vw, 1rem)",
@@ -164,6 +170,8 @@ export default function AboutStory() {
               a family stay in a private-pool dome, Blue Bell answers both
               from the same forested address in Periya.
             </p>
+              </>
+            )}
           </div>
 
           {/* Timeline */}
@@ -195,7 +203,7 @@ export default function AboutStory() {
                 }}
               />
 
-              {milestones.map((m) => (
+              {(data?.milestones || milestones).map((m) => (
                 <div
                   key={m.year}
                   className="milestone-item"
@@ -268,6 +276,11 @@ export default function AboutStory() {
       </div>
 
       <style jsx>{`
+        :global(.story-body-content p) {
+          font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+          margin-bottom: 1.2rem;
+          color: var(--color-text-mid);
+        }
         @media (max-width: 768px) {
           .story-layout {
             gap: 3rem !important;
