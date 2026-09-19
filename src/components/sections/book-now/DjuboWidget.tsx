@@ -1,35 +1,40 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-/**
- * DjuboWidget
- * -----------
- * Embeds the Djubo booking-engine widget client-side (SSR-safe).
- *
- * Account GUID : Qw1m_MkbBjjUoksNjXFS1A
- * Property GUID: 7PdTVQfFEW85oyDFP02o5A
- */
+const SCRIPT_SRC =
+  "https://s3-ap-southeast-1.amazonaws.com/djubo-static/static/widget/js/widget.min.2.0.js";
+
 export default function DjuboWidget() {
   useEffect(() => {
-    const SCRIPT_SRC =
-      'https://s3-ap-southeast-1.amazonaws.com/djubo-static/static/widget/js/widget.min.2.0.js';
+    let cancelled = false;
+    const mount = document.getElementById("BEx4IDaY3bWR");
 
-    // Always remove any stale script first — on soft navigation the script
-    // is already in the DOM but Djubo won't re-init against the new mount.
-    // Removing + re-appending forces Djubo to run its init against the live node.
-    const existing = document.querySelector(`script[src="${SCRIPT_SRC}"]`);
-    if (existing) existing.remove();
+    // clear leftovers from any previous mount
+    document.querySelectorAll("script[data-djubo]").forEach((el) => el.remove());
+    if (mount) mount.innerHTML = "";
 
-    const script = document.createElement('script');
-    script.src = SCRIPT_SRC;
+    const script = document.createElement("script");
+    script.src = `${SCRIPT_SRC}?_t=${Date.now()}`;
     script.async = true;
+    script.setAttribute("data-djubo", "true");
+
+    script.onload = () => {
+      if (cancelled) return;
+      // Page already finished loading (cached refresh / soft navigation),
+      // so the widget's own load listener will never fire. Trigger it.
+      if (document.readyState === "complete") {
+        document.dispatchEvent(new Event("DOMContentLoaded", { bubbles: true }));
+        window.dispatchEvent(new Event("load"));
+      }
+    };
+
     document.body.appendChild(script);
 
-    // Cleanup on unmount — ensures next navigation starts clean
     return () => {
-      const s = document.querySelector(`script[src="${SCRIPT_SRC}"]`);
-      if (s) s.remove();
+      cancelled = true;
+      script.remove();
+      if (mount) mount.innerHTML = "";
     };
   }, []);
 
