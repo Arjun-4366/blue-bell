@@ -15,13 +15,22 @@ export default function DjuboWidget() {
     const SCRIPT_SRC =
       'https://s3-ap-southeast-1.amazonaws.com/djubo-static/static/widget/js/widget.min.2.0.js';
 
-    // Avoid double-injecting on re-mount
-    if (document.querySelector(`script[src="${SCRIPT_SRC}"]`)) return;
+    // Always remove any stale script first — on soft navigation the script
+    // is already in the DOM but Djubo won't re-init against the new mount.
+    // Removing + re-appending forces Djubo to run its init against the live node.
+    const existing = document.querySelector(`script[src="${SCRIPT_SRC}"]`);
+    if (existing) existing.remove();
 
     const script = document.createElement('script');
     script.src = SCRIPT_SRC;
     script.async = true;
     document.body.appendChild(script);
+
+    // Cleanup on unmount — ensures next navigation starts clean
+    return () => {
+      const s = document.querySelector(`script[src="${SCRIPT_SRC}"]`);
+      if (s) s.remove();
+    };
   }, []);
 
   return (
