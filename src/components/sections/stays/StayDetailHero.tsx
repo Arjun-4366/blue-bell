@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Stay, StayCategory, formatRate } from '@/data/stays';
+import { Stay, StayCategory } from '@/data/stays';
 
 interface StayDetailHeroProps {
   stay: Stay;
@@ -112,20 +112,17 @@ export default function StayDetailHero({ stay, category }: StayDetailHeroProps) 
               ))}
             </div>
 
-            <div style={{
-              background: 'var(--color-bg-accent)', padding: 'clamp(1.2rem, 2.5vw, 1.6rem)',
-              borderRadius: 'var(--radius)', border: '1px solid rgba(6,181,211,0.15)',
-            }}>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--brand-cyan-muted)' }}>Starting At</span>
-              <div style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.8rem, 3vw, 2.3rem)', color: 'var(--color-text)', margin: '0.3rem 0' }}>
-                {formatRate(stay.rate)}<span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--color-text-soft)', fontWeight: 500 }}> / night</span>
-              </div>
-              <p style={{ fontSize: '0.83rem', color: 'var(--color-text-mid)' }}>{stay.mealPlan}</p>
-              <p style={{ fontSize: '0.7rem', color: 'var(--color-text-soft)', marginTop: '0.3rem' }}>Rates are tax inclusive.</p>
-            </div>
+
 
             <div className="stay-hero-cta" style={{ display: 'flex', gap: '0.8rem', marginTop: 'clamp(1.2rem, 2.5vw, 1.6rem)', flexWrap: 'wrap' }}>
-              <Link href="/book-now" className="btn btn-primary">Book This Stay</Link>
+              <a
+                href="https://www.secure-booking-engine.com/accounts/Qw1m_MkbBjjUoksNjXFS1A/properties/7PdTVQfFEW85oyDFP02o5A/booking-engine/web/source/4wsctBw6Oq6j-g9XuxeRzQ/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Book This Stay
+              </a>
               <Link href="/contact" className="btn btn-outline-dark">Enquire Now</Link>
             </div>
           </div>

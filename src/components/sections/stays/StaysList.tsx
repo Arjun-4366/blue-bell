@@ -9,13 +9,8 @@ import { StayCategory, Stay } from '@/types/stay';
 import { stayCategories } from '@/lib/stayCategories';
 import RotatingStayImage from './RotatingStayImage';
 
-const formatRate = (rate: number) => {
-  return new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    maximumFractionDigits: 0,
-  }).format(rate);
-};
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,15 +125,9 @@ export default function StaysList({ stays }: { stays: Stay[] }) {
                         </p>
 
                         <div className="stay-footer" style={{
-                          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                          display: 'flex', justifyContent: 'center', alignItems: 'center',
                           paddingTop: 'clamp(0.8rem, 1.2vw, 1rem)', borderTop: '1px solid rgba(13,30,53,0.07)',
                         }}>
-                          <div>
-                            <span style={{ display: 'block', fontFamily: 'var(--font-sans)', fontSize: '0.58rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-text-soft)' }}>From</span>
-                            <span style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.05rem, 1.5vw, 1.2rem)', color: 'var(--color-text)' }}>
-                              {formatRate(stay.rate)}<span style={{ fontSize: '0.65rem', color: 'var(--color-text-soft)' }}> /night</span>
-                            </span>
-                          </div>
                           <Link href={`/stays/${stay.slug}`} className="btn btn-primary" style={{ padding: 'clamp(0.55rem, 0.8vw, 0.6rem) clamp(1rem, 1.6vw, 1.3rem)', fontSize: 'clamp(0.56rem, 0.75vw, 0.6rem)' }}>
                             View Details
                           </Link>
