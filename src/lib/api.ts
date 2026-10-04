@@ -8,6 +8,10 @@ export async function apiFetch<T>(
 ): Promise<T> {
   const res = await fetch(endpoint, {
     ...options,
+    // Content managed in the admin panel must be visible on the next request.
+    // This disables Next.js' server-side Data Cache; a browser hard refresh
+    // cannot invalidate that cache on its own.
+    cache: options?.cache ?? 'no-store',
     headers: {
       'Content-Type': 'application/json',
       ...options?.headers,

@@ -10,9 +10,7 @@ import { Faq } from '@/types/faq';
 
 export const getSiteContent = async (): Promise<SiteContentDocument> => {
   try {
-    const res = await apiFetch<ISingleResponse<SiteContentDocument>>(ENDPOINTS.GET_SITE_CONTENT, {
-      next: { revalidate: 3600, tags: ['site-content'] },
-    });
+    const res = await apiFetch<ISingleResponse<SiteContentDocument>>(ENDPOINTS.GET_SITE_CONTENT);
     return res.data;
   } catch (error) {
     console.error('Failed to get site content:', error);
@@ -22,9 +20,7 @@ export const getSiteContent = async (): Promise<SiteContentDocument> => {
 
 export const getStays = async (): Promise<Stay[]> => {
   try {
-    const res = await apiFetch<IPaginatedResponse<Stay>>(ENDPOINTS.GET_STAYS, {
-      next: { revalidate: 300, tags: ['stays'] },
-    });
+    const res = await apiFetch<IPaginatedResponse<Stay>>(ENDPOINTS.GET_STAYS);
     return res.data;
   } catch (error) {
     console.error('Failed to get stays:', error);
@@ -34,9 +30,7 @@ export const getStays = async (): Promise<Stay[]> => {
 
 export const getAmenities = async (): Promise<Amenity[]> => {
   try {
-    const res = await apiFetch<IPaginatedResponse<Amenity>>(ENDPOINTS.GET_AMENITIES, {
-      next: { revalidate: 300, tags: ['amenities'] },
-    });
+    const res = await apiFetch<IPaginatedResponse<Amenity>>(ENDPOINTS.GET_AMENITIES);
     return res.data;
   } catch (error) {
     console.error('Failed to get amenities:', error);
@@ -46,9 +40,7 @@ export const getAmenities = async (): Promise<Amenity[]> => {
 
 export const getGalleryImages = async (): Promise<GalleryImage[]> => {
   try {
-    const res = await apiFetch<IPaginatedResponse<GalleryImage>>(ENDPOINTS.GET_GALLERY_IMAGES, {
-      next: { revalidate: 300, tags: ['gallery'] },
-    });
+    const res = await apiFetch<IPaginatedResponse<GalleryImage>>(ENDPOINTS.GET_GALLERY_IMAGES);
     return res.data;
   } catch (error) {
     console.error('Failed to get gallery images:', error);
@@ -58,9 +50,7 @@ export const getGalleryImages = async (): Promise<GalleryImage[]> => {
 
 export const getReviews = async (): Promise<Review[]> => {
   try {
-    const res = await apiFetch<IPaginatedResponse<Review>>(ENDPOINTS.GET_REVIEWS, {
-      next: { revalidate: 300, tags: ['reviews'] },
-    });
+    const res = await apiFetch<IPaginatedResponse<Review>>(ENDPOINTS.GET_REVIEWS);
     return res.data;
   } catch (error) {
     console.error('Failed to get reviews:', error);
@@ -70,9 +60,7 @@ export const getReviews = async (): Promise<Review[]> => {
 
 export const getFaqs = async (): Promise<Faq[]> => {
   try {
-    const res = await apiFetch<IPaginatedResponse<Faq>>(ENDPOINTS.GET_FAQS, {
-      next: { revalidate: 3600, tags: ['faqs'] },
-    });
+    const res = await apiFetch<IPaginatedResponse<Faq>>(ENDPOINTS.GET_FAQS);
     return res.data;
   } catch (error) {
     console.error('Failed to get faqs:', error);
