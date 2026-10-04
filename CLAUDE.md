@@ -5,7 +5,7 @@ in Periya, Wayanad, Kerala. Booking is not live yet — the site showcases stays
 amenities, gallery, events and reviews, and captures reservation *requests* via a
 form (no payment, no real-time availability).
 
-Domain (already owned, on GoDaddy): `bluebellwayand.com`.
+Domain (already owned, on GoDaddy): `bluebellwayanad.com`.
 
 ## Tech stack
 
@@ -132,7 +132,7 @@ free trial applies (new account).
 Stack on the server: Ubuntu 22.04, Node 20, PM2 (process manager), Nginx (reverse
 proxy on 80/443 → Next.js on 3000), Certbot (free SSL).
 
-Domain `bluebellwayand.com` stays registered at **GoDaddy** — no registrar
+Domain `bluebellwayanad.com` stays registered at **GoDaddy** — no registrar
 migration needed, just point A records (`@` and `www`) at the Lightsail static IP
 via GoDaddy's DNS management panel.
 

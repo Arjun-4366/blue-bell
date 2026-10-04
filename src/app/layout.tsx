@@ -38,7 +38,7 @@ const alexBrush = Alex_Brush({
   display: "swap",
 });
 
-const SITE_URL = "https://bluebellwayand.com";
+const SITE_URL = "https://bluebellwayanad.com";
 const SITE_TITLE = "Blue Bell Resort – Treehouses & Private-Pool Domes in Wayanad, Kerala";
 const SITE_DESCRIPTION =
   "Blue Bell is a treehouse and private-pool dome resort in Periya, Wayanad, Kerala. Book direct for earthen-dome stays with private pools, Tree Trunk and Tree Hut rooms for two, campfires, and easy access to Wayanad's waterfalls and wildlife sanctuaries.";

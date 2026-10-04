@@ -5,7 +5,7 @@ import { ISingleResponse } from '@/types/common';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Blue Bell Resort – Wayanad, Kerala',
-  description: 'The terms that govern your use of bluebellwayand.com and any reservation requests submitted to Blue Bell Resort.',
+  description: 'The terms that govern your use of bluebellwayanad.com and any reservation requests submitted to Blue Bell Resort.',
   alternates: { canonical: '/terms-of-service' },
   robots: { index: true, follow: true },
 };
@@ -17,7 +17,7 @@ export default async function TermsOfServicePage() {
   return (
     <LegalLayout eyebrow="Legal" title="Terms of Service" lastUpdated="August 3, 2026">
       <p>
-        These Terms of Service (&ldquo;Terms&rdquo;) govern your use of bluebellwayand.com (the
+        These Terms of Service (&ldquo;Terms&rdquo;) govern your use of bluebellwayanad.com (the
         &ldquo;Site&rdquo;), operated by Blue Bell (&ldquo;Blue Bell&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;,
         or &ldquo;our&rdquo;) for our resort in Periya, Wayanad, Kerala. By using the Site, you agree to these
         Terms.

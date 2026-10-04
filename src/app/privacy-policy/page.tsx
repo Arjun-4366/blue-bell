@@ -5,7 +5,7 @@ import { ISingleResponse } from '@/types/common';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Blue Bell Resort – Wayanad, Kerala',
-  description: 'How Blue Bell Resort collects, uses, and protects the information you share with us through bluebellwayand.com.',
+  description: 'How Blue Bell Resort collects, uses, and protects the information you share with us through bluebellwayanad.com.',
   alternates: { canonical: '/privacy-policy' },
   robots: { index: true, follow: true },
 };
@@ -18,7 +18,7 @@ export default async function PrivacyPolicyPage() {
     <LegalLayout eyebrow="Legal" title="Privacy Policy" lastUpdated="August 3, 2026">
       <p>
         Blue Bell (&ldquo;Blue Bell&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) operates the
-        website bluebellwayand.com (the &ldquo;Site&rdquo;) for our treehouse and private-pool dome resort in
+        website bluebellwayanad.com (the &ldquo;Site&rdquo;) for our treehouse and private-pool dome resort in
         Periya, Wayanad, Kerala. This Privacy Policy explains what information we collect when you visit the
         Site or submit an enquiry or reservation request, how we use it, and the choices you have.
       </p>

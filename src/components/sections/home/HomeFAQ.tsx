@@ -39,8 +39,8 @@ export default function HomeFAQ({ faqs = [] }: { faqs: Faq[] }) {
             </h2>
             <div className="divider" />
             <p style={{ color: 'var(--color-text-soft)', marginBottom: '2.4rem', lineHeight: 1.85, fontSize: 'clamp(0.85rem, 1.2vw, 0.95rem)' }}>
-              Questions about reaching Periya, Ayurvedic packages, or your stay?
-              Our most common guest enquiries are answered here.
+              Questions about getting here, our accommodations, amenities, or planning your stay?
+              Find answers to some of our most common guest enquiries.
             </p>
 
             {/* Help card */}
@@ -51,7 +51,7 @@ export default function HomeFAQ({ faqs = [] }: { faqs: Faq[] }) {
             }}>
               <h4 style={{ fontFamily: 'var(--font-serif)', fontWeight: 400, color: 'var(--color-text)', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', marginBottom: '0.6rem' }}>Still have questions?</h4>
               <p style={{ fontSize: 'clamp(0.8rem, 1.1vw, 0.88rem)', marginBottom: '1.4rem', color: 'var(--color-text-soft)' }}>
-                Our guest support team is online 24/7 to assist with your travel planning.
+                Our team is happy to help with your stay and travel planning.
               </p>
               <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 Contact Support

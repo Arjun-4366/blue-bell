@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { stays } from '@/data/stays';
 
-const BASE_URL = 'https://bluebellwayand.com';
+const BASE_URL = 'https://bluebellwayanad.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
