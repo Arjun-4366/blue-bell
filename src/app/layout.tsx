@@ -1,12 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Playfair_Display, Plus_Jakarta_Sans, Alex_Brush } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Playfair_Display,
+  Plus_Jakarta_Sans,
+  Alex_Brush,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LenisProvider from "@/components/providers/LenisProvider";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
-import { getSiteContent } from '@/services/api';
-import { ISingleResponse } from '@/types/common';
+import { getSiteContent } from "@/services/api";
+import { ISingleResponse } from "@/types/common";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -39,7 +44,9 @@ const alexBrush = Alex_Brush({
 });
 
 const SITE_URL = "https://bluebellwayanad.com";
-const SITE_TITLE = "Blue Bell Resort – Treehouses & Private-Pool Domes in Wayanad, Kerala";
+const GTM_ID = "GTM-PJNVZH7J";
+const SITE_TITLE =
+  "Blue Bell Resort – Treehouses & Private-Pool Domes in Wayanad, Kerala";
 const SITE_DESCRIPTION =
   "Blue Bell is a treehouse and private-pool dome resort in Periya, Wayanad, Kerala. Book direct for earthen-dome stays with private pools, Tree Trunk and Tree Hut rooms for two, campfires, and easy access to Wayanad's waterfalls and wildlife sanctuaries.";
 
@@ -84,22 +91,22 @@ export const viewport: Viewport = {
 const lodgingBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
-  "name": "Blue Bell Resort",
-  "description": SITE_DESCRIPTION,
-  "url": SITE_URL,
-  "telephone": "+91-73060-45321",
-  "email": "bluebelllwayanad0@gmail.com",
-  "address": {
+  name: "Blue Bell Resort",
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  telephone: "+91-73060-45321",
+  email: "bluebelllwayanad0@gmail.com",
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": "Peria Korome Rd, Alattil",
-    "addressLocality": "Periya, Wayanad",
-    "addressRegion": "Kerala",
-    "postalCode": "670644",
-    "addressCountry": "IN",
+    streetAddress: "Peria Korome Rd, Alattil",
+    addressLocality: "Periya, Wayanad",
+    addressRegion: "Kerala",
+    postalCode: "670644",
+    addressCountry: "IN",
   },
-  "checkinTime": "14:00",
-  "checkoutTime": "11:00",
-  "priceRange": "₹₹₹",
+  checkinTime: "14:00",
+  checkoutTime: "11:00",
+  priceRange: "₹₹₹",
 };
 
 export default async function RootLayout({
@@ -117,8 +124,29 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${cormorant.variable} ${playfair.variable} ${plusJakarta.variable} ${alexBrush.variable}`}>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${playfair.variable} ${plusJakarta.variable} ${alexBrush.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
+      </head>
       <body>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(dynamicJsonLd) }}

@@ -104,7 +104,7 @@ export default function AboutValues({ data }: { data?: AboutPageContent }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: 'var(--brand-cyan-muted)', marginBottom: '1.2rem',
               }}>
-                <ValueIcon type={(v as any).iconType || ['landmark', 'layers', 'star', 'leaf', 'lock'][idx % 5]} />
+                <ValueIcon type={('iconType' in v && typeof v.iconType === 'string') ? v.iconType : ['landmark', 'layers', 'star', 'leaf', 'lock'][idx % 5]} />
               </div>
               <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1rem, 1.4vw, 1.1rem)', fontWeight: 400, color: 'var(--color-text)', marginBottom: '0.6rem' }}>{v.title}</h3>
               <p style={{ fontSize: 'clamp(0.78rem, 1vw, 0.86rem)', color: 'var(--color-text-soft)', lineHeight: 1.75 }}>{v.desc}</p>
@@ -151,14 +151,29 @@ export default function AboutValues({ data }: { data?: AboutPageContent }) {
               fontSize: 'clamp(0.9rem, 1.3vw, 1rem)', color: 'var(--color-text-mid)',
               lineHeight: 1.85, marginTop: '1.2rem', marginBottom: '1rem',
             }}>
-              Every stay at Blue Bell is looked after by the same familiar faces — hosts, cooks, gardeners,
-              and caretakers who know this land like their own home.
+              At Blue Bell, our team is our greatest strength. We believe that a memorable stay is about more
+              than a beautiful place—it&rsquo;s about the people who make you feel welcome, comfortable, and cared for.
+            </p>
+            <p className="team-reveal-el" style={{
+              fontSize: 'clamp(0.85rem, 1.2vw, 0.95rem)', color: 'var(--color-text-mid)',
+              lineHeight: 1.8, marginBottom: '1rem',
+            }}>
+              From our hosts and cooks to our gardeners and caretakers, every member of our team plays a part in
+              making your stay special. Many of them are from Periya itself, so they know the land, the people,
+              and the little things that make Wayanad unique.
+            </p>
+            <p className="team-reveal-el" style={{
+              fontSize: 'clamp(0.85rem, 1.2vw, 0.95rem)', color: 'var(--color-text-mid)',
+              lineHeight: 1.8, marginBottom: '1rem',
+            }}>
+              Their warm hospitality and personal attention are a big part of why our guests remember Blue Bell
+              as one of the best resorts in Wayanad. Whether it&rsquo;s a freshly prepared meal, a helpful suggestion
+              about exploring the area, or simply a friendly smile when you need it, our team is always there.
             </p>
             <p className="team-reveal-el" style={{
               fontSize: 'clamp(0.85rem, 1.2vw, 0.95rem)', color: 'var(--color-text-mid)', lineHeight: 1.8,
             }}>
-              Many of them are from Periya itself, which is why guests tend to leave feeling less like they
-              stayed at a resort, and more like they were looked after by people who actually live here.
+              Come as a guest, leave feeling like you were cared for by family.
             </p>
           </div>
         </div>

@@ -206,7 +206,7 @@ export default function HomeAbout({ sanctuaries, statsData }: { sanctuaries?: Ho
                   {stay.title}
                 </h3>
                 <div className="divider" />
-                <p style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1rem)', lineHeight: 1.85, color: 'var(--color-text-mid)', marginBottom: '1.4rem' }}>
+                <p style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1rem)', lineHeight: 1.85, color: 'var(--color-text-mid)', marginBottom: '1.4rem', whiteSpace: 'pre-line' }}>
                   {stay.desc}
                 </p>
                 <Link href="/stays" className="btn btn-outline-dark" style={{ padding: '0.7rem 1.6rem', fontSize: '0.63rem' }}>

@@ -116,7 +116,11 @@ export default function AboutStory({ data }: { data?: AboutPageContent }) {
             </h2>
             <div className="divider" />
             {data?.storyBody ? (
-              <div dangerouslySetInnerHTML={{ __html: data.storyBody }} className="story-body-content" />
+              <div
+                dangerouslySetInnerHTML={{ __html: data.storyBody }}
+                className="story-body-content"
+                style={{ whiteSpace: "pre-line" }}
+              />
             ) : (
               <>
             <p

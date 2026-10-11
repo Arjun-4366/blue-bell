@@ -5,7 +5,7 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { StayCategory, Stay } from '@/types/stay';
+import { Stay } from '@/types/stay';
 import { stayCategories } from '@/lib/stayCategories';
 import RotatingStayImage from './RotatingStayImage';
 
@@ -55,13 +55,22 @@ export default function StaysList({ stays }: { stays: Stay[] }) {
 
             return (
               <div key={category.slug} className="stay-category-block">
-                <div className="stay-category-header" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)', maxWidth: '760px' }}>
+                <div className="stay-category-header" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)', width: '100%' }}>
                   <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.4rem, 2.4vw, 1.9rem)', fontWeight: 400, color: 'var(--color-text)', marginBottom: '0.7rem' }}>
                     {category.name}
-                  </h3>
-                  <p style={{ fontSize: 'clamp(0.85rem, 1.1vw, 0.92rem)', lineHeight: 1.85, color: 'var(--color-text-soft)' }}>
-                    {category.description}
-                  </p>
+                  </h3> 
+                  <div>
+                    {category.description.split('\n\n').map((paragraph) => (
+                      <p key={paragraph} style={{
+                        fontSize: 'clamp(0.85rem, 1.1vw, 0.92rem)',
+                        lineHeight: 1.85,
+                        color: 'var(--color-text-soft)',
+                        marginBottom: '0.85rem',
+                      }}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="stays-full-grid" style={{

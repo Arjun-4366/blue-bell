@@ -98,14 +98,33 @@ export default function HomeLocation() {
   return (
     <section ref={ref} className="section-tint">
       <div className="container" style={{ padding: '0 clamp(1rem, 3vw, 2rem)' }}>
-        <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto clamp(2.5rem, 5vw, 4rem)' }}>
+        <div style={{ textAlign: 'center', maxWidth: '100%', margin: '0 auto clamp(2.5rem, 5vw, 4rem)' }}>
           <span className="section-label">Where We Are</span>
           <h2 className="section-title" style={{ marginBottom: '1.1rem' }}>Everything Wayanad, Close By</h2>
           <div className="divider center" />
-          <p style={{ color: 'var(--color-text-soft)', fontSize: 'clamp(0.9rem, 1.2vw, 1rem)', lineHeight: 1.9 }}>
-            Tucked into the hills of Periya, Blue Bell sits within easy reach of Wayanad&rsquo;s waterfalls,
-            wildlife sanctuaries, heritage sites and viewpoints — a quiet base to explore from.
-          </p>
+          <div style={{
+            color: 'var(--color-text-soft)',
+            fontSize: 'clamp(0.9rem, 1.2vw, 1rem)',
+            lineHeight: 1.9,
+            textAlign: 'left',
+            width: '100%',
+            maxWidth: '900px',
+            margin: '0 auto',
+          }}>
+            <p style={{ marginBottom: '0.5rem' }}>
+              A trip to Wayanad is about more than finding a beautiful place to stay. It&rsquo;s about waking up
+              with a plan, heading out to discover something new.
+            </p>
+            <p style={{ marginBottom: '0.5rem' }}>
+              Our resort is conveniently located to plan your stay around exploring more places in Wayanad.
+              Spend your days visiting waterfalls, viewpoints, forests, wildlife spots, and other local
+              attractions, and discover the beauty along the way.
+            </p>
+            <p style={{ marginBottom: '0.5rem' }}>
+              You&rsquo;re visiting Wayanad, stay with us and make your trip about both the experience and the journey.
+            </p>
+            <p>Stay with us. Explore more. Make more memories.</p>
+          </div>
         </div>
 
         <div className="location-layout" style={{
